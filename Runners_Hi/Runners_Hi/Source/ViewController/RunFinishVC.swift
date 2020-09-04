@@ -32,6 +32,7 @@ class RunFinishVC: UIViewController {
             UserDefaults.standard.set(data[0], forKey: "gameIdx")
             FindRunnerVC.socket.disconnect()
             self.goButton.backgroundColor = UIColor.lightishBlue
+            self.goButton.tintColor = UIColor.lightishBlue
             self.goButton.isSelected = true
 
         })
