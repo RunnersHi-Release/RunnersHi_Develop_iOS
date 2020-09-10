@@ -250,6 +250,7 @@
                         <viewLayoutGuide key="safeArea" id="MHc-A8-Ban"/>
                     </view>
                     <connections>
+                        <outlet property="badgeDetailBackButton" destination="WcA-kr-9WO" id="N97-85-ptL"/>
                         <outlet property="badgeDetailContent" destination="tPn-1I-ZXR" id="zeF-a0-gag"/>
                         <outlet property="badgeDetailImage" destination="bAH-bB-9p3" id="sfH-La-7DD"/>
                         <outlet property="badgeDetailLittleContent" destination="iUM-kt-qVt" id="DNB-Np-1NK"/>

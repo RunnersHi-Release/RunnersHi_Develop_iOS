@@ -21,5 +21,6 @@ class ProfileBadgeCell: UICollectionViewCell {
     
     func profilebadgeset(){
          myProfileName.font = UIFont(name: "NanumSquareB", size:12.0)
+        self.contentView.isUserInteractionEnabled = true
     }
 }

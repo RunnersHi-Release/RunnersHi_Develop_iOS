@@ -19,6 +19,7 @@ class BadgeDetailVC: UIViewController {
     @IBOutlet weak var badgeDetailLittleContent: UILabel!
     @IBOutlet weak var badgeDetailOption: UILabel!
     
+    @IBOutlet weak var badgeDetailBackButton: UIButton!
     @IBAction func badgeDetailBackButtonAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -46,6 +47,7 @@ class BadgeDetailVC: UIViewController {
         badgeDetailContent.text = self.BadgeDetailModel?.result.content ?? ""
         badgeDetailLittleContent.text = self.BadgeDetailModel?.result.littleContent ?? ""
         badgeDetailOption.text = self.BadgeDetailModel?.result.option ?? ""
+
     }
     
     
@@ -56,8 +58,7 @@ class BadgeDetailVC: UIViewController {
     
     private func setDetailData() {
         
-  
-       
+//        badgeDetailBackButton.backgroundImage(named: "", for: .normal)
         
         badgeDetailTitle.font = UIFont(name:"NanumSquareB", size:20.0)
         badgeDetailContent.font = UIFont(name:"NanumSquareB", size:18.0)
@@ -89,11 +90,12 @@ extension BadgeDetailVC {
             guard let `self` = self else {return}
             switch data {
                 
+               
             case .success(let res):
                 let response = res as! BadgeDetailData
                 self.BadgeDetailModel = response
                 self.viewWillAppear(true)
-                
+               
                 
             case .requestErr:
                 print(".requestErr")
