@@ -30,6 +30,10 @@ class FindRunnerVC: UIViewController {
     
     @IBOutlet weak var mentTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mentStopButton: UIButton!
+    
+    @IBAction func mentStopButtonClicked(_ sender: UIButton) {
+        
+    }
     override func viewDidLoad() {
         // 소켓 통신 연결 시작
         FindRunnerVC.socket = FindRunnerVC.self.manager.socket(forNamespace: "/matching")
