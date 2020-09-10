@@ -12,9 +12,10 @@ struct BadgeDetailData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: BadgeDail
+    let result: BadgeDetail
 }
 
-struct BadgeDail: Codable {
+struct BadgeDetail: Codable {
     let title, content, littleContent, option: String
 }
+
