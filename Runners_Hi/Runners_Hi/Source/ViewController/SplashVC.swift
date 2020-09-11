@@ -15,6 +15,7 @@ class SplashVC: UIViewController {
 
    override func viewDidLoad() {
        super.viewDidLoad()
+    print(UIDevice.current.identifierForVendor?.uuidString)
     print("요깅")
        animationView = AnimationView(name: "splash")
     animationView?.contentMode = .scaleAspectFit
