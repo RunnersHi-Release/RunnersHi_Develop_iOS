@@ -54,6 +54,7 @@ class MatchingGoalVC: UIViewController {
         let goal3 = GoalInformation(goal: "1hour")
         let goal4 = GoalInformation(goal: "1h 30min")
         let goal5 = GoalInformation(goal: "30sec")
+//        goalInformation = [goal1,goal2,goal3,goal4]
         goalInformation = [goal1,goal2,goal3,goal4,goal5]
         
     }
