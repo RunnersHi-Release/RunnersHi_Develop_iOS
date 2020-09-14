@@ -2,6 +2,24 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Runners_Hi/Source/Data/Matching+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Runners_Hi/Source/Data/Matching+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Runners_Hi/Source/Data/Opponent+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Runners_Hi/Source/Data/Opponent+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Runners_Hi/Source/Data/Running+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Runners_Hi/Source/Data/Running+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Runners_Hi.xcodeproj">
    </FileRef>
    <FileRef
