@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Opponent" representedClassName="Opponent" syncable="YES" codeGenerationType="class">
+        <attribute name="attribute" optional="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Opponent" positionX="-45" positionY="0" width="128" height="58"/>
+        <element name="Opponent" positionX="-45" positionY="0" width="128" height="88"/>
     </elements>
 </model>
