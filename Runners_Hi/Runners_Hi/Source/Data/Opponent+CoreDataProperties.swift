@@ -17,9 +17,9 @@ extension Opponent {
     }
 
     @NSManaged public var level: Int16
-    @NSManaged public var nickname: String?
-    @NSManaged public var win: Int16
     @NSManaged public var lose: Int16
+    @NSManaged public var nickname: String?
     @NSManaged public var profileImage: Int16
+    @NSManaged public var win: Int16
 
 }

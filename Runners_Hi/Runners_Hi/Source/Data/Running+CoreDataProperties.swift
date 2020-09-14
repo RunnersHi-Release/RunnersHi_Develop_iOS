@@ -16,9 +16,9 @@ extension Running {
         return NSFetchRequest<Running>(entityName: "Running")
     }
 
+    @NSManaged public var distance: Int16
+    @NSManaged public var endTime: String?
     @NSManaged public var room: Int16
     @NSManaged public var startTime: String?
-    @NSManaged public var endTime: String?
-    @NSManaged public var distance: Int16
 
 }
