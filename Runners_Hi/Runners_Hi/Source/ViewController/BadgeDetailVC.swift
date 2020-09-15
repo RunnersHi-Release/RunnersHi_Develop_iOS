@@ -58,7 +58,7 @@ class BadgeDetailVC: UIViewController {
     
     private func setDetailData() {
         
-//        badgeDetailBackButton.backgroundImage(named: "", for: .normal)
+        badgeDetailBackButton.setImage(UIImage(named: "btnBack"), for: .normal)
         
         badgeDetailTitle.font = UIFont(name:"NanumSquareB", size:20.0)
         badgeDetailContent.font = UIFont(name:"NanumSquareB", size:18.0)
