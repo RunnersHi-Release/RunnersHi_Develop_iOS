@@ -156,9 +156,11 @@
                                         <outlet property="LvName" destination="9Xa-38-d5p" id="8ur-M3-PiP"/>
                                         <outlet property="ScoreLabel" destination="kvW-0a-7fU" id="edQ-mp-Cll"/>
                                         <outlet property="ScoreName" destination="fx3-Pb-zlv" id="6Ir-kz-nsm"/>
+                                        <outlet property="lvView" destination="OXF-oY-gyG" id="U9G-UH-4wy"/>
                                         <outlet property="myProfileBack" destination="gSM-cL-dRg" id="BJB-3D-YWl"/>
                                         <outlet property="myProfileImage" destination="Gwd-gr-lR5" id="q3j-c7-DdQ"/>
                                         <outlet property="myProfileName" destination="iCI-lA-hNG" id="ziz-J0-bhv"/>
+                                        <outlet property="scoreView" destination="RJt-uj-y2U" id="zvz-sj-j8D"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
