@@ -19,7 +19,7 @@ class MyPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getProfileBadge()
-        
+         self.view.backgroundColor = .backgroundgray
     }
     
 }
