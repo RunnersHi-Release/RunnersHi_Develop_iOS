@@ -26,9 +26,7 @@
 		06F40AD524BAB445001E04FB /* ProfilePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */; };
 		06F40AD724BAEFC9001E04FB /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AD624BAEFC9001E04FB /* SignUpService.swift */; };
 		06F40ADB24BB038F001E04FB /* RunningLevelPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ADA24BB038F001E04FB /* RunningLevelPopUpVC.swift */; };
-		06F40ADD24BCD024001E04FB /* RecordTabParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ADC24BCD024001E04FB /* RecordTabParentVC.swift */; };
 		06F40AE024BCE38A001E04FB /* RecordTabChildVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ADF24BCE38A001E04FB /* RecordTabChildVC1.swift */; };
-		06F40AE424BCE780001E04FB /* RecordTabChildVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE324BCE780001E04FB /* RecordTabChildVC2.swift */; };
 		06F40AE624BD75BA001E04FB /* ScoreRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE524BD75BA001E04FB /* ScoreRecordCell.swift */; };
 		06F40AE824BDB521001E04FB /* RecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE724BDB521001E04FB /* RecordService.swift */; };
 		06F40AEA24BDD56E001E04FB /* RecordAllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AE924BDD56E001E04FB /* RecordAllData.swift */; };
@@ -112,9 +110,7 @@
 		06F40AD424BAB444001E04FB /* ProfilePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePopUpVC.swift; sourceTree = "<group>"; };
 		06F40AD624BAEFC9001E04FB /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		06F40ADA24BB038F001E04FB /* RunningLevelPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningLevelPopUpVC.swift; sourceTree = "<group>"; };
-		06F40ADC24BCD024001E04FB /* RecordTabParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTabParentVC.swift; sourceTree = "<group>"; };
 		06F40ADF24BCE38A001E04FB /* RecordTabChildVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTabChildVC1.swift; sourceTree = "<group>"; };
-		06F40AE324BCE780001E04FB /* RecordTabChildVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTabChildVC2.swift; sourceTree = "<group>"; };
 		06F40AE524BD75BA001E04FB /* ScoreRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRecordCell.swift; sourceTree = "<group>"; };
 		06F40AE724BDB521001E04FB /* RecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordService.swift; sourceTree = "<group>"; };
 		06F40AE924BDD56E001E04FB /* RecordAllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAllData.swift; sourceTree = "<group>"; };
@@ -325,9 +321,7 @@
 				06F40ADA24BB038F001E04FB /* RunningLevelPopUpVC.swift */,
 				3D8AF1FC24BB740800754BAB /* CountdownVC.swift */,
 				3D76A15724BF336F00A58465 /* RunFinishVC.swift */,
-				06F40ADC24BCD024001E04FB /* RecordTabParentVC.swift */,
 				06F40ADF24BCE38A001E04FB /* RecordTabChildVC1.swift */,
-				06F40AE324BCE780001E04FB /* RecordTabChildVC2.swift */,
 				3DB705A324C06334005BFA1C /* ResultRunningVC.swift */,
 				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
 				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
@@ -545,7 +539,6 @@
 				06F40AF424C047B7001E04FB /* RankingService.swift in Sources */,
 				0683DBC524B3BC190038E317 /* Gender.swift in Sources */,
 				3D76A15824BF337000A58465 /* RunFinishVC.swift in Sources */,
-				06F40AE424BCE780001E04FB /* RecordTabChildVC2.swift in Sources */,
 				06F40AC924B85093001E04FB /* DuplicateData.swift in Sources */,
 				066DED1424C1704000A2C440 /* MyProfileHeader.swift in Sources */,
 				3DCDF01924B607BF003F47CE /* GoalInformation.swift in Sources */,
@@ -569,7 +562,6 @@
 				06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */,
 				3DB705AA24C166C4005BFA1C /* NaverMapVC.swift in Sources */,
 				3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */,
-				06F40ADD24BCD024001E04FB /* RecordTabParentVC.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
 				3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */,
