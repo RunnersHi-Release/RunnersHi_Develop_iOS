@@ -16,7 +16,6 @@ class SplashVC: UIViewController {
    override func viewDidLoad() {
        super.viewDidLoad()
     print(UIDevice.current.identifierForVendor?.uuidString)
-    print("요깅")
        animationView = AnimationView(name: "splash")
     animationView?.contentMode = .scaleAspectFit
        animationView?.frame = self.view.bounds
@@ -28,7 +27,7 @@ class SplashVC: UIViewController {
    
    
    @objc func aaaa() {
-       guard let storyboard = UIStoryboard(name: "Sign", bundle: nil).instantiateViewController(identifier: "SignInVC") as? SignInVC else { return }
+       guard let storyboard = UIStoryboard(name: "Tab", bundle: nil).instantiateViewController(identifier: "TabBarController") as? UITabBarController else { return }
        UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = storyboard
    }
 
