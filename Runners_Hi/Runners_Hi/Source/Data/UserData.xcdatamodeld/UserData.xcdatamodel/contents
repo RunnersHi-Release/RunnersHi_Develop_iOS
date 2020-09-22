@@ -17,9 +17,13 @@
         <attribute name="room" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="startTime" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="UserData" representedClassName="UserData" syncable="YES">
+        <attribute name="users" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Matching" positionX="-45" positionY="36" width="128" height="73"/>
         <element name="Opponent" positionX="-45" positionY="0" width="128" height="118"/>
         <element name="Running" positionX="-36" positionY="45" width="128" height="103"/>
+        <element name="UserData" positionX="-36" positionY="54" width="128" height="58"/>
     </elements>
 </model>

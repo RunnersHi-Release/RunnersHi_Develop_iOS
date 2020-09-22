@@ -13,7 +13,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // MARK: - Core Data stack
+//    // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "UserData")
         container.loadPersistentStores(completionHandler: { (storeDesription, error) in
