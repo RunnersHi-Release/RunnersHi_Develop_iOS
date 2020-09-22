@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
-class RecordTabChildVC1: UIViewController, IndicatorInfoProvider {
+class RecordTabChildVC1: UIViewController  {
     
         var RecordModel: RecordAllData<Result>?
     @IBOutlet weak var scoreRecordCollectionView: UICollectionView!
     
     override func viewDidLoad() {
+         
+        self.view.backgroundColor = .backgroundgray
         self.scoreRecordCollectionView.backgroundColor = .backgroundgray
         scoreRecordCollectionView.dataSource = self
         scoreRecordCollectionView.delegate = self
@@ -23,13 +24,6 @@ class RecordTabChildVC1: UIViewController, IndicatorInfoProvider {
        // self.scoreRecordCollectionView.reloadData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "러닝기록")
-    }
 }
 
 
@@ -73,7 +67,7 @@ extension RecordTabChildVC1: UICollectionViewDelegateFlowLayout {
         }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-                return UIEdgeInsets(top: 17, left: 11, bottom: 11, right: 11)
+                return UIEdgeInsets(top: 35, left: 11, bottom: 11, right: 11)
         }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{

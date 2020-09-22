@@ -13,12 +13,11 @@ struct BadgeDetailService {
     private init() {}
     static let shared = BadgeDetailService()
     
-    func badgeDetailloading(completion: @escaping (NetworkResult<Any>)->Void) {
-        let URL = APIConstants.myprofileURL
+    func badgeDetailloading(flag: Int, completion: @escaping (NetworkResult<Any>)->Void) {
+        let URL = APIConstants.badgedatilURL
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
         
-        
-        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
+        Alamofire.request(URL + "\(flag)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
 
             case .success:
@@ -28,7 +27,7 @@ struct BadgeDetailService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(MyProfile.self, from: value)
+                                let result = try decoder.decode(BadgeDetailData.self, from: value)
                                 completion(.success(result))
                             } catch {
                                 completion(.pathErr)
@@ -44,8 +43,3 @@ struct BadgeDetailService {
     }
     
 }
-
-
-
-
-

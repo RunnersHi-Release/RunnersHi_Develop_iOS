@@ -8,7 +8,7 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "http://13.125.20.117:3000"
+    static let baseURL = "http://3.34.213.235:3000"
     static let signupURL = APIConstants.baseURL + "/user/register"
     static let duplicateURL = APIConstants.baseURL + "/user/duplicates"
     static let loginURL = APIConstants.baseURL + "/user/login"
@@ -26,7 +26,7 @@ struct APIConstants {
     static let recentURL = APIConstants.baseURL + "/record/recent"
     //마이페이지
     static let myprofileURL = APIConstants.baseURL + "/user/myProfile"
-    static let badgedatilURL = APIConstants.baseURL + "/badge/detail/"
+    static let badgedatilURL = APIConstants.baseURL + "/record/badge/detail/"
     
     
 

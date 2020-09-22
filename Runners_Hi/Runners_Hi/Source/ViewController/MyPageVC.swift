@@ -12,17 +12,15 @@ class MyPageVC: UIViewController {
     static let identifier: String = "MyPageVC"
     var MyProfileModel: MyProfile?
     
+    // 배지 디테일 페이지로 넘겨줄 플래그 값
+    var indexflag: Int? = 999999
     
     @IBOutlet weak var myPageCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         getProfileBadge()
-
+         self.view.backgroundColor = .backgroundgray
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//    }
     
 }
 
@@ -34,33 +32,34 @@ extension MyPageVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let ProfileBadgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileBadgeCell.identifier, for: indexPath) as? ProfileBadgeCell else { return UICollectionViewCell()}
-
-     let myProfileBeforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlameEmpty"]
-     
-     let myProfileBadgeImage = ["imgBadgeEgg","imgBadgeChick","imgBadgeChicken","imgBadgeBat","imgBadgeBird", "imgBadgeTurtle","imgBadge50","imgBadge100","imgBadge150","imgBadgeStraight","imgBadgeSpeed","imgBadgeFlame"]
-     
-     let myProfileBadgeLabel = ["첫승달성","10승 달성", "50승 달성", "최고 페이스", "최장 거리", "최저 페이스", "50시간 달성", "100시간 달성", "150시간 달성", "10일 연속 러닝", "연속 5승", "연속 10승"]
-     
-     let profileBadgeList = MyProfileModel?.result.badge
-     if profileBadgeList?[indexPath.row] == false {
-         ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
-     }
-     else {
-         ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBadgeImage[indexPath.row])
-     }
-     
-     
-     ProfileBadgeCell.myProfileName.text = myProfileBadgeLabel[indexPath.row]
-     
-     
-     return ProfileBadgeCell
+        
+        let myProfileBeforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlameEmpty"]
+        
+        let myProfileBadgeImage = ["imgBadgeEgg","imgBadgeChick","imgBadgeChicken","imgBadgeBat","imgBadgeBird", "imgBadgeTurtle","imgBadge50","imgBadge100","imgBadge150","imgBadgeStraight","imgBadgeSpeed","imgBadgeFlame"]
+        
+        let myProfileBadgeLabel = ["첫승달성","10승 달성", "50승 달성", "최고 페이스", "최장 거리", "최저 페이스", "50시간 달성", "100시간 달성", "150시간 달성", "10일 연속 러닝", "연속 5승", "연속 10승"]
+        
+        // 배지 이미지 삽입
+        let profileBadgeList = MyProfileModel?.result.badge
+        
+        if profileBadgeList?[indexPath.row] == false {
+            ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
+        }
+        else {
+            ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBadgeImage[indexPath.row])
+        }
+        
+        
+        ProfileBadgeCell.myProfileName.text = myProfileBadgeLabel[indexPath.row]
+        
+        
+        return ProfileBadgeCell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MyProfileHeader", for: indexPath)
             
             let level = self.MyProfileModel?.result.level ?? 0
             let win = self.MyProfileModel?.result.win ?? 0
@@ -83,14 +82,14 @@ extension MyPageVC: UICollectionViewDataSource {
             MyProfileHeader.ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
             MyProfileHeader.myProfileName?.text = name
             
-
+            
             return MyProfileHeader
-             default: assert(false, "응 아니야") }
+        default: assert(false, "응 아니야") }
         
         
-        }
+    }
     
-        
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width: CGFloat = collectionView.frame.width
@@ -101,21 +100,33 @@ extension MyPageVC: UICollectionViewDataSource {
 
 extension MyPageVC: UICollectionViewDelegateFlowLayout{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let receiveBadgeDetailVC = self.storyboard?.instantiateViewController(identifier: "BadgeDetailVC") as? BadgeDetailVC else {return}
+        
+        // indexflag 값 detail 페이지로 넘겨주기
+        receiveBadgeDetailVC.receivedIndexPath = indexPath.row
+        
+        
+        receiveBadgeDetailVC.modalPresentationStyle = .fullScreen
+        present(receiveBadgeDetailVC, animated: true, completion: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
-            return CGSize(width: 80, height: 137)
+        return CGSize(width: 80, height: 137)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 37, bottom: 24, right: 38)
+        return UIEdgeInsets(top: 0, left: 37, bottom: 24, right: 38)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
-            return 24
+        return 24
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
-            return 30
+        return 30
     }
 }
 
@@ -133,9 +144,6 @@ extension MyPageVC {
                 self.myPageCollectionView.reloadData()
                 self.myPageCollectionView.dataSource = self
                 self.myPageCollectionView.delegate = self
-
-                 
-                
                 
                 
             case .requestErr:

@@ -18,6 +18,8 @@ class MyProfileHeader: UICollectionReusableView {
     @IBOutlet weak var LvLabel: UILabel!
     @IBOutlet weak var ScoreName: UILabel!
     @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var lvView: UIView!
+    @IBOutlet weak var scoreView: UIView!
     
     
     
@@ -36,6 +38,12 @@ class MyProfileHeader: UICollectionReusableView {
 
             LvName.text = "Lv."
             ScoreName.text = "전적"
-//
+            
+            lvView.backgroundColor = UIColor.unselectedbuttongray
+            lvView.layer.cornerRadius = 8
+            
+            scoreView.backgroundColor = UIColor.unselectedbuttongray
+            scoreView.layer.cornerRadius = 8
+            
         }
 }
