@@ -2,22 +2,28 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Matching+CoreDataClass.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/UserData+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Matching+CoreDataProperties.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/UserData+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Opponent+CoreDataClass.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Opponent+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Opponent+CoreDataProperties.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Opponent+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Running+CoreDataClass.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Matching+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Runners_Hi/Source/Data/Running+CoreDataProperties.swift">
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Matching+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:Runners_Hi.xcodeproj">
