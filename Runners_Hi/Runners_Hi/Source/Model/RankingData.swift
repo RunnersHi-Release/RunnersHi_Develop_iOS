@@ -48,12 +48,6 @@ struct Loser: Codable {
     }
 }
 
-struct Uuid: Codable {
-    let accessToken, nickname: String
-    let gender, image: Int
-    let badge: String
-    let win, lose: Int
-}
 
 
 

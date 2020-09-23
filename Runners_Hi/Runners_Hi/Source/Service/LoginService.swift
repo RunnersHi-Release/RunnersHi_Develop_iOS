@@ -66,7 +66,7 @@ struct LoginService {
     
     private func isUser(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(LoginData.self, from: result) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(LoginData<TokenData>.self, from: result) else { return .pathErr }
         //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
         
         guard let tokenData = decodedData.result else { return .requestErr(decodedData.message) }
