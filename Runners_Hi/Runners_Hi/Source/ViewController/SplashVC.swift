@@ -37,4 +37,15 @@ extension SplashVC {
         UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = storyboard
     }
     
+    func CheckInUUID(uuid: String) {
+        LoginService.shared.uuidCheckIn(uuid: uuid) {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+            case .success(<#T##Any#>)
+            }
+        }
+    }
+    
 }
