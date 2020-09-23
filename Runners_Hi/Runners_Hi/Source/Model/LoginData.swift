@@ -10,20 +10,20 @@ struct LoginData<T: Codable>: Codable {
     var status: Int
     var success: Bool
     var message: String
-    var result: [T]
+    var result: [T]?
     
-    enum CodingKeys: String, CodingKey {
-        case status = "status"
-        case success = "success"
-        case message = "message"
-        case result = "result"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case status = "status"
+//        case success = "success"
+//        case message = "message"
+//        case result = "result"
+//    }
 //    init(from decoder: Decoder) throws {
 //        let values = try decoder.container(keyedBy: CodingKeys.self)
 //        status = (try? values.decode(Int.self, forKey: .status)) ?? -1
 //        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
 //        message = (try? values.decode(String.self, forKey: .message)) ?? ""
-//        result = (try? values.decode(struct.self, forKey: .result)) ?? []
+//        result = (try? values.decode(Int.self, forKey: .result)) ?? nil
 //    }
 }
 struct TokenData: Codable {

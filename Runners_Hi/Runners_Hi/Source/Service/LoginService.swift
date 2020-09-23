@@ -70,6 +70,7 @@ struct LoginService {
         //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
         
         guard let tokenData = decodedData.result else { return .requestErr(decodedData.message) }
-        return .success(tokenData.token)
+        
+        return .success(tokenData)
     }
 }
