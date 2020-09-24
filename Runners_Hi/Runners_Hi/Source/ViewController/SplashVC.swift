@@ -29,7 +29,7 @@ extension SplashVC {
            animationView?.play()
            // Do any additional setup after loading the view.
            self.view.addSubview(animationView!)
-           Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(aaaa), userInfo: nil, repeats: false)
+//           Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(aaaa), userInfo: nil, repeats: false)
     }
     
     @objc func aaaa() {
@@ -43,13 +43,21 @@ extension SplashVC {
             case .success(let res):
                 let response = res as! UuidData
                 self.UuidModel = response
-                print(self.UuidModel?.data?.accessToken)
+                self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
+                Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.aaaa), userInfo: nil, repeats: false)
                 
             case .requestErr: print("requestErr")
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
+        }
+    }
+    
+    fileprivate func saveUserInfo(_ accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64) {
+        print("hi")
+        CoreDataManager.shared.saveUser(accessToken: accessToken, nickname: nickname, gender: gender, image: image, badge: badge, win: win, lose: lose) { onSuccess in
+            print("saved = \(onSuccess)")
         }
     }
     

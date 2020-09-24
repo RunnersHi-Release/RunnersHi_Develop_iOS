@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 import CoreData
 
 class CoreDataManager {
@@ -16,16 +15,17 @@ class CoreDataManager {
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     lazy var context = appDelegate?.persistentContainer.viewContext
     
-    let modelName: String = "UserData"
-    func getUsers(ascending: Bool = false) -> [Matching] {
-        var models: [Matching] = [Matching]()
+    let modelName: String = "Information"
+    
+    func getUsers(ascending: Bool = false) -> [Information] {
+        var models: [Information] = [Information]()
         if let context = context {
-            let idSort: NSSortDescriptor = NSSortDescriptor(key: "goalTime", ascending: ascending)
+            let idSort: NSSortDescriptor = NSSortDescriptor(key: "accessToken", ascending: ascending)
             let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest<NSManagedObject>(entityName: modelName)
             fetchRequest.sortDescriptors = [idSort]
             
             do {
-                if let fetchResult: [Matching] = try context.fetch(fetchRequest) as? [Matching] {
+                if let fetchResult: [Information] = try context.fetch(fetchRequest) as? [Information] {
                     models = fetchResult
                 }
             } catch let error as NSError {
@@ -34,12 +34,18 @@ class CoreDataManager {
         }
         return models
     }
-    func saveUser(gender: Int16, goalTime: Int16, onSuccess: @escaping ((Bool) -> Void)) {
+    func saveUser(accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context,
-            let entity: NSEntityDescription = NSEntityDescription.entity(forEntityName: modelName, in: context) {
-            if let user: Matching = NSManagedObject(entity: entity, insertInto: context) as? Matching {
+            let entity: NSEntityDescription
+            = NSEntityDescription.entity(forEntityName: modelName, in: context) {
+            if let user: Information = NSManagedObject(entity: entity, insertInto: context) as? Information {
+                user.accessToken = accessToken
+                user.nickname = nickname
                 user.gender = gender
-                user.goalTime = goalTime
+                user.image = image
+                user.badge = badge
+                user.win = win
+                user.lose = lose
                 
                 contextSave { success in
                     onSuccess(success)

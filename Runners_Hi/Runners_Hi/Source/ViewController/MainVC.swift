@@ -66,8 +66,13 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         basicAutoLayout()
         setbattleInformation()
-        
+        getToken()
         popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
+    }
+    fileprivate func getToken() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        print("allUsers = \(usersToken)")
     }
     private func setbattleInformation() {
         let date1 = BattleInformation(ment: "다른 러너와 경쟁하기")
