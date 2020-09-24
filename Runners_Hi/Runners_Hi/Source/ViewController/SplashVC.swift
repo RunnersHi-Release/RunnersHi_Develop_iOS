@@ -15,8 +15,8 @@ class SplashVC: UIViewController {
    override func viewDidLoad() {
     super.viewDidLoad()
     setView()
-//    CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
-//    print(UIDevice.current.identifierForVendor?.uuidString)
+    CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
+    print(UIDevice.current.identifierForVendor?.uuidString)
    }
    
 
@@ -37,24 +37,17 @@ extension SplashVC {
         UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = storyboard
     }
     
-//    func CheckInUUID(uuid: String) {
-//        LoginService.shared.uuidCheckIn(uuid: uuid) {
-//            [weak self]
-//            data in
-//            guard let `self` = self else {return}
-//            switch data {
-//            case .success(let res):
-//                let response = res as! LoginData<Uuid>
-//                self.UuidModel = response
-//                print(self.UuidModel?.result)
-//            case .requestErr:
-//                print("requestErr")
-//            case .pathErr: print("path")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//
-//            }
-//        }
-//    }
+    func CheckInUUID(uuid: String) {
+        LoginService.shared.uuidCheckIn(uuid: uuid) { networkResult in switch
+        networkResult {
+            case .success(let res):
+                print(res)
+            case .requestErr: print("requestErr")
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+    }
     
 }

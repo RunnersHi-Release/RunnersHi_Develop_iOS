@@ -12,7 +12,7 @@ struct UuidData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: UuidDetail
+    let data: UuidDetail?
 }
 
 struct UuidDetail: Codable {
