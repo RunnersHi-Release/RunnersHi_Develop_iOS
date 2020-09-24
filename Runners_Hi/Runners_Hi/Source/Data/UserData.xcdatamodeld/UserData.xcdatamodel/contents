@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Information" representedClassName="Information" syncable="YES" codeGenerationType="class">
+        <attribute name="accessToken" optional="YES" attributeType="String"/>
+        <attribute name="badge" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String"/>
+        <attribute name="win" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Matching" representedClassName="Matching" syncable="YES">
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="goalTime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -21,5 +30,6 @@
         <element name="Matching" positionX="-45" positionY="36" width="128" height="73"/>
         <element name="Opponent" positionX="-52.3515625" positionY="-117.3125" width="128" height="118"/>
         <element name="Running" positionX="110.8359375" positionY="-190.2109375" width="128" height="103"/>
+        <element name="Information" positionX="27" positionY="-63" width="128" height="148"/>
     </elements>
 </model>

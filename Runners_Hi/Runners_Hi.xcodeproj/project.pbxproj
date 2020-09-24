@@ -96,6 +96,8 @@
 		9B2026502519DE3A002162B0 /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026422519DE38002162B0 /* Running+CoreDataClass.swift */; };
 		9B4165BC250C1D2F000448F1 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
+		9B63EAA7251CEE3700A9B396 /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA6251CEE3700A9B396 /* Information+CoreDataClass.swift */; };
+		9B63EAA8251CEE3700A9B396 /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA5251CEE3700A9B396 /* Information+CoreDataProperties.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +195,8 @@
 		9B2026482519DE39002162B0 /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Running+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
+		9B63EAA5251CEE3700A9B396 /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9B63EAA6251CEE3700A9B396 /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -418,6 +422,8 @@
 		9B4165B9250C1CF7000448F1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9B63EAA6251CEE3700A9B396 /* Information+CoreDataClass.swift */,
+				9B63EAA5251CEE3700A9B396 /* Information+CoreDataProperties.swift */,
 				9B2026462519DE39002162B0 /* Opponent+CoreDataClass.swift */,
 				9B2026452519DE39002162B0 /* Opponent+CoreDataProperties.swift */,
 				9B2026412519DE38002162B0 /* Matching+CoreDataClass.swift */,
@@ -582,6 +588,7 @@
 				06FD034124C241F1005EB6A9 /* BadgeDetailData.swift in Sources */,
 				066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
+				9B63EAA8251CEE3700A9B396 /* Information+CoreDataProperties.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				9B2026492519DE3A002162B0 /* Matching+CoreDataClass.swift in Sources */,
@@ -612,6 +619,7 @@
 				066DED1A24C1873F00A2C440 /* MyProfileService.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
+				9B63EAA7251CEE3700A9B396 /* Information+CoreDataClass.swift in Sources */,
 				06FD034324C2444D005EB6A9 /* BadgeDetailService.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
