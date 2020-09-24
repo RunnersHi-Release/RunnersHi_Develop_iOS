@@ -62,5 +62,11 @@ extension SplashVC {
             print("saved = \(onSuccess)")
         }
     }
+    // CoreData 에서 값 삭제할 때 쓰는 함수
+    fileprivate func deleteUser(_ token: String) {
+        CoreDataManager.shared.deleteUser(accessToken: token) { onSuccess in
+            print("deleted = \(onSuccess)")
+        }
+    }
     
 }

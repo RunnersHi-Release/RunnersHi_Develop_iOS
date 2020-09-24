@@ -53,31 +53,31 @@ class CoreDataManager {
             }
         }
     }
-//    func deleteUser(id: Int64, onSuccess: @escaping ((Bool) -> Void)) {
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(id: id)
-//
-//        do {
-//            if let results: [Matching] = try context?.fetch(fetchRequest) as? [Matching] {
-//                if results.count != 0 {
-//                    context?.delete(results[0])
-//                }
-//            }
-//        } catch let error as NSError {
-//            print("Could not fatch🥺: \(error), \(error.userInfo)")
-//            onSuccess(false)
-//        }
-//
-//        contextSave { success in
-//            onSuccess(success)
-//        }
-//    }
+    func deleteUser(accessToken: String, onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(token: accessToken)
+
+        do {
+            if let results: [Information] = try context?.fetch(fetchRequest) as? [Information] {
+                if results.count != 0 {
+                    context?.delete(results[0])
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fatch🥺: \(error), \(error.userInfo)")
+            onSuccess(false)
+        }
+
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
     
 }
 extension CoreDataManager {
-    fileprivate func filteredRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
+    fileprivate func filteredRequest(token: String) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
             = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
-        fetchRequest.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+        fetchRequest.predicate = NSPredicate(format: "accessToken = %@", (token) as! CVarArg)
         return fetchRequest
     }
     fileprivate func contextSave(onSuccess: ((Bool) -> Void)) {
