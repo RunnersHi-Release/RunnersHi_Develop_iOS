@@ -53,8 +53,8 @@ class CoreDataManager {
             }
         }
     }
-    func deleteUser(accessToken: String, onSuccess: @escaping ((Bool) -> Void)) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(token: accessToken)
+    func deleteUser(onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest()
 
         do {
             if let results: [Information] = try context?.fetch(fetchRequest) as? [Information] {
@@ -74,10 +74,10 @@ class CoreDataManager {
     
 }
 extension CoreDataManager {
-    fileprivate func filteredRequest(token: String) -> NSFetchRequest<NSFetchRequestResult> {
+    fileprivate func filteredRequest() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
             = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
-        fetchRequest.predicate = NSPredicate(format: "accessToken = %@", (token) as! CVarArg)
+//        fetchRequest.predicate = NSPredicate(format: "accessToken = %@", (token) as! CVarArg)
         return fetchRequest
     }
     fileprivate func contextSave(onSuccess: ((Bool) -> Void)) {

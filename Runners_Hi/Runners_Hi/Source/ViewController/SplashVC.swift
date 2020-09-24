@@ -16,20 +16,20 @@ class SplashVC: UIViewController {
    override func viewDidLoad() {
     super.viewDidLoad()
     setView()
-    CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
    }
    
 
 }
 extension SplashVC {
     func setView() {
+        CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
+        deleteUser()
         animationView = AnimationView(name: "splash")
         animationView?.contentMode = .scaleAspectFit
            animationView?.frame = self.view.bounds
            animationView?.play()
            // Do any additional setup after loading the view.
            self.view.addSubview(animationView!)
-//           Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(aaaa), userInfo: nil, repeats: false)
     }
     
     @objc func aaaa() {
@@ -43,9 +43,7 @@ extension SplashVC {
             case .success(let res):
                 let response = res as! UuidData
                 self.UuidModel = response
-                if self.UuidModel?.message == "회원 가입 성공" {
-                    self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
-                }
+                self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
                 Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.aaaa), userInfo: nil, repeats: false)
                 
             case .requestErr: print("requestErr")
@@ -57,14 +55,13 @@ extension SplashVC {
     }
     
     fileprivate func saveUserInfo(_ accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64) {
-        print("hi")
         CoreDataManager.shared.saveUser(accessToken: accessToken, nickname: nickname, gender: gender, image: image, badge: badge, win: win, lose: lose) { onSuccess in
             print("saved = \(onSuccess)")
         }
     }
     // CoreData 에서 값 삭제할 때 쓰는 함수
-    fileprivate func deleteUser(_ token: String) {
-        CoreDataManager.shared.deleteUser(accessToken: token) { onSuccess in
+    fileprivate func deleteUser() {
+        CoreDataManager.shared.deleteUser() { onSuccess in
             print("deleted = \(onSuccess)")
         }
     }
