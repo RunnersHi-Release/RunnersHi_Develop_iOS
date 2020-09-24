@@ -43,7 +43,9 @@ extension SplashVC {
             case .success(let res):
                 let response = res as! UuidData
                 self.UuidModel = response
-                self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
+                if self.UuidModel?.message == "회원 가입 성공" {
+                    self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
+                }
                 Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.aaaa), userInfo: nil, repeats: false)
                 
             case .requestErr: print("requestErr")
