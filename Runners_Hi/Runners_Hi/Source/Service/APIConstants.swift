@@ -12,6 +12,8 @@ struct APIConstants {
     static let signupURL = APIConstants.baseURL + "/user/register"
     static let duplicateURL = APIConstants.baseURL + "/user/duplicates"
     static let loginURL = APIConstants.baseURL + "/user/login"
+    //uuid 체크인
+    static let uuidURL = APIConstants.baseURL + "/user/signUUID"
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"
     //뱃지 모아보기
