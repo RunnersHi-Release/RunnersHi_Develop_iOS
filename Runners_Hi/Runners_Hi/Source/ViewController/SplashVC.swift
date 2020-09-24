@@ -10,13 +10,13 @@ import UIKit
 import Lottie
 
 class SplashVC: UIViewController {
-    
    var animationView: AnimationView?
 
    override func viewDidLoad() {
     super.viewDidLoad()
     setView()
-    print(UIDevice.current.identifierForVendor?.uuidString)
+//    CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
+//    print(UIDevice.current.identifierForVendor?.uuidString)
    }
    
 
@@ -37,15 +37,24 @@ extension SplashVC {
         UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = storyboard
     }
     
-    func CheckInUUID(uuid: String) {
-        LoginService.shared.uuidCheckIn(uuid: uuid) {
-            [weak self]
-            data in
-            guard let `self` = self else {return}
-            switch data {
-            case .success(<#T##Any#>)
-            }
-        }
-    }
+//    func CheckInUUID(uuid: String) {
+//        LoginService.shared.uuidCheckIn(uuid: uuid) {
+//            [weak self]
+//            data in
+//            guard let `self` = self else {return}
+//            switch data {
+//            case .success(let res):
+//                let response = res as! LoginData<Uuid>
+//                self.UuidModel = response
+//                print(self.UuidModel?.result)
+//            case .requestErr:
+//                print("requestErr")
+//            case .pathErr: print("path")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//
+//            }
+//        }
+//    }
     
 }

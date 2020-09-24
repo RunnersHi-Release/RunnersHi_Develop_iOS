@@ -47,48 +47,49 @@ struct LoginService {
     
     private func isUser(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(LoginData<TokenData>.self, from: result) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(LoginData.self, from: result) else { return .pathErr }
         //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
         
         guard let tokenData = decodedData.result else { return .requestErr(decodedData.message) }
         
-        return .success(tokenData)
+        return .success(tokenData.token)
     }
     //uuid CheckIn에 쓰이는 서버 함수
-    func uuidCheckIn(uuid: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        
-        let header: HTTPHeaders = ["Content-Type": "application/json"]
-        let dataRequest = Alamofire.request(APIConstants.uuidURL, method: .post, parameters: makeUuidParameter(uuid), encoding: JSONEncoding.default, headers: header)
-        
-        dataRequest.responseData { dataResponse in
-            switch dataResponse.result {
-            case .success :
-                guard let statusCode = dataResponse.response?.statusCode else { return }
-                guard let value = dataResponse.result.value else { return }
-                let networkResult = self.uuidJudge(by: statusCode, value)
-                completion(networkResult)
-            case .failure: completion(.networkFail)
-                
-            }
-            
-        }
-    }
-    private func uuidJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
-        switch statusCode {
-        case 200: return isUuid(by: result)
-        case 400: return .pathErr
-        case 500: return .serverErr
-        default: return .networkFail
-        }
-    }
-    
-    private func isUuid(by result: Data) -> NetworkResult<Any> {
-        let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(LoginData<Uuid>.self, from: result) else { return .pathErr }
-        //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
-        
-        guard let uuidData = decodedData.result else { return .requestErr(decodedData.message) }
-        
-        return .success(uuidData)
-    }
+//    func uuidCheckIn(uuid: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+//
+//        let header: HTTPHeaders = ["Content-Type": "application/json"]
+//        let dataRequest = Alamofire.request(APIConstants.uuidURL, method: .post, parameters: makeUuidParameter(uuid), encoding: JSONEncoding.default, headers: header)
+//
+//        dataRequest.responseData { dataResponse in
+//            switch dataResponse.result {
+//            case .success :
+//                guard let statusCode = dataResponse.response?.statusCode else { return }
+//                guard let value = dataResponse.result.value else { return }
+//                let networkResult = self.uuidJudge(by: statusCode, value)
+//                completion(networkResult)
+//                print(networkResult)
+//            case .failure: completion(.networkFail)
+//
+//            }
+//
+//        }
+//    }
+//    private func uuidJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
+//        switch statusCode {
+//        case 200: return isUuid(by: result)
+//        case 400: return .pathErr
+//        case 500: return .serverErr
+//        default: return .networkFail
+//        }
+//    }
+//
+//    private func isUuid(by result: Data) -> NetworkResult<Any> {
+//        let decoder = JSONDecoder()
+//        guard let decodedData = try? decoder.decode(LoginData<Uuid>.self, from: result) else { return .pathErr }
+//        //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
+//        print(decodedData.result)
+//        guard let uuidData = decodedData.result else { return .requestErr(decodedData.message) }
+//
+//        return .success(uuidData)
+//    }
 }
