@@ -22,13 +22,15 @@ class SplashVC: UIViewController {
 }
 extension SplashVC {
     func setView() {
-        CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
+        // 기존 유저 값 삭제
         deleteUser()
+        // uuid를 이용해 토큰 발급받기
+        CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
+        
         animationView = AnimationView(name: "splash")
         animationView?.contentMode = .scaleAspectFit
            animationView?.frame = self.view.bounds
            animationView?.play()
-           // Do any additional setup after loading the view.
            self.view.addSubview(animationView!)
     }
     
@@ -53,13 +55,13 @@ extension SplashVC {
             }
         }
     }
-    
+    // CoreData-Information에 유저 값 저장하기
     fileprivate func saveUserInfo(_ accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64) {
         CoreDataManager.shared.saveUser(accessToken: accessToken, nickname: nickname, gender: gender, image: image, badge: badge, win: win, lose: lose) { onSuccess in
             print("saved = \(onSuccess)")
         }
     }
-    // CoreData 에서 값 삭제할 때 쓰는 함수
+    // CoreData-Information 에서 값 삭제하기
     fileprivate func deleteUser() {
         CoreDataManager.shared.deleteUser() { onSuccess in
             print("deleted = \(onSuccess)")
