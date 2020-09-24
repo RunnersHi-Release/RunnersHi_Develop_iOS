@@ -54,6 +54,7 @@ struct LoginService {
         
         return .success(tokenData.token)
     }
+    
     //uuid CheckIn에 쓰이는 서버 함수
     func uuidCheckIn(uuid: String, completion: @escaping (NetworkResult<Any>) -> Void) {
 
@@ -67,7 +68,6 @@ struct LoginService {
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.uuidJudge(by: statusCode, value)
                 completion(networkResult)
-                print(networkResult)
             case .failure: completion(.networkFail)
 
             }
@@ -86,9 +86,6 @@ struct LoginService {
     private func isUuid(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData.self, from: result) else { return .pathErr }
-        //decoder.decode의 값이 존재하면 decodeDAta에 대입하고, 아니면 pathErr 리턴
-        guard let uuidData = decodedData.data else { return .requestErr(decodedData.message) }
-        
-        return .success(uuidData)
+        return .success(decodedData)
     }
 }

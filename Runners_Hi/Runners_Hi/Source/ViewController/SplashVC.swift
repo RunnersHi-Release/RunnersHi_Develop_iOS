@@ -10,13 +10,13 @@ import UIKit
 import Lottie
 
 class SplashVC: UIViewController {
-   var animationView: AnimationView?
+    var UuidModel : UuidData?
+    var animationView: AnimationView?
 
    override func viewDidLoad() {
     super.viewDidLoad()
     setView()
     CheckInUUID(uuid: UIDevice.current.identifierForVendor?.uuidString ?? "")
-    print(UIDevice.current.identifierForVendor?.uuidString)
    }
    
 
@@ -41,7 +41,10 @@ extension SplashVC {
         LoginService.shared.uuidCheckIn(uuid: uuid) { networkResult in switch
         networkResult {
             case .success(let res):
-                print(res)
+                let response = res as! UuidData
+                self.UuidModel = response
+                print(self.UuidModel?.data?.accessToken)
+                
             case .requestErr: print("requestErr")
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
