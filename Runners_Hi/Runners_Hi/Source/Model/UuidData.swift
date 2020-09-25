@@ -29,3 +29,8 @@ struct MatchingRequest: Codable {
         case runIdx = "run_idx"
     }
 }
+
+struct OpponentInfo: Codable {
+    let nickname: String
+    let win, lose, image: Int
+}
