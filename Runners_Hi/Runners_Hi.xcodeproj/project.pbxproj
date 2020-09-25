@@ -88,6 +88,7 @@
 		3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FC824ACFC21003B3187 /* MyPageTab.storyboard */; };
 		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
+		9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12CC4C251DC11F00BE301B /* MatchingService.swift */; };
 		9B2026492519DE3A002162B0 /* Matching+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026412519DE38002162B0 /* Matching+CoreDataClass.swift */; };
 		9B20264A2519DE3A002162B0 /* Matching+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026472519DE39002162B0 /* Matching+CoreDataProperties.swift */; };
 		9B20264C2519DE3A002162B0 /* Opponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026462519DE39002162B0 /* Opponent+CoreDataClass.swift */; };
@@ -187,6 +188,7 @@
 		3DF24FCA24AD0238003B3187 /* Sign.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sign.storyboard; sourceTree = "<group>"; };
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
+		9B12CC4C251DC11F00BE301B /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
 		9B2026412519DE38002162B0 /* Matching+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Matching+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Matching+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9B2026422519DE38002162B0 /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Running+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9B2026452519DE39002162B0 /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Opponent+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Opponent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -368,6 +370,7 @@
 				06F40AF324C047B7001E04FB /* RankingService.swift */,
 				066DED1924C1873F00A2C440 /* MyProfileService.swift */,
 				06FD034224C2444D005EB6A9 /* BadgeDetailService.swift */,
+				9B12CC4C251DC11F00BE301B /* MatchingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */,
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				06F40AF224C04448001E04FB /* RankingData.swift in Sources */,
+				9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */,
 				3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,

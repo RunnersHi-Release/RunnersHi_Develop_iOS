@@ -22,7 +22,7 @@ struct UuidDetail: Codable {
     let win, lose: Int
 }
 
-struct MatchingRequest {
+struct MatchingRequest: Codable {
     let runIdx: Int
     
     enum CodingKeys: String, CodingKey {
