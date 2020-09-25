@@ -11,10 +11,10 @@ import UIKit
 
 class FindRunnerVC: UIViewController {
 
-    let maxTime: Float = 300.0
+    let maxTime: Float = 180.0
     var myGoTime: Int = 0
     var moveTime: Float = 0.0
-    var leftTime: Int = 300
+    var leftTime: Int = 180
     var room: String = ""
     
     @IBOutlet weak var logoImage: UIImageView!
