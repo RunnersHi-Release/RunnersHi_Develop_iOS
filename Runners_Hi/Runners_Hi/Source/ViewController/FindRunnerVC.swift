@@ -72,7 +72,7 @@ extension FindRunnerVC {
         MatchingService.shared.matchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
         networkResult {
         case .success(let runIdx):
-            print(runIdx)
+            UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
             guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
             self.navigationController?.pushViewController(LetsRun, animated: true)
         case .requestErr: print("requestErr")
@@ -86,7 +86,6 @@ extension FindRunnerVC {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
-        print("allUsers = \(usersToken[0])")
     }
 }
 extension String {
