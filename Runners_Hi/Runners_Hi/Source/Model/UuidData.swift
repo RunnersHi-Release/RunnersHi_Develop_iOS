@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct UuidData: Codable {
+struct UuidData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: UuidDetail?
+    let data: T
 }
 
 struct UuidDetail: Codable {
