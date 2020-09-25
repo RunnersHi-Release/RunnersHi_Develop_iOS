@@ -9,9 +9,11 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    
     static let identifier: String = "MainVC"
     var blackView = UIView()
-    
+    private var battleInformation: [BattleInformation] = []
     
     @IBOutlet weak var popUpTableView: UITableView!
     @IBOutlet weak var mentLabel1: UILabel!
@@ -20,68 +22,49 @@ class MainVC: UIViewController {
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var runButton: UIButton!
-    
     @IBOutlet weak var homeImg: UIImageView!
     
-    
     @IBOutlet weak var constraint_logo_ment: NSLayoutConstraint!
-    
     @IBOutlet weak var constraint_ment_homeImg: NSLayoutConstraint!
     @IBOutlet weak var constarint_homeImg_button: NSLayoutConstraint!
-    // private var isToggle: Bool = false
     
     @IBAction func runButtonDidTap(_ sender: Any) {
+        //"RUN NOW" 버튼 클릭 시 Action
+        
         blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         blackView.frame = self.view.frame
         self.view.addSubview(blackView)
-        //self.view.bringSubviewToFront(blackView)
         UIView.animate(withDuration: 0.3) {
             self.popUpTableView.transform = .identity
             self.onClickBlackView()
         }
-
        self.view.bringSubviewToFront(popUpTableView)
-    
     }
-    
-    func onClickBlackView() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onGesture))
-
-        blackView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func onGesture() {
-        UIView.animate(withDuration: 0.3) {
-            self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
-            //self.setTabBarVisible(visible: true, animated: true)
-            self.blackView.removeFromSuperview()
-        }
-    }
-        
-    
-    
-    private var battleInformation: [BattleInformation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        basicAutoLayout()
+        setView()
         setbattleInformation()
-        getToken()
-        popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
+        //getToken()
     }
     fileprivate func getToken() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         print("allUsers = \(usersToken)")
     }
-    private func setbattleInformation() {
-        let date1 = BattleInformation(ment: "다른 러너와 경쟁하기")
-        let date2 = BattleInformation(ment: "나의 기록과 경쟁하기")
-        
-        battleInformation = [date1,date2]
+
+    @objc func handleDismiss() {
+        popUpTableView.isHidden = true
     }
+
+}
+extension MainVC {
     
-    private func basicAutoLayout() {
+    func setView() {
+        
+        setbattleInformation()
+        
+        popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
         
         homeImg.image = UIImage(named: "imgHomeactivityMain")
         logoImg.image = UIImage(named: "homeLogo")
@@ -97,14 +80,12 @@ class MainVC: UIViewController {
         mentLabel3.font = UIFont(name: "NanumSquareB", size: 20)
         runButton.titleLabel?.font = UIFont(name: "AvenirNext-BoldItalic", size: 30)
         popUpTableView.layer.cornerRadius = 20
-        //self.tabBarController?.tabBar.isHidden = false
         
-        //self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-       //구분선 제거
-        //popUpTableView.separatorStyle = .none
+        //구분선 제거
+        
         popUpTableView.delegate = self
         popUpTableView.dataSource = self
         
@@ -115,31 +96,25 @@ class MainVC: UIViewController {
             
         }
     }
-//    private func authorizeHealthKit() {
-//      
-//      HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
-//        
-//        guard authorized else {
-//          
-//          let baseMessage = "HealthKit Authorization Failed"
-//          
-//          if let error = error {
-//            print("\(baseMessage). Reason: \(error.localizedDescription)")
-//          } else {
-//            print(baseMessage)
-//          }
-//          
-//          return
-//        }
-//        print("HealthKit Successfully Authorized.")
-//        
-//      }
-//    }
-    @objc func handleDismiss() {
-        popUpTableView.isHidden = true
+    
+    private func setbattleInformation() {
+        let date1 = BattleInformation(ment: "다른 러너와 경쟁하기")
+        let date2 = BattleInformation(ment: "나의 기록과 경쟁하기")
+        
+        battleInformation = [date1,date2]
+    }
+    func onClickBlackView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onGesture))
+
+        blackView.addGestureRecognizer(tapGesture)
     }
     
-
+    @objc func onGesture() {
+        UIView.animate(withDuration: 0.3) {
+            self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
+            self.blackView.removeFromSuperview()
+        }
+    }
 }
 
 extension MainVC: UITableViewDataSource {
@@ -163,12 +138,12 @@ extension MainVC: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == [0,0] {
-            //authorizeHealthKit()
+            //함께 달리기
             guard let PopUpPush = self.storyboard?.instantiateViewController(identifier:"MatchingGoalVC") as? MatchingGoalVC else {return}
             PopUpPush.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(PopUpPush, animated: true)
         } else {
-           // authorizeHealthKit()
+           // 혼자달리기 넣기
         }
     }
     
