@@ -16,7 +16,6 @@ class FindRunnerVC: UIViewController {
     var moveTime: Float = 0.0
     var leftTime: Int = 300
     var room: String = ""
-
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
@@ -31,6 +30,7 @@ class FindRunnerVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getToken()
         basicAutoLayout()
     }
 }
@@ -67,6 +67,26 @@ extension FindRunnerVC {
         } else {
             moveTime = 0.0
         }
+    }
+    func matchingRequest(time: Int, wantGender: Int, token: String) {
+        MatchingService.shared.matchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
+        networkResult {
+        case .success(let runIdx):
+            print(runIdx)
+            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+            self.navigationController?.pushViewController(LetsRun, animated: true)
+        case .requestErr: print("requestErr")
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            }
+        }
+    }
+    fileprivate func getToken() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
+        print("allUsers = \(usersToken[0])")
     }
 }
 extension String {

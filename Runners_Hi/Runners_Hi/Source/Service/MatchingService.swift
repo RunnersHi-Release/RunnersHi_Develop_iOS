@@ -19,7 +19,7 @@ struct MatchingService {
 
         let header: HTTPHeaders = ["Content-Type": "application/json", "jwt" : jwt]
         let dataRequest = Alamofire.request(APIConstants.matchingReqURL, method: .post, parameters: makeParameter(time, wantGender), encoding: JSONEncoding.default, headers: header)
-
+        print("여기다",time, wantGender, jwt)
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success :
@@ -44,6 +44,8 @@ struct MatchingService {
     private func isUuid(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData<MatchingRequest>.self, from: result) else { return .pathErr }
+        print("hey")
+        print(decodedData.data.runIdx)
         return .success(decodedData.data.runIdx)
     }
 }
