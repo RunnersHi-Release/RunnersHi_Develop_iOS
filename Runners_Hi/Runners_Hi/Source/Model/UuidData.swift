@@ -21,3 +21,11 @@ struct UuidDetail: Codable {
     let badge: String
     let win, lose: Int
 }
+
+struct MatchingRequest {
+    let runIdx: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case runIdx = "run_idx"
+    }
+}
