@@ -9,9 +9,9 @@
 import Foundation
 import Alamofire
 
-struct MyProfileService {
+struct ProfileService {
     private init() {}
-    static let shared = MyProfileService()
+    static let shared = ProfileService()
     
     func profilebadgeloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.myprofileURL
