@@ -85,7 +85,7 @@ struct LoginService {
 
     private func isUuid(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(UuidData.self, from: result) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(UuidData<UuidDetail>.self, from: result) else { return .pathErr }
         return .success(decodedData)
     }
 }

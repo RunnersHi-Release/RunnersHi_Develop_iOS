@@ -107,11 +107,11 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         })
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
-        FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
-            UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
-            guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
-            self.navigationController?.pushViewController(FinishRun, animated: true)
-        })
+//        FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
+//            UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
+//            guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
+//            self.navigationController?.pushViewController(FinishRun, animated: true)
+//        })
             
 
         perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
@@ -265,7 +265,7 @@ extension RunActivityVC {
             }
 //            print(move, "뭘바요..")
             UserDefaults.standard.set(move, forKey: "opponetDistance")
-            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
+//            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
         func secToTime(sec: Int){

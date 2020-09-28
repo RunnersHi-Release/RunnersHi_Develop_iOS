@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct UuidData: Codable {
+struct UuidData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: UuidDetail?
+    let data: T
 }
 
 struct UuidDetail: Codable {
@@ -20,4 +20,17 @@ struct UuidDetail: Codable {
     let gender, image: Int
     let badge: String
     let win, lose: Int
+}
+
+struct MatchingRequest: Codable {
+    let runIdx: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case runIdx = "run_idx"
+    }
+}
+
+struct OpponentInfo: Codable {
+    let nickname: String
+    let win, lose, image: Int
 }

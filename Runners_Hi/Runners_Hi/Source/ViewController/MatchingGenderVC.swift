@@ -10,8 +10,8 @@ import UIKit
 
 class MatchingGenderVC: UIViewController {
     private var genderInformation: [Gender] = []
-    
     var giveGenderText = 0 // 서버에게 넘겨줄 원하는 상대 러너의 성별
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var genderCollectionView: UICollectionView!
     @IBOutlet weak var startButton: UIButton!
@@ -21,16 +21,25 @@ class MatchingGenderVC: UIViewController {
          self.navigationController?.pushViewController(StartButtonPush, animated: true)
         UserDefaults.standard.set(giveGenderText, forKey: "myWantGender")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        basicAutoLayout()
+        setView()
         setGenderList()
-        // Do any additional setup after loading the vi0;ew.
     }
     
-    
-    private func basicAutoLayout() {
-     //startButton.layer.
+    private func setGenderList() {
+        let gender1 = Gender(genderActionLabelName: "남")
+        let gender2 = Gender(genderActionLabelName: "여")
+        let gender3 = Gender(genderActionLabelName: "상관없어요")
+        
+        genderInformation = [gender1,gender2,gender3]
+    }
+
+}
+
+extension MatchingGenderVC {
+    func setView() {
         genderCollectionView.delegate = self
         genderCollectionView.dataSource = self
         startButton.isEnabled = false
@@ -46,17 +55,9 @@ class MatchingGenderVC: UIViewController {
         startButton.setTitle("START", for: .normal)
         startButton.layer.cornerRadius = 8
     }
-    private func setGenderList() {
-        let gender1 = Gender(genderActionLabelName: "남")
-        let gender2 = Gender(genderActionLabelName: "여")
-        let gender3 = Gender(genderActionLabelName: "상관없어요")
-        
-        genderInformation = [gender1,gender2,gender3]
-    }
-
 }
+
 extension MatchingGenderVC: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return genderInformation.count
     }

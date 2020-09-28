@@ -10,13 +10,15 @@ import UIKit
 
 
 class MatchingGoalVC: UIViewController {
+    
     private var goalInformation: [GoalInformation] = []
+    var giveGoalText = 0
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var goalCollectionView: UICollectionView!
         
     @IBOutlet weak var nextButton: UIButton!
-    var giveGoalText = 0
+    
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
         guard let NextButtonPush = self.storyboard?.instantiateViewController(identifier:"MatchingGenderVC") as? MatchingGenderVC else {return}
         self.navigationController?.pushViewController(NextButtonPush, animated: true)
@@ -24,14 +26,28 @@ class MatchingGoalVC: UIViewController {
         
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         basicAutoLayout()
         setGoalList()
     }
     
+    private func setGoalList() {
+        let goal1 = GoalInformation(goal: "30min")
+        let goal2 = GoalInformation(goal: "45min")
+        let goal3 = GoalInformation(goal: "1hour")
+        let goal4 = GoalInformation(goal: "1h 30min")
+        let goal5 = GoalInformation(goal: "30sec")
+//        goalInformation = [goal1,goal2,goal3,goal4]
+        goalInformation = [goal1,goal2,goal3,goal4,goal5]
+        
+    }
 
-    private func basicAutoLayout() {
+}
+extension MatchingGoalVC {
+    
+    func basicAutoLayout() {
         goalCollectionView.delegate = self
         goalCollectionView.dataSource = self
         nextButton.isEnabled = false
@@ -46,19 +62,8 @@ class MatchingGoalVC: UIViewController {
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)
         nextButton.layer.cornerRadius = 8
-   
     }
-    private func setGoalList() {
-        let goal1 = GoalInformation(goal: "30min")
-        let goal2 = GoalInformation(goal: "45min")
-        let goal3 = GoalInformation(goal: "1hour")
-        let goal4 = GoalInformation(goal: "1h 30min")
-        let goal5 = GoalInformation(goal: "30sec")
-//        goalInformation = [goal1,goal2,goal3,goal4]
-        goalInformation = [goal1,goal2,goal3,goal4,goal5]
-        
-    }
-
+    
 }
 extension MatchingGoalVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

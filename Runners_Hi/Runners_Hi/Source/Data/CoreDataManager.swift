@@ -15,13 +15,13 @@ class CoreDataManager {
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     lazy var context = appDelegate?.persistentContainer.viewContext
     
-    let modelName: String = "Information"
+    let infoModel: String = "Information"
     
     func getUsers(ascending: Bool = false) -> [Information] {
         var models: [Information] = [Information]()
         if let context = context {
             let idSort: NSSortDescriptor = NSSortDescriptor(key: "accessToken", ascending: ascending)
-            let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest<NSManagedObject>(entityName: modelName)
+            let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest<NSManagedObject>(entityName: infoModel)
             fetchRequest.sortDescriptors = [idSort]
             
             do {
@@ -37,7 +37,7 @@ class CoreDataManager {
     func saveUser(accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context,
             let entity: NSEntityDescription
-            = NSEntityDescription.entity(forEntityName: modelName, in: context) {
+            = NSEntityDescription.entity(forEntityName: infoModel, in: context) {
             if let user: Information = NSManagedObject(entity: entity, insertInto: context) as? Information {
                 user.accessToken = accessToken
                 user.nickname = nickname
@@ -76,7 +76,7 @@ class CoreDataManager {
 extension CoreDataManager {
     fileprivate func filteredRequest() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-            = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
+            = NSFetchRequest<NSFetchRequestResult>(entityName: infoModel)
 //        fetchRequest.predicate = NSPredicate(format: "accessToken = %@", (token) as! CVarArg)
         return fetchRequest
     }
