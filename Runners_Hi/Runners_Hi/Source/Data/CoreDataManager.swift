@@ -35,7 +35,7 @@ class CoreDataManager {
         }
         return userModels
     }
-    func getOpponentInfo(ascending: Bool = false) -> [Opponent] {
+    func getOpponent(ascending: Bool = false) -> [Opponent] {
         var opponentModels: [Opponent] = [Opponent]()
         if let context = context {
             let idSort: NSSortDescriptor = NSSortDescriptor(key: "nickname", ascending: ascending)

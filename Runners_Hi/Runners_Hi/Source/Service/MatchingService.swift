@@ -45,7 +45,7 @@ struct MatchingService {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData<MatchingRequest>.self, from: result) else { return .pathErr }
         print("hey")
-        print(decodedData.data.runIdx)
-        return .success(decodedData.data.runIdx)
+        print(decodedData.data?.runIdx)
+        return .success(decodedData.data?.runIdx)
     }
 }

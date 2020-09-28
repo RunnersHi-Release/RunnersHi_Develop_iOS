@@ -73,8 +73,9 @@ extension FindRunnerVC {
         networkResult {
         case .success(let runIdx):
             UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
-            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-            self.navigationController?.pushViewController(LetsRun, animated: true)
+            self.getOpponentInfo()
+//            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+//            self.navigationController?.pushViewController(LetsRun, animated: true)
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
@@ -86,6 +87,28 @@ extension FindRunnerVC {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
+    }
+    func getOpponentInfo() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        ProfileService.shared.opponentProfileLoading(jwt: usersToken[0], runIdx: UserDefaults.standard.string(forKey: "matchingIdx") ?? "") {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+            case .success(let res):
+                print(res)
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+
+        }
     }
 }
 extension String {
