@@ -334,10 +334,25 @@
                     </view>
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
+                        <outlet property="myRecordDetailBackground" destination="XD9-A1-TMN" id="RWl-lY-XTU"/>
+                        <outlet property="myRecordKm" destination="sUK-Bf-z8i" id="wA1-nz-62P"/>
+                        <outlet property="myRecordKmName" destination="1Fc-2n-liT" id="JId-d7-P0k"/>
+                        <outlet property="myRecordPace" destination="To1-BQ-VAl" id="s3v-s3-wG4"/>
+                        <outlet property="myRecordPaceName" destination="J9j-ql-7Gz" id="p98-FX-wT8"/>
+                        <outlet property="myRecordTime" destination="rAJ-p0-C6Q" id="luG-wb-M0h"/>
+                        <outlet property="myRecordTimeName" destination="T0O-Lb-ars" id="wOG-Bs-zws"/>
                         <outlet property="recordDateLabel" destination="euW-KD-SOU" id="BtK-VH-sZx"/>
                         <outlet property="recordDetailBackButton" destination="GLC-Rq-gKd" id="UaX-LK-GfC"/>
                         <outlet property="recordNaverView" destination="euQ-Mu-SCR" id="tss-AK-unk"/>
                         <outlet property="recordTimeLabel" destination="4s3-Q1-TjU" id="eYz-27-yRQ"/>
+                        <outlet property="rivalRecordDetailBackground" destination="gH3-66-Xlm" id="tFh-g0-hNI"/>
+                        <outlet property="rivalRecordDetailName" destination="07D-Yn-WM1" id="2gK-sm-wkv"/>
+                        <outlet property="rivalRecordKm" destination="5pF-qL-W3v" id="jdy-WR-Eag"/>
+                        <outlet property="rivalRecordKmName" destination="izY-Q3-c9c" id="4OQ-qx-Haw"/>
+                        <outlet property="rivalRecordPace" destination="fAx-Cg-Fw1" id="A9w-oG-u7C"/>
+                        <outlet property="rivalRecordPaceName" destination="EVh-kg-iqX" id="KON-u2-874"/>
+                        <outlet property="rivalRecordTime" destination="YqU-0f-mDY" id="8CV-Gt-DoF"/>
+                        <outlet property="rivalRecordTimeName" destination="EzW-KS-O41" id="b6C-xX-p0z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKb-j8-jrJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

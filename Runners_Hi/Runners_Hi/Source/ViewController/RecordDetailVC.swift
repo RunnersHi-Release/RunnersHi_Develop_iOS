@@ -14,7 +14,23 @@ class RecordDetailVC: UIViewController {
     @IBOutlet weak var recordTimeLabel: UILabel!
     @IBOutlet weak var recordNaverView: UIView!
     
-
+    @IBOutlet weak var myRecordDetailBackground: UIImageView!
+    @IBOutlet weak var myRecordKm: UILabel!
+    @IBOutlet weak var myRecordKmName: UILabel!
+    @IBOutlet weak var myRecordPace: UILabel!
+    @IBOutlet weak var myRecordPaceName: UILabel!
+    @IBOutlet weak var myRecordTime: UILabel!
+    @IBOutlet weak var myRecordTimeName: UILabel!
+    
+    @IBOutlet weak var rivalRecordDetailBackground: UIImageView!
+    @IBOutlet weak var rivalRecordName: UILabel!
+    @IBOutlet weak var rivalRecordKm: UILabel!
+    @IBOutlet weak var rivalRecordKmName: UILabel!
+    @IBOutlet weak var rivalRecordPace: UILabel!
+    @IBOutlet weak var rivalRecordPaceName: UILabel!
+    @IBOutlet weak var rivalRecordTime: UILabel!
+    @IBOutlet weak var rivalRecordTimeName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
