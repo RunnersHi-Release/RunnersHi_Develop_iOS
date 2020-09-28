@@ -11,15 +11,15 @@ import Alamofire
 
 struct MatchingService {
     static let shared = MatchingService()
-    
     private func makeParameter(_ time: Int,_ wantGender: Int) -> Parameters {
         return ["time" : time, "wantGender" : wantGender]
     }
     func matchingRequest(time: Int,wantGender: Int, jwt: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-
+         
+//timeoutIntervalForRequest
         let header: HTTPHeaders = ["Content-Type": "application/json", "jwt" : jwt]
         let dataRequest = Alamofire.request(APIConstants.matchingReqURL, method: .post, parameters: makeParameter(time, wantGender), encoding: JSONEncoding.default, headers: header)
-        print("여기다",time, wantGender, jwt)
+//        print("여기다",time, wantGender, jwt)
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success :
