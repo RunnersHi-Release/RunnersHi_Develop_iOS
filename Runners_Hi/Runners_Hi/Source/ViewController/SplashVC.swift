@@ -45,7 +45,8 @@ extension SplashVC {
             case .success(let res):
                 let response = res as! UuidData<UuidDetail>
                 self.UuidModel = response
-                self.saveUserInfo(self.UuidModel?.data.accessToken ?? "", nickname: self.UuidModel?.data.nickname ?? "", gender: Int64(self.UuidModel?.data.gender ?? -1), image: Int64(self.UuidModel?.data.image ?? -1), badge: self.UuidModel?.data.badge ?? "", win: Int64(self.UuidModel?.data.win ?? -1), lose: Int64(self.UuidModel?.data.lose ?? -1))
+                print(res)
+                self.saveUserInfo(self.UuidModel?.data?.accessToken ?? "", nickname: self.UuidModel?.data?.nickname ?? "", gender: Int64(self.UuidModel?.data?.gender ?? -1), level: Int64(self.UuidModel?.data?.level ?? -1), image: Int64(self.UuidModel?.data?.image ?? -1), badge: self.UuidModel?.data?.badge ?? "", win: Int64(self.UuidModel?.data?.win ?? -1), lose: Int64(self.UuidModel?.data?.lose ?? -1))
                 Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.aaaa), userInfo: nil, repeats: false)
                 
             case .requestErr: print("requestErr")
@@ -56,14 +57,17 @@ extension SplashVC {
         }
     }
     // CoreData-Information에 유저 값 저장하기
-    fileprivate func saveUserInfo(_ accessToken: String, nickname: String, gender: Int64, image: Int64, badge: String, win: Int64, lose: Int64) {
-        CoreDataManager.shared.saveUser(accessToken: accessToken, nickname: nickname, gender: gender, image: image, badge: badge, win: win, lose: lose) { onSuccess in
+    fileprivate func saveUserInfo(_ accessToken: String, nickname: String, gender: Int64, level: Int64, image: Int64, badge: String, win: Int64, lose: Int64) {
+        CoreDataManager.shared.saveUser(accessToken: accessToken, nickname: nickname, gender: gender, level: level, image: image, badge: badge, win: win, lose: lose) { onSuccess in
             print("saved = \(onSuccess)")
         }
     }
     // CoreData-Information 에서 값 삭제하기
     fileprivate func deleteUser() {
         CoreDataManager.shared.deleteUser() { onSuccess in
+            print("deleted = \(onSuccess)")
+        }
+        CoreDataManager.shared.deleteOpponent() { onSuccess in
             print("deleted = \(onSuccess)")
         }
     }

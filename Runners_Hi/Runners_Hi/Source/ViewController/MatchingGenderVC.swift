@@ -17,6 +17,9 @@ class MatchingGenderVC: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     @IBAction func startButtonDidTap(_ sender: UIButton) {
+        CoreDataManager.shared.deleteOpponent() { onSuccess in
+            print("deleted = \(onSuccess)")
+        }
         guard let StartButtonPush = self.storyboard?.instantiateViewController(identifier:"FindRunnerVC") as? FindRunnerVC else {return}
          self.navigationController?.pushViewController(StartButtonPush, animated: true)
         UserDefaults.standard.set(giveGenderText, forKey: "myWantGender")

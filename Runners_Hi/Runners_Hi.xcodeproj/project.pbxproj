@@ -10,7 +10,7 @@
 		066DED1424C1704000A2C440 /* MyProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1324C1704000A2C440 /* MyProfileHeader.swift */; };
 		066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1524C1823100A2C440 /* ProfileBadgeCell.swift */; };
 		066DED1824C186AD00A2C440 /* MyProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1724C186AC00A2C440 /* MyProfileData.swift */; };
-		066DED1A24C1873F00A2C440 /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1924C1873F00A2C440 /* MyProfileService.swift */; };
+		066DED1A24C1873F00A2C440 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1924C1873F00A2C440 /* ProfileService.swift */; };
 		0683DBC524B3BC190038E317 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683DBC424B3BC190038E317 /* Gender.swift */; };
 		06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AB724B4FF13001E04FB /* SignUpVC.swift */; };
 		06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */; };
@@ -89,14 +89,14 @@
 		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
 		9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12CC4C251DC11F00BE301B /* MatchingService.swift */; };
-		9B20264C2519DE3A002162B0 /* Opponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026462519DE39002162B0 /* Opponent+CoreDataClass.swift */; };
-		9B20264D2519DE3A002162B0 /* Opponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026452519DE39002162B0 /* Opponent+CoreDataProperties.swift */; };
-		9B20264E2519DE3A002162B0 /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026482519DE39002162B0 /* Running+CoreDataProperties.swift */; };
-		9B2026502519DE3A002162B0 /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2026422519DE38002162B0 /* Running+CoreDataClass.swift */; };
+		9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */; };
+		9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */; };
+		9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */; };
+		9B3A8A4D2524E96100DF032A /* Opponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */; };
+		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
+		9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
-		9B63EAB4251D0F9B00A9B396 /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAB2251D0F9B00A9B396 /* Information+CoreDataClass.swift */; };
-		9B63EAB5251D0F9B00A9B396 /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAB3251D0F9B00A9B396 /* Information+CoreDataProperties.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +104,7 @@
 		066DED1324C1704000A2C440 /* MyProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileHeader.swift; sourceTree = "<group>"; };
 		066DED1524C1823100A2C440 /* ProfileBadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeCell.swift; sourceTree = "<group>"; };
 		066DED1724C186AC00A2C440 /* MyProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileData.swift; sourceTree = "<group>"; };
-		066DED1924C1873F00A2C440 /* MyProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileService.swift; sourceTree = "<group>"; };
+		066DED1924C1873F00A2C440 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		06F40AB724B4FF13001E04FB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
@@ -187,14 +187,14 @@
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
 		9B12CC4C251DC11F00BE301B /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
-		9B2026422519DE38002162B0 /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Running+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		9B2026452519DE39002162B0 /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Opponent+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Opponent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		9B2026462519DE39002162B0 /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Opponent+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Opponent+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		9B2026482519DE39002162B0 /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Running+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Running+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
-		9B63EAB2251D0F9B00A9B396 /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		9B63EAB3251D0F9B00A9B396 /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "/Volumes/NO NAME/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -364,7 +364,7 @@
 				06F40AE724BDB521001E04FB /* RecordService.swift */,
 				06F40AEF24BFA194001E04FB /* BadgeService.swift */,
 				06F40AF324C047B7001E04FB /* RankingService.swift */,
-				066DED1924C1873F00A2C440 /* MyProfileService.swift */,
+				066DED1924C1873F00A2C440 /* ProfileService.swift */,
 				06FD034224C2444D005EB6A9 /* BadgeDetailService.swift */,
 				9B12CC4C251DC11F00BE301B /* MatchingService.swift */,
 			);
@@ -421,12 +421,12 @@
 		9B4165B9250C1CF7000448F1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9B2026462519DE39002162B0 /* Opponent+CoreDataClass.swift */,
-				9B63EAB2251D0F9B00A9B396 /* Information+CoreDataClass.swift */,
-				9B63EAB3251D0F9B00A9B396 /* Information+CoreDataProperties.swift */,
-				9B2026452519DE39002162B0 /* Opponent+CoreDataProperties.swift */,
-				9B2026422519DE38002162B0 /* Running+CoreDataClass.swift */,
-				9B2026482519DE39002162B0 /* Running+CoreDataProperties.swift */,
+				9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */,
+				9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */,
+				9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */,
+				9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */,
+				9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */,
+				9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */,
 				9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */,
 				9BE60826250F84CF00A9D763 /* CoreDataManager.swift */,
 			);
@@ -585,7 +585,6 @@
 				066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
-				9B63EAB5251D0F9B00A9B396 /* Information+CoreDataProperties.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,
@@ -599,12 +598,15 @@
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */,
+				9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */,
 				06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */,
+				9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */,
 				06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */,
 				3DB705AA24C166C4005BFA1C /* NaverMapVC.swift in Sources */,
 				3DD5E62924C1BA7100598165 /* SplashVC.swift in Sources */,
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
-				9B2026502519DE3A002162B0 /* Running+CoreDataClass.swift in Sources */,
+				9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */,
+				9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
 				3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */,
 				06F40AE024BCE38A001E04FB /* RecordTabChildVC1.swift in Sources */,
@@ -612,11 +614,10 @@
 				3D8AD89924B326BD006B5648 /* MyPageVC.swift in Sources */,
 				3DB705AC24C16740005BFA1C /* NaverView.swift in Sources */,
 				06F40AC324B6353E001E04FB /* OpenSelectCell.swift in Sources */,
-				066DED1A24C1873F00A2C440 /* MyProfileService.swift in Sources */,
+				066DED1A24C1873F00A2C440 /* ProfileService.swift in Sources */,
 				3DCDF01724B5FE13003F47CE /* MatchingGoalVC.swift in Sources */,
 				06F40AE824BDB521001E04FB /* RecordService.swift in Sources */,
 				06FD034324C2444D005EB6A9 /* BadgeDetailService.swift in Sources */,
-				9B63EAB4251D0F9B00A9B396 /* Information+CoreDataClass.swift in Sources */,
 				3DCE6FF924B4E59500D29DBC /* HealthKitSetupAssistant.swift in Sources */,
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
 				06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */,
@@ -626,7 +627,7 @@
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */,
 				06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */,
-				9B20264D2519DE3A002162B0 /* Opponent+CoreDataProperties.swift in Sources */,
+				9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */,
 				06F40AD724BAEFC9001E04FB /* SignUpService.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */,
@@ -634,14 +635,13 @@
 				3DC2841024B828330063439D /* APIConstants.swift in Sources */,
 				06F40ADB24BB038F001E04FB /* RunningLevelPopUpVC.swift in Sources */,
 				3DB705A424C06335005BFA1C /* ResultRunningVC.swift in Sources */,
+				9B3A8A4D2524E96100DF032A /* Opponent+CoreDataClass.swift in Sources */,
 				3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */,
-				9B20264C2519DE3A002162B0 /* Opponent+CoreDataClass.swift in Sources */,
 				06F40AC124B5F7CF001E04FB /* Level.swift in Sources */,
 				06F40AEA24BDD56E001E04FB /* RecordAllData.swift in Sources */,
 				3DC11A9B24B9CD5500127718 /* RunActivityVC.swift in Sources */,
 				066DED1824C186AD00A2C440 /* MyProfileData.swift in Sources */,
 				3DA2EA1C24B205210091F12F /* UIColor+Extension.swift in Sources */,
-				9B20264E2519DE3A002162B0 /* Running+CoreDataProperties.swift in Sources */,
 				3DC2841224B829130063439D /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

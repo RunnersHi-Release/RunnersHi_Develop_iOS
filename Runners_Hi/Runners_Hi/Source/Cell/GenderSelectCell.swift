@@ -27,7 +27,6 @@ class GenderSelectCell: UICollectionViewCell {
     override var isSelected: Bool {
         willSet {
             self.genderActionLabel.backgroundColor = newValue ? UIColor.lightishBlue : UIColor.brownishGrey
-            print(genderActionLabel.text ?? nil!)
             
         }
         

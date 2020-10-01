@@ -132,7 +132,7 @@ extension MyPageVC: UICollectionViewDelegateFlowLayout{
 
 extension MyPageVC {
     func getProfileBadge(){
-        MyProfileService.shared.profilebadgeloading() {
+        ProfileService.shared.profilebadgeloading() {
             [weak self]
             data in
             guard let `self` = self else {return}
