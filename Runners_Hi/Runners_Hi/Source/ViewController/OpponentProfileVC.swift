@@ -38,16 +38,20 @@ extension OpponentProfileVC {
     func setLabel() {
         let opponents: [Opponent] = CoreDataManager.shared.getOpponent()
         let opponentsName: [String] = opponents.map({($0.nickname ?? "")})
-        print("hi")
-        print(opponentsName)
+        
+        battleRunnerImage.image = UIImage(named: profileImageStruct[Int(Int64(opponents.filter({$0.nickname == opponentsName[0]}).first?.profileImage ?? -1))-1])
+        
         questionLabel.text = "당신과 함께 뛸 러너는?"
         questionLabel.font = UIFont(name: "NanumSquareB", size: 20)
+        battleRunnerIDLabel.text = opponentsName[0]
         
         levelLabel.text = "Lv."
         levelLabel.font = UIFont(name: "NanumSquare", size: 14)
+        battleRunnerLevelLabel.text = levelStruct[Int(Int64(opponents.filter({$0.nickname == opponentsName[0]}).first?.level ?? -1))-1]
         
         scoreLabel.text = "전적"
         scoreLabel.font = UIFont(name: "NanumSquare", size: 14)
+        battleRunnerScoreLabel.text = "\(Int64(opponents.filter({$0.nickname == opponentsName[0]}).first?.win ?? -1))" + "승 " + "\(Int64(opponents.filter({$0.nickname == opponentsName[0]}).first?.lose ?? -1))" + "패"
         
         countLabel.text = "곧 카운트 다운이 시작됩니다"
         countLabel.font = UIFont(name: "NanumSquareB", size: 16)
@@ -55,8 +59,7 @@ extension OpponentProfileVC {
         battleRunnerIDLabel.font = UIFont(name: "NanumSquareB", size: 16)
         battleRunnerLevelLabel.font = UIFont(name: "NanumSquareB", size: 16)
         battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
-        
-       
+
     }
     
     func setView() {
@@ -67,6 +70,7 @@ extension OpponentProfileVC {
         boxImage.image = UIImage(named: "whiteboxMatchsucactivityShadow")
         
     }
+    
     @objc func sleepTime() {
         guard let receiveViewController = self.storyboard?.instantiateViewController(identifier:"CountdownVC") as? CountdownVC else {return}
         self.navigationController?.pushViewController(receiveViewController, animated: true)
