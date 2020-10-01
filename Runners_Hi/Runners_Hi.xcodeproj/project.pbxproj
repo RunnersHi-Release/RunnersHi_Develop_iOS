@@ -96,6 +96,7 @@
 		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
 		9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */; };
 		9B3A8A5C2525D54A00DF032A /* matching.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5B2525D54A00DF032A /* matching.json */; };
+		9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
@@ -195,6 +196,7 @@
 		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = matching.json; path = "../../../../../../../Users/mingzzi/Downloads/%EB%A1%9C%EB%94%A9%2C%20%EB%A7%A4%EC%B9%AD%20%EB%A1%9C%ED%8B%B0/matching.json"; sourceTree = "<group>"; };
+		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
 				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
 				06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */,
+				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */,
 				06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */,
 				9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */,
+				9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */,
 				06F40AD724BAEFC9001E04FB /* SignUpService.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */,
