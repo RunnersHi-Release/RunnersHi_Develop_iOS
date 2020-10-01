@@ -37,28 +37,19 @@ class FindRunnerVC: UIViewController {
         super.viewDidLoad()
         getToken()
         basicAutoLayout()
-//        var animationView = AnimationView(frame: loadingView.bounds)
-//        animationView = AnimationView(name: "splash")
-//        //loadingView = AnimationView(name: "splash")
-//        animationView.contentMode = .scaleAspectFit
-//        //animationView.frame = self.view.bounds
-//        animationView.play()
-//           //self.view.addSubview(loadingView!)
-        
-        animationView = AnimationView(name: "matching")
-        animationView?.contentMode = .scaleAspectFill
-           animationView?.frame = self.loadingView.bounds
-           animationView?.play()
-        animationView?.loopMode = .loop
-           self.loadingView.addSubview(animationView!)
-        
-        
     }
 }
 
 extension FindRunnerVC {
     private func basicAutoLayout() {
-        // mentStopButton.
+        
+        animationView = AnimationView(name: "matching")
+        animationView?.contentMode = .scaleAspectFit
+        animationView?.frame = self.loadingView.bounds
+        animationView?.play()
+        animationView?.loopMode = .loop
+        loadingView.addSubview(animationView!)
+        
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
         //logoImage.image = UIImage(named: "matchLogo")
