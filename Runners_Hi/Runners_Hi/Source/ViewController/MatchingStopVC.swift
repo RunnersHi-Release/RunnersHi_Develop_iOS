@@ -28,6 +28,10 @@ class MatchingStopVC: UIViewController {
 }
 extension MatchingStopVC {
     func setView() {
+
+        let taps = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        self.view.addGestureRecognizer(taps)
+        
         stopButton.backgroundColor = UIColor.brownishGrey
         stopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         stopButton.setTitle("그만할래요", for: .normal)
@@ -45,4 +49,8 @@ extension MatchingStopVC {
         
         popUpView.layer.cornerRadius = 8
     }
+
+    @objc func handleTapGesture(recognizer: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+        }
 }
