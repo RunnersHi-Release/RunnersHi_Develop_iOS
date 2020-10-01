@@ -117,6 +117,10 @@ extension FindRunnerVC {
     fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
         CoreDataManager.shared.saveOpponent(level: level, lose: lose, nickname: nickname, profileImage: image, win: win) { onSuccess in
             print("saved = \(onSuccess)")
+            if onSuccess == true {
+                guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+                self.navigationController?.pushViewController(LetsRun, animated: true)
+            }
         }
     }
 }
