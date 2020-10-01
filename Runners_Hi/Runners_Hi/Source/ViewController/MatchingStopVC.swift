@@ -19,6 +19,9 @@ class MatchingStopVC: UIViewController {
     @IBOutlet weak var keepButton: UIButton!
     
     
+    @IBAction func keepButtonDidTap(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
