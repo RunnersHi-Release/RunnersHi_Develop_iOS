@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Lottie
 
 class FindRunnerVC: UIViewController {
 
@@ -18,8 +18,11 @@ class FindRunnerVC: UIViewController {
     var moveTime: Float = 0.0
     var leftTime: Int = 180
     var room: String = ""
+    var animationView: AnimationView?
+   // @IBOutlet weak var logoImage: UIImageView!
     
-    @IBOutlet weak var logoImage: UIImageView!
+
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 
     @IBOutlet weak var mentTextView: UITextView!
@@ -39,10 +42,17 @@ class FindRunnerVC: UIViewController {
 
 extension FindRunnerVC {
     private func basicAutoLayout() {
-        // mentStopButton.
+        
+        animationView = AnimationView(name: "matching")
+        animationView?.contentMode = .scaleAspectFit
+        animationView?.frame = self.loadingView.bounds
+        animationView?.play()
+        animationView?.loopMode = .loop
+        loadingView.addSubview(animationView!)
+        
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
-        logoImage.image = UIImage(named: "matchLogo")
+        //logoImage.image = UIImage(named: "matchLogo")
         timeProgressBar.setProgress(moveTime, animated: true)
         perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)

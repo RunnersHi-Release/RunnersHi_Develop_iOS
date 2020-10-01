@@ -95,6 +95,7 @@
 		9B3A8A4D2524E96100DF032A /* Opponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */; };
 		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
 		9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */; };
+		9B3A8A5C2525D54A00DF032A /* matching.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5B2525D54A00DF032A /* matching.json */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
@@ -193,6 +194,7 @@
 		9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = matching.json; path = "../../../../../../../Users/mingzzi/Downloads/%EB%A1%9C%EB%94%A9%2C%20%EB%A7%A4%EC%B9%AD%20%EB%A1%9C%ED%8B%B0/matching.json"; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				3D76A15424BC9B6800A58465 /* count.json */,
+				9B3A8A5B2525D54A00DF032A /* matching.json */,
 				3D76A15324BC9B6700A58465 /* run.json */,
 				3DD5E62A24C1BB5A00598165 /* splash.json */,
 				3DA2EA1924B1E7FF0091F12F /* MainVC.swift */,
@@ -514,6 +517,7 @@
 				3D76A15524BC9B6800A58465 /* run.json in Resources */,
 				3DF24FC724ACFC13003B3187 /* RecordTab.storyboard in Resources */,
 				3DA2EA1824B09E900091F12F /* NanumSquareRegular.ttf in Resources */,
+				9B3A8A5C2525D54A00DF032A /* matching.json in Resources */,
 				3DA2EA1E24B24D0D0091F12F /* Tab.storyboard in Resources */,
 				3DF24FC924ACFC21003B3187 /* MyPageTab.storyboard in Resources */,
 				3DF24FC324ACFB29003B3187 /* OnBoarding.storyboard in Resources */,
