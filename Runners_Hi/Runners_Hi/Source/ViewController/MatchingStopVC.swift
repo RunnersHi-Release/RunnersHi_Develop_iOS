@@ -43,6 +43,6 @@ extension MatchingStopVC {
         mentLabel1.font = UIFont(name: "NanumSquareB", size: 20)
         mentLabel2.font = UIFont(name: "NanumSquareB", size: 20)
         
-        popUpView.layer.cornerRadius = 0.8
+        popUpView.layer.cornerRadius = 8
     }
 }

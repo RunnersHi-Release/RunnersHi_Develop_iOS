@@ -29,6 +29,10 @@ class FindRunnerVC: UIViewController {
     @IBOutlet weak var mentStopButton: UIButton!
     
     @IBAction func mentStopButtonClicked(_ sender: UIButton) {
+        guard let popupVC = self.storyboard?.instantiateViewController(identifier: "MatchingStopVC") as? MatchingStopVC else {return}
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true, completion: nil)
         
     }
     override func viewDidLoad() {

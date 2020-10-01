@@ -411,7 +411,7 @@
         <!--Matching StopVC-->
         <scene sceneID="tqX-c8-ctw">
             <objects>
-                <viewController id="NxO-cQ-x17" customClass="MatchingStopVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MatchingStopVC" id="NxO-cQ-x17" customClass="MatchingStopVC" customModule="Runners_Hi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZD-sD-T5k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,14 +437,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K7r-sc-gRa">
-                                        <rect key="frame" x="147.5" y="201" width="46" height="68"/>
+                                        <rect key="frame" x="33" y="165" width="275" height="104"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t52-3u-5Ic">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="t52-3u-5Ic" secondAttribute="height" multiplier="275:48" id="My2-Ax-Afa"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-OW-JpT">
-                                                <rect key="frame" x="0.0" y="38" width="46" height="30"/>
+                                                <rect key="frame" x="0.0" y="56" width="275" height="48"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                         </subviews>
@@ -465,6 +468,7 @@
                         <constraints>
                             <constraint firstItem="RPh-Gt-lFp" firstAttribute="centerX" secondItem="hZD-sD-T5k" secondAttribute="centerX" id="Cmc-KB-eM6"/>
                             <constraint firstItem="RPh-Gt-lFp" firstAttribute="centerY" secondItem="hZD-sD-T5k" secondAttribute="centerY" id="N3D-2M-04X"/>
+                            <constraint firstItem="t52-3u-5Ic" firstAttribute="width" secondItem="hZD-sD-T5k" secondAttribute="width" multiplier="275/375" id="Ntm-Rq-EZD"/>
                             <constraint firstItem="RPh-Gt-lFp" firstAttribute="width" secondItem="hZD-sD-T5k" secondAttribute="width" multiplier="341/375" id="WQU-ni-dhe"/>
                         </constraints>
                     </view>
