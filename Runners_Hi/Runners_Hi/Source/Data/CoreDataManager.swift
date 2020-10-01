@@ -90,10 +90,11 @@ class CoreDataManager {
         }
     }
     func deleteUser(onSuccess: @escaping ((Bool) -> Void)) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(entityName: infoModel)
 
         do {
             if let results: [Information] = try context?.fetch(fetchRequest) as? [Information] {
+                print(results.count)
                 if results.count != 0 {
                     context?.delete(results[0])
                 }
@@ -108,12 +109,12 @@ class CoreDataManager {
         }
     }
     func deleteOpponent(onSuccess: @escaping ((Bool) -> Void)) {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(entityName: opponentModel)
 
         do {
             if let results: [Opponent] = try context?.fetch(fetchRequest) as? [Opponent] {
                 if results.count != 0 {
-                    context?.delete(results[0])
+                context?.delete(results[0])
                 }
             }
         } catch let error as NSError {
@@ -128,9 +129,9 @@ class CoreDataManager {
     
 }
 extension CoreDataManager {
-    fileprivate func filteredRequest() -> NSFetchRequest<NSFetchRequestResult> {
+    fileprivate func filteredRequest(entityName: String) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-            = NSFetchRequest<NSFetchRequestResult>(entityName: infoModel)
+            = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
 //        fetchRequest.predicate = NSPredicate(format: "accessToken = %@", (token) as! CVarArg)
         return fetchRequest
     }

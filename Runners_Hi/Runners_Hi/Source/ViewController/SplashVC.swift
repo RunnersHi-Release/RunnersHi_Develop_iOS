@@ -67,6 +67,9 @@ extension SplashVC {
         CoreDataManager.shared.deleteUser() { onSuccess in
             print("deleted = \(onSuccess)")
         }
+        CoreDataManager.shared.deleteOpponent() { onSuccess in
+            print("deleted = \(onSuccess)")
+        }
     }
     
 }

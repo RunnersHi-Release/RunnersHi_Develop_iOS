@@ -38,6 +38,7 @@ extension OpponentProfileVC {
     func setLabel() {
         let opponents: [Opponent] = CoreDataManager.shared.getOpponent()
         let opponentsName: [String] = opponents.map({($0.nickname ?? "")})
+        print("hi")
         print(opponentsName)
         questionLabel.text = "당신과 함께 뛸 러너는?"
         questionLabel.font = UIFont(name: "NanumSquareB", size: 20)
@@ -55,12 +56,7 @@ extension OpponentProfileVC {
         battleRunnerLevelLabel.font = UIFont(name: "NanumSquareB", size: 16)
         battleRunnerScoreLabel.font = UIFont(name: "NanumSquareB", size: 16)
         
-        let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
-        let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
-        let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
-        let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
-        let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
-       // battleRunnerIDLabel.text = opponentsNick
+       
     }
     
     func setView() {
