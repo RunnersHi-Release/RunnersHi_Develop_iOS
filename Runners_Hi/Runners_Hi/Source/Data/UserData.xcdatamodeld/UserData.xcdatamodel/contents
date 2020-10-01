@@ -5,6 +5,7 @@
         <attribute name="badge" optional="YES" attributeType="String"/>
         <attribute name="gender" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lose" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String"/>
         <attribute name="win" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -27,7 +28,7 @@
         <attribute name="startTime" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Information" positionX="27" positionY="-63" width="128" height="148"/>
+        <element name="Information" positionX="27" positionY="-63" width="128" height="163"/>
         <element name="Matching" positionX="-45" positionY="36" width="128" height="73"/>
         <element name="Opponent" positionX="-52.3515625" positionY="-117.3125" width="128" height="118"/>
         <element name="Running" positionX="110.8359375" positionY="-190.2109375" width="128" height="103"/>

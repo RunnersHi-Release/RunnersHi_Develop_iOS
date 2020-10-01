@@ -19,6 +19,7 @@ extension Information {
     @NSManaged public var accessToken: String?
     @NSManaged public var badge: String?
     @NSManaged public var gender: Int64
+    @NSManaged public var level: Int64
     @NSManaged public var image: Int64
     @NSManaged public var lose: Int64
     @NSManaged public var nickname: String?
