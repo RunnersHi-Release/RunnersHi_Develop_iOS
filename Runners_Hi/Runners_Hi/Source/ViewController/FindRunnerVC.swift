@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Lottie
 
 class FindRunnerVC: UIViewController {
 
@@ -18,8 +18,11 @@ class FindRunnerVC: UIViewController {
     var moveTime: Float = 0.0
     var leftTime: Int = 180
     var room: String = ""
+    var animationView: AnimationView?
+   // @IBOutlet weak var logoImage: UIImageView!
     
-    @IBOutlet weak var logoImage: UIImageView!
+
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 
     @IBOutlet weak var mentTextView: UITextView!
@@ -34,6 +37,22 @@ class FindRunnerVC: UIViewController {
         super.viewDidLoad()
         getToken()
         basicAutoLayout()
+//        var animationView = AnimationView(frame: loadingView.bounds)
+//        animationView = AnimationView(name: "splash")
+//        //loadingView = AnimationView(name: "splash")
+//        animationView.contentMode = .scaleAspectFit
+//        //animationView.frame = self.view.bounds
+//        animationView.play()
+//           //self.view.addSubview(loadingView!)
+        
+        animationView = AnimationView(name: "matching")
+        animationView?.contentMode = .scaleAspectFill
+           animationView?.frame = self.loadingView.bounds
+           animationView?.play()
+        animationView?.loopMode = .loop
+           self.loadingView.addSubview(animationView!)
+        
+        
     }
 }
 
@@ -42,7 +61,7 @@ extension FindRunnerVC {
         // mentStopButton.
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
-        logoImage.image = UIImage(named: "matchLogo")
+        //logoImage.image = UIImage(named: "matchLogo")
         timeProgressBar.setProgress(moveTime, animated: true)
         perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
