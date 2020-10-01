@@ -19,8 +19,6 @@ class FindRunnerVC: UIViewController {
     var leftTime: Int = 180
     var room: String = ""
     var animationView: AnimationView?
-   // @IBOutlet weak var logoImage: UIImageView!
-    
 
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
@@ -31,6 +29,10 @@ class FindRunnerVC: UIViewController {
     @IBOutlet weak var mentStopButton: UIButton!
     
     @IBAction func mentStopButtonClicked(_ sender: UIButton) {
+        guard let popupVC = self.storyboard?.instantiateViewController(identifier: "MatchingStopVC") as? MatchingStopVC else {return}
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true, completion: nil)
         
     }
     override func viewDidLoad() {
@@ -52,7 +54,7 @@ extension FindRunnerVC {
         
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
-        //logoImage.image = UIImage(named: "matchLogo")
+        
         timeProgressBar.setProgress(moveTime, animated: true)
         perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
@@ -86,8 +88,6 @@ extension FindRunnerVC {
         case .success(let runIdx):
             UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
             self.getOpponentInfo()
-//            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-//            self.navigationController?.pushViewController(LetsRun, animated: true)
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
