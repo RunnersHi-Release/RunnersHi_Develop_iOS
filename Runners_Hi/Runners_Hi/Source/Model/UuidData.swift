@@ -40,5 +40,5 @@ struct MatchingRequest: Codable {
 
 struct OpponentInfo: Codable {
     let nickname: String
-    let win, lose, image: Int
+    let win, lose, image, level: Int
 }

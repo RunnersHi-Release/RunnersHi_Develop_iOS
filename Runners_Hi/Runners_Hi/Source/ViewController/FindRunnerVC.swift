@@ -101,7 +101,7 @@ extension FindRunnerVC {
             case .success(let res):
                 let response = res as! UuidData<OpponentInfo>
                 self.opponentModel = response
-                self.saveOpponentInfo(nickname: self.opponentModel?.data?.nickname ?? "", win: Int64(self.opponentModel?.data?.win ?? -1), lose: Int64(self.opponentModel?.data?.lose ?? -1), image: Int64(self.opponentModel?.data?.image ?? -1), level: Int64(1))
+                self.saveOpponentInfo(nickname: self.opponentModel?.data?.nickname ?? "", win: Int64(self.opponentModel?.data?.win ?? -1), lose: Int64(self.opponentModel?.data?.lose ?? -1), image: Int64(self.opponentModel?.data?.image ?? -1), level: Int64(self.opponentModel?.data?.level ?? -1))
             case .requestErr:
                 print(".requestErr")
             case .pathErr:

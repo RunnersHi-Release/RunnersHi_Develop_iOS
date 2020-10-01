@@ -107,6 +107,24 @@ class CoreDataManager {
             onSuccess(success)
         }
     }
+    func deleteOpponent(onSuccess: @escaping ((Bool) -> Void)) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest()
+
+        do {
+            if let results: [Opponent] = try context?.fetch(fetchRequest) as? [Opponent] {
+                if results.count != 0 {
+                    context?.delete(results[0])
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fatch🥺: \(error), \(error.userInfo)")
+            onSuccess(false)
+        }
+
+        contextSave { success in
+            onSuccess(success)
+        }
+    }
     
 }
 extension CoreDataManager {

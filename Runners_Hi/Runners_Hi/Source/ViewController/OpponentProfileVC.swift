@@ -27,8 +27,8 @@ class OpponentProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        //setLabel()
-        perform(#selector(sleepTime), with: nil, afterDelay: 3.0)
+        setLabel()
+        //perform(#selector(sleepTime), with: nil, afterDelay: 3.0)
         
     }
 
@@ -36,7 +36,9 @@ class OpponentProfileVC: UIViewController {
 
 extension OpponentProfileVC {
     func setLabel() {
-        
+        let opponents: [Opponent] = CoreDataManager.shared.getOpponent()
+        let opponentsName: [String] = opponents.map({($0.nickname ?? "")})
+        print(opponentsName)
         questionLabel.text = "당신과 함께 뛸 러너는?"
         questionLabel.font = UIFont(name: "NanumSquareB", size: 20)
         
@@ -58,14 +60,7 @@ extension OpponentProfileVC {
         let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
         let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
         let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
-
-        battleRunnerLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0)-1]
-        print(inputLevel,"야~~")
-        battleRunnerIDLabel.text = inputNick as? String
-        
-        battleRunnerScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
-        
-        battleRunnerImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
+       // battleRunnerIDLabel.text = opponentsNick
     }
     
     func setView() {
