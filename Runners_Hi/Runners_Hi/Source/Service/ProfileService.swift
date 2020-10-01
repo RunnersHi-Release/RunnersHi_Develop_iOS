@@ -59,7 +59,7 @@ struct ProfileService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
-                                completion(.success(result.data))
+                                completion(.success(result))
                             } catch {
                                 completion(.pathErr)
                             }

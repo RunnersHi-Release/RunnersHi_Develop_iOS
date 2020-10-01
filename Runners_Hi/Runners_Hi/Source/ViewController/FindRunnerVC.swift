@@ -11,6 +11,8 @@ import UIKit
 
 class FindRunnerVC: UIViewController {
 
+    var opponentModel : UuidData<OpponentInfo>?
+    
     let maxTime: Float = 180.0
     var myGoTime: Int = 0
     var moveTime: Float = 0.0
@@ -97,7 +99,9 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
-                print(res)
+                let response = res as! UuidData<OpponentInfo>
+                self.opponentModel = response
+                self.saveOpponentInfo(nickname: self.opponentModel?.data?.nickname ?? "", win: Int64(self.opponentModel?.data?.win ?? -1), lose: Int64(self.opponentModel?.data?.lose ?? -1), image: Int64(self.opponentModel?.data?.image ?? -1), level: Int64(1))
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
@@ -108,6 +112,11 @@ extension FindRunnerVC {
                 print(".networkFail")
             }
 
+        }
+    }
+    fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
+        CoreDataManager.shared.saveOpponent(level: level, lose: lose, nickname: nickname, profileImage: image, win: win) { onSuccess in
+            print("saved = \(onSuccess)")
         }
     }
 }
