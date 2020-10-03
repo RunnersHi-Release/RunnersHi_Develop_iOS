@@ -449,6 +449,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-OW-JpT">
                                                 <rect key="frame" x="0.0" y="56" width="275" height="48"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="keepButtonDidTap:" destination="NxO-cQ-x17" eventType="touchUpInside" id="Kji-4g-ROm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
