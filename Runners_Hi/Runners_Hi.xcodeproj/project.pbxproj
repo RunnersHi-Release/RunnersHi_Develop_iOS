@@ -90,6 +90,7 @@
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
 		9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12CC4C251DC11F00BE301B /* MatchingService.swift */; };
 		9B1A04E5252C57BB0016E405 /* RunPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */; };
+		9B1A04E8252C5B390016E405 /* RunPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E7252C5B390016E405 /* RunPlace.swift */; };
 		9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */; };
 		9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */; };
 		9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */; };
@@ -191,6 +192,7 @@
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
 		9B12CC4C251DC11F00BE301B /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
 		9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlaceCell.swift; sourceTree = "<group>"; };
+		9B1A04E7252C5B390016E405 /* RunPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlace.swift; sourceTree = "<group>"; };
 		9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				066DED1724C186AC00A2C440 /* MyProfileData.swift */,
 				06FD034024C241F1005EB6A9 /* BadgeDetailData.swift */,
 				9B63EAA3251CE33F00A9B396 /* UuidData.swift */,
+				9B1A04E7252C5B390016E405 /* RunPlace.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,
+				9B1A04E8252C5B390016E405 /* RunPlace.swift in Sources */,
 				06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */,
 				9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */,
