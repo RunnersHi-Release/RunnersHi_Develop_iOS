@@ -19,6 +19,9 @@ class CountdownVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+}
+
+extension CountdownVC {
     private func setCountdown() {
         animationView.animation = Animation.named("count")
         
@@ -56,4 +59,6 @@ class CountdownVC: UIViewController {
 
     }
 
+    
+    
 }

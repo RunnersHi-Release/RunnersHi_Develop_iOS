@@ -8,7 +8,7 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "http://3.34.213.235:3000"
+    static let baseURL = "http://3.34.213.235"
     static let signupURL = APIConstants.baseURL + "/user/register"
     static let duplicateURL = APIConstants.baseURL + "/user/duplicates"
     static let loginURL = APIConstants.baseURL + "/user/login"
@@ -16,6 +16,8 @@ struct APIConstants {
     static let uuidURL = APIConstants.baseURL + "/user/signUUID"
     // 매칭 요청
     static let matchingReqURL = APIConstants.baseURL + "/running/match"
+    //상대방 러너의 프로필 조회
+    static let opponentInfoURL = APIConstants.baseURL + "/running/opponentInfo"
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"
     //뱃지 모아보기

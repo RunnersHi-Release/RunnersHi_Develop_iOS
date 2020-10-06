@@ -30,6 +30,7 @@ struct BadgeDetailService {
                                 let result = try decoder.decode(BadgeDetailData.self, from: value)
                                 completion(.success(result))
                             } catch {
+                                print("hiehiehiehi")
                                 completion(.pathErr)
                             }
                         default:break

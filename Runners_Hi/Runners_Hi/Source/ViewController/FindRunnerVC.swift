@@ -7,17 +7,20 @@
 //
 
 import UIKit
-
+import Lottie
 
 class FindRunnerVC: UIViewController {
 
+    var opponentModel : UuidData<OpponentInfo>?
+    
     let maxTime: Float = 180.0
     var myGoTime: Int = 0
     var moveTime: Float = 0.0
     var leftTime: Int = 180
     var room: String = ""
-    
-    @IBOutlet weak var logoImage: UIImageView!
+    var animationView: AnimationView?
+
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
 
     @IBOutlet weak var mentTextView: UITextView!
@@ -26,6 +29,10 @@ class FindRunnerVC: UIViewController {
     @IBOutlet weak var mentStopButton: UIButton!
     
     @IBAction func mentStopButtonClicked(_ sender: UIButton) {
+        guard let popupVC = self.storyboard?.instantiateViewController(identifier: "MatchingStopVC") as? MatchingStopVC else {return}
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true, completion: nil)
         
     }
     override func viewDidLoad() {
@@ -37,10 +44,17 @@ class FindRunnerVC: UIViewController {
 
 extension FindRunnerVC {
     private func basicAutoLayout() {
-        // mentStopButton.
+        
+        animationView = AnimationView(name: "matching")
+        animationView?.contentMode = .scaleAspectFit
+        animationView?.frame = self.loadingView.bounds
+        animationView?.play()
+        animationView?.loopMode = .loop
+        loadingView.addSubview(animationView!)
+        
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
-        logoImage.image = UIImage(named: "matchLogo")
+        
         timeProgressBar.setProgress(moveTime, animated: true)
         perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
@@ -73,8 +87,7 @@ extension FindRunnerVC {
         networkResult {
         case .success(let runIdx):
             UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
-            guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-            self.navigationController?.pushViewController(LetsRun, animated: true)
+            self.getOpponentInfo()
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
@@ -86,6 +99,39 @@ extension FindRunnerVC {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
+    }
+    func getOpponentInfo() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        ProfileService.shared.opponentProfileLoading(jwt: usersToken[0], runIdx: UserDefaults.standard.string(forKey: "matchingIdx") ?? "") {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+            case .success(let res):
+                let response = res as! UuidData<OpponentInfo>
+                self.opponentModel = response
+                self.saveOpponentInfo(nickname: self.opponentModel?.data?.nickname ?? "", win: Int64(self.opponentModel?.data?.win ?? -1), lose: Int64(self.opponentModel?.data?.lose ?? -1), image: Int64(self.opponentModel?.data?.image ?? -1), level: Int64(self.opponentModel?.data?.level ?? -1))
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+
+        }
+    }
+    fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
+        CoreDataManager.shared.saveOpponent(level: level, lose: lose, nickname: nickname, profileImage: image, win: win) { onSuccess in
+            print("saved = \(onSuccess)")
+            if onSuccess == true {
+                guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
+                self.navigationController?.pushViewController(LetsRun, animated: true)
+            }
+        }
     }
 }
 extension String {

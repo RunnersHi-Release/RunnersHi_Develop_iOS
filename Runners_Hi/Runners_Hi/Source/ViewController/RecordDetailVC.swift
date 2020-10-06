@@ -33,9 +33,20 @@ class RecordDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
+    
+}
 
+extension RecordDetailVC{
+    private func recordDetailVCSetting() {
+        recordDetailBackButton.setImage(UIImage(named: "btnBack"), for: .normal)
+        
+        
+        recordDateLabel.font = UIFont(name:"NanumSquareB", size:20.0)
+        recordTimeLabel.font = UIFont(name:"NanumSquareR", size:14.0)
+    }
+    
 }
