@@ -195,7 +195,7 @@
 		9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = matching.json; path = "../../../../../../../Users/mingzzi/Downloads/%EB%A1%9C%EB%94%A9%2C%20%EB%A7%A4%EC%B9%AD%20%EB%A1%9C%ED%8B%B0/matching.json"; sourceTree = "<group>"; };
+		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matching.json; sourceTree = "<group>"; };
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
