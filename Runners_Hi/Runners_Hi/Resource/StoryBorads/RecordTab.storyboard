@@ -349,6 +349,7 @@
                         <outlet property="rivalRecordDetailName" destination="07D-Yn-WM1" id="2gK-sm-wkv"/>
                         <outlet property="rivalRecordKm" destination="5pF-qL-W3v" id="jdy-WR-Eag"/>
                         <outlet property="rivalRecordKmName" destination="izY-Q3-c9c" id="4OQ-qx-Haw"/>
+                        <outlet property="rivalRecordName" destination="07D-Yn-WM1" id="PrB-uf-oGV"/>
                         <outlet property="rivalRecordPace" destination="fAx-Cg-Fw1" id="A9w-oG-u7C"/>
                         <outlet property="rivalRecordPaceName" destination="EVh-kg-iqX" id="KON-u2-874"/>
                         <outlet property="rivalRecordTime" destination="YqU-0f-mDY" id="8CV-Gt-DoF"/>
