@@ -14,13 +14,14 @@ class RecordTabChildVC1: UIViewController  {
     @IBOutlet weak var scoreRecordCollectionView: UICollectionView!
     
     override func viewDidLoad() {
-         
+        
         self.view.backgroundColor = .backgroundgray
         self.scoreRecordCollectionView.backgroundColor = .backgroundgray
         scoreRecordCollectionView.dataSource = self
         scoreRecordCollectionView.delegate = self
         super.viewDidLoad()
         getRecord()
+
        // self.scoreRecordCollectionView.reloadData()
     }
     
@@ -29,26 +30,26 @@ class RecordTabChildVC1: UIViewController  {
 
 extension RecordTabChildVC1: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return RecordModel?.result.count ?? 0
+        return RecordModel?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let ScoreRecordCell = collectionView.dequeueReusableCell(withReuseIdentifier: ScoreRecordCell.identifier, for: indexPath) as? ScoreRecordCell else { return UICollectionViewCell()}
         
       
-        let m: Float = Float(RecordModel?.result[indexPath.row].distance ?? 0)
+        let m: Float = Float(RecordModel?.data[indexPath.row].distance ?? 0)
         let km : Float = round(m*10)/1000
-        ScoreRecordCell.scoreDateLabel.text = RecordModel?.result[indexPath.row].date
+        ScoreRecordCell.scoreDateLabel.text = RecordModel?.data[indexPath.row].date
         ScoreRecordCell.getKmLabel.text = "\(km)"
-        ScoreRecordCell.getTimeLabel.text = RecordModel?.result[indexPath.row].time
+        ScoreRecordCell.getTimeLabel.text = RecordModel?.data[indexPath.row].time
         
-        let timeLabel = RecordModel?.result[indexPath.row].time
-        let hourLabel = RecordModel?.result[indexPath.row].time.components(separatedBy: ":")[0]
+        let timeLabel = RecordModel?.data[indexPath.row].time
+        let hourLabel = RecordModel?.data[indexPath.row].time.components(separatedBy: ":")[0]
         if hourLabel == "00" {
              ScoreRecordCell.getTimeLabel.text = String(timeLabel!.components(separatedBy: ":")[1] + ":" + timeLabel!.components(separatedBy: ":")[2])
         }
         
-        if RecordModel?.result[indexPath.row].result == 1 {
+        if RecordModel?.data[indexPath.row].result == 1 {
             ScoreRecordCell.recordBackImage.image = UIImage(named: "bluelineRecbadgefragmentWinnerrecord")
         }
         else {
@@ -92,7 +93,6 @@ extension RecordTabChildVC1 {
                 let response = res as! RecordAllData<Result>
                 self.RecordModel = response
                 self.scoreRecordCollectionView.reloadData()
-                
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
