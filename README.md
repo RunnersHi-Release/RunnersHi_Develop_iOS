@@ -26,11 +26,10 @@
 
 ------------
 ### B-1. 개발 환경 및 라이브러리
-![Xcode](https://img.shields.io/badge/Xcode-11.5-blue)
+![Xcode](https://img.shields.io/badge/Xcode-12.0.1-blue)
 ![swift](https://img.shields.io/badge/swift-5.0-green)
+![iOS](https://img.shields.io/badge/iOS-13.5-yellow)
 ![Alamofire](https://img.shields.io/badge/Alamofire-4.8.2-orange)
-![Socket.IO-Client-Swift](https://img.shields.io/badge/Socket.IO--Client--Swift-15.2.0-blue)
-![XLPagerTabStrip](https://img.shields.io/badge/XLPagerTabStrip-9.0-yellow)
 ![NMapsMape](https://img.shields.io/badge/NMapsMape-3.x-red)
   
 ------------
