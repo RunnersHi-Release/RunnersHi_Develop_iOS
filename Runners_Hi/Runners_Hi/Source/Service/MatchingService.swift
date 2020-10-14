@@ -15,8 +15,6 @@ struct MatchingService {
         return ["time" : time, "wantGender" : wantGender]
     }
     func matchingRequest(time: Int,wantGender: Int, jwt: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-         
-//timeoutIntervalForRequest
         let header: HTTPHeaders = ["Content-Type": "application/json", "jwt" : jwt]
         let dataRequest = Alamofire.request(APIConstants.matchingReqURL, method: .post, parameters: makeParameter(time, wantGender), encoding: JSONEncoding.default, headers: header)
 //        print("여기다",time, wantGender, jwt)
