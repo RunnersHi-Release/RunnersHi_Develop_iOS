@@ -45,12 +45,12 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         setView()
         setbattleInformation()
-        //getToken()
+       // getToken()
     }
     fileprivate func getToken() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
-        print("allUsers = \(usersToken)")
+        print("allUsers = \(usersToken[0])")
     }
 
     @objc func handleDismiss() {

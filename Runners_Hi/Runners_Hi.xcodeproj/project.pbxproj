@@ -89,6 +89,8 @@
 		3DF24FCB24AD0238003B3187 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCA24AD0238003B3187 /* Sign.storyboard */; };
 		3DF24FCD24AD0437003B3187 /* RunningTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */; };
 		9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12CC4C251DC11F00BE301B /* MatchingService.swift */; };
+		9B1A04E5252C57BB0016E405 /* RunPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */; };
+		9B1A04E8252C5B390016E405 /* RunPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E7252C5B390016E405 /* RunPlace.swift */; };
 		9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */; };
 		9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */; };
 		9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */; };
@@ -189,13 +191,15 @@
 		3DF24FCC24AD0437003B3187 /* RunningTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningTab.storyboard; sourceTree = "<group>"; };
 		7CB21B683D0B3C00355D85BA /* Pods-Runners_Hi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.debug.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.debug.xcconfig"; sourceTree = "<group>"; };
 		9B12CC4C251DC11F00BE301B /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
+		9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlaceCell.swift; sourceTree = "<group>"; };
+		9B1A04E7252C5B390016E405 /* RunPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlace.swift; sourceTree = "<group>"; };
 		9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = matching.json; path = "../../../../../../../Users/mingzzi/Downloads/%EB%A1%9C%EB%94%A9%2C%20%EB%A7%A4%EC%B9%AD%20%EB%A1%9C%ED%8B%B0/matching.json"; sourceTree = "<group>"; };
+		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matching.json; sourceTree = "<group>"; };
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				06F40AF924C083BD001E04FB /* LoserCell.swift */,
 				066DED1324C1704000A2C440 /* MyProfileHeader.swift */,
 				066DED1524C1823100A2C440 /* ProfileBadgeCell.swift */,
+				9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				066DED1724C186AC00A2C440 /* MyProfileData.swift */,
 				06FD034024C241F1005EB6A9 /* BadgeDetailData.swift */,
 				9B63EAA3251CE33F00A9B396 /* UuidData.swift */,
+				9B1A04E7252C5B390016E405 /* RunPlace.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,12 +601,14 @@
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,
+				9B1A04E8252C5B390016E405 /* RunPlace.swift in Sources */,
 				06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */,
 				9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */,
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				06F40AF224C04448001E04FB /* RankingData.swift in Sources */,
 				9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */,
+				9B1A04E5252C57BB0016E405 /* RunPlaceCell.swift in Sources */,
 				3DCAF89F24B7065D009B3AE5 /* BattleGenderSelectCell.swift in Sources */,
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,

@@ -14,7 +14,8 @@ import NMapsMap
 import CoreLocation
 
 class RunActivityVC: UIViewController, CLLocationManagerDelegate {
-    
+    private var runPlace: [RunPlace] = []
+
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
     // values for the pedometer data
@@ -128,6 +129,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
 
 
 extension RunActivityVC {
+    //private var levels = ["초급","중급","고급"]
     func startTimer(){
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
@@ -152,6 +154,10 @@ extension RunActivityVC {
             }
         }
    }
+    func setPlace() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let data1 = RunPlace(profile: users.map({Int(($0.image ?? 0))})[0], nick: users.map({($0.nickname ?? "")})[0], level: "", win: 1, lose: 1)
+    }
     
     
     func miles(meters:Double)-> Double{
