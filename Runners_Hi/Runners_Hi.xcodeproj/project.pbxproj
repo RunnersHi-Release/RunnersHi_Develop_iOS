@@ -101,6 +101,7 @@
 		9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
+		9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -203,6 +204,7 @@
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
+		9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindRunnerVC.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +360,7 @@
 				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
 				06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */,
 				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
+				9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				3D8AD89524B32695006B5648 /* RankVC.swift in Sources */,
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */,
+				9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */,
 				9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */,
 				06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */,
 				9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */,
