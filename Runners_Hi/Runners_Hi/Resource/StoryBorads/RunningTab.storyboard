@@ -538,6 +538,9 @@
                                                     <constraint firstAttribute="width" secondItem="t52-3u-5Ic" secondAttribute="height" multiplier="275:48" id="My2-Ax-Afa"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="stopButtonDidTap:" destination="NxO-cQ-x17" eventType="touchUpInside" id="Hen-br-dCO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-OW-JpT">
                                                 <rect key="frame" x="0.0" y="56" width="275" height="48"/>
