@@ -22,6 +22,11 @@ class MatchingStopVC: UIViewController {
     @IBAction func keepButtonDidTap(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func stopButtonDidTap(_ sender: UIButton) {
+        // 서버 끊는 코드
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()

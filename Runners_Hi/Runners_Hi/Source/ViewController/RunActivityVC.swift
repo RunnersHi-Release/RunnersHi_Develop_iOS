@@ -84,6 +84,15 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var naverView: UIView!
     
+    @IBAction func lockButtonDidTap(_ sender: UIButton) {
+        if self.view.isUserInteractionEnabled == false {
+            self.view.isUserInteractionEnabled = true
+        } else {
+            self.view.isUserInteractionEnabled = false
+        }
+    }
+    
+    
     override func viewDidLoad() {
         
         secToTime(sec: limitTime)
