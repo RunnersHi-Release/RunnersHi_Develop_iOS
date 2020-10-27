@@ -30,18 +30,37 @@ class RecordTabChildVC1: UIViewController  {
 
 extension RecordTabChildVC1: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return RecordModel?.data.count ?? 0
+        return 20
+//        return RecordModel?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let ScoreRecordCell = collectionView.dequeueReusableCell(withReuseIdentifier: ScoreRecordCell.identifier, for: indexPath) as? ScoreRecordCell else { return UICollectionViewCell()}
         
-      
+        
+        
+        // date값 받아오기. nil 값이라면 더미 표시
+        if((RecordModel?.data[indexPath.row].date) != nil) {
+            ScoreRecordCell.scoreDateLabel.text = RecordModel?.data[indexPath.row].date
+        }
+        else {
+            ScoreRecordCell.scoreDateLabel.text = "0000.00.00"
+        }
+        
+        // 거리 값 받아오기.
         let m: Float = Float(RecordModel?.data[indexPath.row].distance ?? 0)
         let km : Float = round(m*10)/1000
-        ScoreRecordCell.scoreDateLabel.text = RecordModel?.data[indexPath.row].date
         ScoreRecordCell.getKmLabel.text = "\(km)"
+        
+        // 시간값 받아오기. nil 값이라면 더미 표시
+        if (RecordModel?.data[indexPath.row].time != nil){
         ScoreRecordCell.getTimeLabel.text = RecordModel?.data[indexPath.row].time
+        }
+        else {
+        ScoreRecordCell.getTimeLabel.text = "00:00:00"
+        }
+        
+        ScoreRecordCell.recordBackImage.image = UIImage(named: "graylineboxRecbadgefragmentMyrecord")
         
         let timeLabel = RecordModel?.data[indexPath.row].time
         let hourLabel = RecordModel?.data[indexPath.row].time.components(separatedBy: ":")[0]
@@ -52,9 +71,9 @@ extension RecordTabChildVC1: UICollectionViewDataSource {
         if RecordModel?.data[indexPath.row].result == 1 {
             ScoreRecordCell.recordBackImage.image = UIImage(named: "bluelineRecbadgefragmentWinnerrecord")
         }
-        else {
-            ScoreRecordCell.recordBackImage.image = UIImage(named: "graylineboxRecbadgefragmentMyrecord")
-        }
+//        else {
+//            ScoreRecordCell.recordBackImage.image = UIImage(named: "graylineboxRecbadgefragmentMyrecord")
+//        }
         
         return ScoreRecordCell
     }
