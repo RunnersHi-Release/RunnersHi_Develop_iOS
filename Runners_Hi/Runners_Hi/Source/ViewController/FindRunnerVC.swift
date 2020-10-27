@@ -91,7 +91,7 @@ extension FindRunnerVC {
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
-        case .networkFail: print("networkFail")
+        case .networkFail: print("시간초과")
             }
         }
     }
