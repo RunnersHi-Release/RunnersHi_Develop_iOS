@@ -15,21 +15,30 @@ struct RecordService {
     
     func recordloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.myrecordURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        let headers: HTTPHeaders = [ "Content-Type" : "application/json", "jwt" : usersToken[0] ]
         
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
 
             case .success:
+                print(response.result)
+                print("success가 되었다는 자리")
+
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
+                        print(status)
                         switch status {
-                        case 200:
+                        case 204:
+                            print("204가 되었다는 자리")
                             do {
+                                print("do가 되었다")
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(RecordAllData<Result>.self, from: value)
                                 completion(.success(result))
+                                print(result.data)
                             } catch {
                                 completion(.pathErr)
                             }
@@ -44,7 +53,7 @@ struct RecordService {
     }
     func myrecordloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.recentURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+        let headers: HTTPHeaders = ["token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
         
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
