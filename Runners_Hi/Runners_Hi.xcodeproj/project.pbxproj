@@ -12,6 +12,7 @@
 		066DED1824C186AD00A2C440 /* MyProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1724C186AC00A2C440 /* MyProfileData.swift */; };
 		066DED1A24C1873F00A2C440 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1924C1873F00A2C440 /* ProfileService.swift */; };
 		0683DBC524B3BC190038E317 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683DBC424B3BC190038E317 /* Gender.swift */; };
+		06CDFEE12521D63800E773CC /* RecordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CDFEE02521D63800E773CC /* RecordDetailVC.swift */; };
 		06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AB724B4FF13001E04FB /* SignUpVC.swift */; };
 		06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */; };
 		06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABE24B5F785001E04FB /* LevelSelectCell.swift */; };
@@ -111,6 +112,7 @@
 		066DED1724C186AC00A2C440 /* MyProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileData.swift; sourceTree = "<group>"; };
 		066DED1924C1873F00A2C440 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		06CDFEE02521D63800E773CC /* RecordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailVC.swift; sourceTree = "<group>"; };
 		06F40AB724B4FF13001E04FB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
 		06F40ABE24B5F785001E04FB /* LevelSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectCell.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				3DB705A924C166C4005BFA1C /* NaverMapVC.swift */,
 				3DD5E62824C1BA7100598165 /* SplashVC.swift */,
 				06FD033E24C238AB005EB6A9 /* BadgeDetailVC.swift */,
+				06CDFEE02521D63800E773CC /* RecordDetailVC.swift */,
 				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
 				9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */,
 			);
@@ -652,6 +655,7 @@
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
 				9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */,
 				3DC2840E24B8047B0063439D /* SocketIOManager.swift in Sources */,
+				06CDFEE12521D63800E773CC /* RecordDetailVC.swift in Sources */,
 				3DC2841024B828330063439D /* APIConstants.swift in Sources */,
 				06F40ADB24BB038F001E04FB /* RunningLevelPopUpVC.swift in Sources */,
 				3DB705A424C06335005BFA1C /* ResultRunningVC.swift in Sources */,

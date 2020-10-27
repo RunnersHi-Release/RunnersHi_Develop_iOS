@@ -11,7 +11,7 @@ struct RecordAllData<T: Codable> : Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: [T]
+    let data: [T]
 }
 
 struct Result: Codable {

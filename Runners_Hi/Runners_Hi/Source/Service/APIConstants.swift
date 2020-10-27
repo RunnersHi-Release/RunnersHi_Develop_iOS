@@ -23,11 +23,11 @@ struct APIConstants {
     //뱃지 모아보기
     static let badgeURL = APIConstants.baseURL + "/record/badge"
     //이 달의 러너
-    static let monthlyURL = APIConstants.baseURL + "/ranking/runner"
+    static let monthlyURL = APIConstants.baseURL + "/ranking/runners"
     //명예의 전당
-    static let winnerURL = APIConstants.baseURL + "/ranking/winner"
+    static let winnerURL = APIConstants.baseURL + "/ranking/winners"
     //졌잘싸
-    static let loserURL = APIConstants.baseURL + "/ranking/loser"
+    static let loserURL = APIConstants.baseURL + "/ranking/losers"
     static let opponentURL = APIConstants.baseURL + "/record/opponent/"
     static let recentURL = APIConstants.baseURL + "/record/recent"
     //마이페이지
