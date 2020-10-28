@@ -31,7 +31,7 @@ struct RecordService {
                     if let status = response.response?.statusCode {
                         print(status)
                         switch status {
-                        case 204:
+                        case 200:
                             print("204가 되었다는 자리")
                             do {
                                 print("do가 되었다")
