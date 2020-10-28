@@ -61,7 +61,6 @@ class MainVC: UIViewController {
 extension MainVC {
     
     func setView() {
-        
         setbattleInformation()
         
         popUpTableView.transform = CGAffineTransform(translationX: 0, y: popUpTableView.frame.height)
