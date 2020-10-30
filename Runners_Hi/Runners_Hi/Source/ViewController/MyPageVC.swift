@@ -14,7 +14,8 @@ class MyPageVC: UIViewController {
     
     // 배지 디테일 페이지로 넘겨줄 플래그 값
     var indexflag: Int? = 999999
-    
+    var myHeight: CGFloat = 0.0
+    var myHeight2: CGFloat = 0.0
     @IBOutlet weak var myPageCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,8 @@ extension MyPageVC: UICollectionViewDataSource {
         return MyProfileModel?.result.badge.count ?? 0    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         guard let ProfileBadgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileBadgeCell.identifier, for: indexPath) as? ProfileBadgeCell else { return UICollectionViewCell()}
-        
         let myProfileBeforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlameEmpty"]
         
         let myProfileBadgeImage = ["imgBadgeEgg","imgBadgeChick","imgBadgeChicken","imgBadgeBat","imgBadgeBird", "imgBadgeTurtle","imgBadge50","imgBadge100","imgBadge150","imgBadgeStraight","imgBadgeSpeed","imgBadgeFlame"]
@@ -76,7 +76,9 @@ extension MyPageVC: UICollectionViewDataSource {
             
             let myprofileImageFlag:Int = (users.map({Int(($0.image ?? 0))})[0])
             
-            
+            myHeight = MyProfileHeader.myProfileImage.frame.height
+            myHeight2 = MyProfileHeader.myProfileBack.frame.height
+            print(myHeight,myHeight2)
 //
             MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
             MyProfileHeader.myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
@@ -95,10 +97,11 @@ extension MyPageVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width: CGFloat = collectionView.frame.width
-        let height: CGFloat = ( 359.0 / 750.0 ) * self.view.frame.height
-        
+        let height: CGFloat = ( 386.0 / 750.0 ) * self.view.frame.height
+        //CGFloat = 135.0 + 56.0 - 48.0 + 234.0
+        //let height: CGFloat = 135.0 + 56.0 - 48.0 + 234.0
         return CGSize(width: width, height: height) }
-    
+//
 }
 
 extension MyPageVC: UICollectionViewDelegateFlowLayout{
