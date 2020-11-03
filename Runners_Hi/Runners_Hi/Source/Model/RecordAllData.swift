@@ -13,6 +13,7 @@ struct RecordAllData<T: Codable> : Codable {
     let message: String
     let data: [T]
 }
+// 커밋해볼게
 
 struct Result: Codable {
     let date: String
