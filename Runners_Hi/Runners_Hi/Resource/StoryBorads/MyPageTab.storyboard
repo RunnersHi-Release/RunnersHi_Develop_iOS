@@ -90,7 +90,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="136" height="80"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="k6d-3H-FHV">
-                                                            <rect key="frame" x="47.5" y="18" width="41.5" height="54"/>
+                                                            <rect key="frame" x="47.5" y="13" width="41.5" height="54"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-MF-UyV">
                                                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -109,16 +109,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="k6d-3H-FHV" firstAttribute="top" secondItem="f3W-fI-ADJ" secondAttribute="top" constant="18" id="Adn-1K-fe5"/>
                                                         <constraint firstItem="k6d-3H-FHV" firstAttribute="centerX" secondItem="f3W-fI-ADJ" secondAttribute="centerX" id="MBe-Cg-GSu"/>
                                                         <constraint firstAttribute="width" secondItem="f3W-fI-ADJ" secondAttribute="height" multiplier="136:80" id="ceY-oJ-9ce"/>
+                                                        <constraint firstItem="k6d-3H-FHV" firstAttribute="centerY" secondItem="f3W-fI-ADJ" secondAttribute="centerY" id="s9H-79-mJV"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czh-kX-iIj">
                                                     <rect key="frame" x="147" y="0.0" width="136" height="80"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-vh-s1H">
-                                                            <rect key="frame" x="47.5" y="18" width="41.5" height="54"/>
+                                                            <rect key="frame" x="47.5" y="13" width="41.5" height="54"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJP-4i-AQx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -137,7 +137,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="gA3-vh-s1H" firstAttribute="top" secondItem="Czh-kX-iIj" secondAttribute="top" constant="18" id="cWa-9z-M6v"/>
+                                                        <constraint firstItem="gA3-vh-s1H" firstAttribute="centerY" secondItem="Czh-kX-iIj" secondAttribute="centerY" id="w9n-B9-smj"/>
                                                         <constraint firstItem="gA3-vh-s1H" firstAttribute="centerX" secondItem="Czh-kX-iIj" secondAttribute="centerX" id="wpd-6K-Rk6"/>
                                                     </constraints>
                                                 </view>

@@ -83,7 +83,7 @@ extension RecordTabChildVC1: UICollectionViewDataSource {
 extension RecordTabChildVC1: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
             UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
-                return CGSize(width: 175, height: 175)
+        return CGSize(width: (self.view.frame.width / 2)-22, height: (self.view.frame.width / 2)-22)
         }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

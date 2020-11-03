@@ -23,14 +23,20 @@ class ScoreRecordCell: UICollectionViewCell {
         set()
     }
     func set(){
+        print("ddd")
+        print(UIScreen.main.bounds.height)
+        if UIScreen.main.bounds.height < 700 {
+            getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:24.0)
+            getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:24.0)
+        } else {
+            getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
+            getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
+        }
     scoreDateLabel.font = UIFont(name:"NanumSquareR", size:12.0)
     scoreDateLabel.textColor = .brownishGrey
-    getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
     KmNameLabel.font = UIFont(name:"NanumSquareR", size:14.0)
-    getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:28.0)
     TimeNameLabel.font = UIFont(name:"NanumSquareR", size:12.0)
         
-    
     self.KmNameLabel.text = "킬로미터"
     self.TimeNameLabel.text = "러닝시간"
     }
