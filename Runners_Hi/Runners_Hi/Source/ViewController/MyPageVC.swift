@@ -16,7 +16,9 @@ class MyPageVC: UIViewController {
     var indexflag: Int? = 999999
     var myHeight: CGFloat = 0.0
     var myHeight2: CGFloat = 0.0
+    
     @IBOutlet weak var myPageCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundgray
@@ -78,7 +80,6 @@ extension MyPageVC: UICollectionViewDataSource {
             
             myHeight = MyProfileHeader.myProfileImage.frame.height
             myHeight2 = MyProfileHeader.myProfileBack.frame.height
-            print(myHeight,myHeight2)
 //
             MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
             MyProfileHeader.myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
@@ -94,13 +95,15 @@ extension MyPageVC: UICollectionViewDataSource {
     }
     
     
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width: CGFloat = collectionView.frame.width
-        let height: CGFloat = ( 386.0 / 750.0 ) * self.view.frame.height
-        //CGFloat = 135.0 + 56.0 - 48.0 + 234.0
-        //let height: CGFloat = 135.0 + 56.0 - 48.0 + 234.0
-        return CGSize(width: width, height: height) }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        let width: CGFloat = collectionView.frame.width
+////        let height: CGFloat = ( 386.0 / 750.0 ) * self.view.frame.height
+//        let height : CGFloat = 366
+////        print(self.view.frame.height, height)
+//        //CGFloat = 135.0 + 56.0 - 48.0 + 234.0
+//        //let height: CGFloat = 135.0 + 56.0 - 48.0 + 234.0
+//        return CGSize(width: width, height: height) }
 //
 }
 
