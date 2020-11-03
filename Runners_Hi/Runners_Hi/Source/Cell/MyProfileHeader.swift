@@ -29,7 +29,6 @@ class MyProfileHeader: UICollectionReusableView {
         
         func headerset(){
 //
-
             myProfileName.font = UIFont(name: "NanumSquareB", size:18.0)
             LvName.font = UIFont(name: "NanumSquareR", size:14.0)
             LvLabel.font = UIFont(name: "NanumSquareB", size:16.0)
@@ -44,6 +43,8 @@ class MyProfileHeader: UICollectionReusableView {
             
             scoreView.backgroundColor = UIColor.unselectedbuttongray
             scoreView.layer.cornerRadius = 8
+            
+            self.backgroundColor = .backgroundgray
             
         }
 }

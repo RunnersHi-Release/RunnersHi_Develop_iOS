@@ -14,12 +14,18 @@ class MyPageVC: UIViewController {
     
     // 배지 디테일 페이지로 넘겨줄 플래그 값
     var indexflag: Int? = 999999
+    var myHeight: CGFloat = 0.0
+    var myHeight2: CGFloat = 0.0
     
     @IBOutlet weak var myPageCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getProfileBadge()
-         self.view.backgroundColor = .backgroundgray
+        self.view.backgroundColor = .backgroundgray
+        self.myPageCollectionView.backgroundColor = .backgroundgray
+        self.myPageCollectionView.dataSource = self
+        self.myPageCollectionView.delegate = self
+       // getProfileBadge()
     }
     
 }
@@ -30,9 +36,8 @@ extension MyPageVC: UICollectionViewDataSource {
         return MyProfileModel?.result.badge.count ?? 0    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         guard let ProfileBadgeCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileBadgeCell.identifier, for: indexPath) as? ProfileBadgeCell else { return UICollectionViewCell()}
-        
         let myProfileBeforeBadgeImage = ["imgBadgeEggEmpty","imgBadgeChickEmpty","imgBadgeChickenEmpty","imgBadgeBatEmpty","imgBadgeBirdEmpty", "imgBadgeTurtleEmpty","imgBadge50Empty","imgBadge100Empty","imgBadge150Empty","imgBadgeStraightEmpty","imgBadgeSpeedEmpty","imgBadgeFlameEmpty"]
         
         let myProfileBadgeImage = ["imgBadgeEgg","imgBadgeChick","imgBadgeChicken","imgBadgeBat","imgBadgeBird", "imgBadgeTurtle","imgBadge50","imgBadge100","imgBadge150","imgBadgeStraight","imgBadgeSpeed","imgBadgeFlame"]
@@ -60,28 +65,28 @@ extension MyPageVC: UICollectionViewDataSource {
         
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            
-            let level = self.MyProfileModel?.result.level ?? 0
-            let win = self.MyProfileModel?.result.win ?? 0
-            let lose = self.MyProfileModel?.result.lose ?? 0
-            let name:String = self.MyProfileModel?.result.nickname ?? ""
+            let users: [Information] = CoreDataManager.shared.getUsers()
+            let level = (users.map({Int(($0.level ?? 0))})[0])
+            let win = (users.map({Int(($0.win ?? 0))})[0])
+            let lose = (users.map({Int(($0.lose ?? 0))})[0])
+            let name:String = (users.map({($0.nickname ?? "")})[0])
             
             let  myprofileImageList = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
             
             let levelList = ["초급","중급","고급"]
             guard let MyProfileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyProfileHeader.identifier, for: indexPath) as? MyProfileHeader else { return UICollectionViewCell()}
             
-            let myprofileImageFlag:Int = self.MyProfileModel?.result.image as? Int ?? 0
+            let myprofileImageFlag:Int = (users.map({Int(($0.image ?? 0))})[0])
             
-            
-            
+            myHeight = MyProfileHeader.myProfileImage.frame.height
+            myHeight2 = MyProfileHeader.myProfileBack.frame.height
+//
             MyProfileHeader.myProfileImage.image = UIImage(named: myprofileImageList[myprofileImageFlag - 1])
             MyProfileHeader.myProfileBack.image = UIImage(named: "whiteboxRecdetailactivityMyrecord")
-            
             MyProfileHeader.LvLabel?.text = "\(levelList[level-1])"
             MyProfileHeader.ScoreLabel?.text = "\(win)" + "승 " + "\(lose)" + "패"
             MyProfileHeader.myProfileName?.text = name
-            
+//
             
             return MyProfileHeader
         default: assert(false, "응 아니야") }
@@ -90,12 +95,16 @@ extension MyPageVC: UICollectionViewDataSource {
     }
     
     
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width: CGFloat = collectionView.frame.width
-        let height: CGFloat = 359
-        return CGSize(width: width, height: height) }
-    
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        let width: CGFloat = collectionView.frame.width
+////        let height: CGFloat = ( 386.0 / 750.0 ) * self.view.frame.height
+//        let height : CGFloat = 366
+////        print(self.view.frame.height, height)
+//        //CGFloat = 135.0 + 56.0 - 48.0 + 234.0
+//        //let height: CGFloat = 135.0 + 56.0 - 48.0 + 234.0
+//        return CGSize(width: width, height: height) }
+//
 }
 
 extension MyPageVC: UICollectionViewDelegateFlowLayout{
