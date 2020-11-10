@@ -14,8 +14,14 @@ struct APIConstants {
     static let loginURL = APIConstants.baseURL + "/user/login"
     //uuid 체크인
     static let uuidURL = APIConstants.baseURL + "/user/signUUID"
-    // 매칭 요청
-    static let matchingReqURL = APIConstants.baseURL + "/running/match"
+    
+    // 매칭 시작
+    static let matchingStartURL = APIConstants.baseURL + "/running/start"
+    // 상대 러너 찾기
+    static let findRunnerURL = APIConstants.baseURL + "/running/find"
+    // 매칭 중단하기
+    static let stopMatchingURL = APIConstants.baseURL + "/running/stopMatching"
+    
     //상대방 러너의 프로필 조회
     static let opponentInfoURL = APIConstants.baseURL + "/running/opponentInfo"
     //나의 모든 기록 조회
