@@ -63,8 +63,8 @@ struct MatchingService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(BadgeDetailData.self, from: value)
-                                completion(.success(result))
+                                let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
+                                completion(.success(result.data))
                             } catch {
                                 completion(.pathErr)
                             }
