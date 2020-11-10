@@ -352,7 +352,7 @@
                                     <constraint firstAttribute="width" secondItem="ZIj-Ph-tw9" secondAttribute="height" multiplier="227:6" id="4EU-52-4On"/>
                                 </constraints>
                             </progressView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="같은 레벨의 러너를 5분 안에 찾아서 알림을 드릴께요 러닝 전 준비운동을 해 주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-lt-U3q">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="같은 레벨의 러너를 3분 안에 찾아서 알림을 드릴께요 러닝 전 준비운동을 해 주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-lt-U3q">
                                 <rect key="frame" x="12.5" y="358" width="350" height="74"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
