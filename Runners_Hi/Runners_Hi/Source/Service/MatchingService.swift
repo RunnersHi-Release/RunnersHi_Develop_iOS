@@ -67,13 +67,15 @@ struct MatchingService {
                             } catch {
                                 completion(.pathErr)
                             }
-                        case 400: break
-                            //해당 유저가 대기열에 없을 때
+                        case 202: break
+                        //waiting
                         default:break
                         }
                     }
                 }
-            case .failure:completion(.networkFail)
+            case .failure:
+                //대기열에 해당 사용자가 없을 때
+                completion(.networkFail)
                 
             }
         }

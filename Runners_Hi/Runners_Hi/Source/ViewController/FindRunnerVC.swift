@@ -125,8 +125,16 @@ extension FindRunnerVC {
             switch data {
             case .success(let res):
                 let response = res as! UuidData<OpponentInfo>
-                self.opponentModel = response
-                self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+                if response.status == 200 {
+                    self.opponentModel = response
+                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+                } else {
+                    if self.moveTime < 1800 {
+                        self.findRunner()
+                    } else {
+                        // 매칭 중단하기
+                    }
+                }
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
