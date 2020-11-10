@@ -24,8 +24,11 @@ class MatchingStopVC: UIViewController {
     }
     
     @IBAction func stopButtonDidTap(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
         // 서버 끊는 코드
-        
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "StopFindRunner"),
+            object: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
