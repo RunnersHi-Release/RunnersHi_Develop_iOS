@@ -47,6 +47,10 @@ class MainVC: UIViewController {
         setbattleInformation()
        // getToken()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
+        self.blackView.removeFromSuperview()
+    }
     fileprivate func getToken() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
@@ -136,6 +140,9 @@ extension MainVC: UITableViewDelegate {
         return 90
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // cell 선택 안남게하기
+        
         if indexPath == [0,0] {
             //함께 달리기
             guard let PopUpPush = self.storyboard?.instantiateViewController(identifier:"MatchingGoalVC") as? MatchingGoalVC else {return}

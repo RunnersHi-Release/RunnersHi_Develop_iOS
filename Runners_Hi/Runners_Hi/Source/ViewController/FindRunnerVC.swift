@@ -80,6 +80,17 @@ extension FindRunnerVC {
         mentStopButton.setTitleColor(.white, for: .normal)
         mentStopButton.backgroundColor = UIColor.lightishBlue
         mentStopButton.layer.cornerRadius = 8
+        
+        NotificationCenter.default.addObserver(self,
+                    selector: #selector(popRootVC),
+                    name: NSNotification.Name(rawValue: "StopFindRunner"),
+                    object: nil)
+        
+    }
+    
+    @objc func popRootVC(){
+        self.stopMatchingRequest()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // progressbar 1초씩 줄어들게 하기
