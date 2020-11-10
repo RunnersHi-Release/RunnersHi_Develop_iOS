@@ -29,6 +29,7 @@ class FindRunnerVC: UIViewController {
     @IBOutlet weak var mentStopButton: UIButton!
     
     @IBAction func mentStopButtonClicked(_ sender: UIButton) {
+        // 중단하기 버튼 클릭 시 Event
         guard let popupVC = self.storyboard?.instantiateViewController(identifier: "MatchingStopVC") as? MatchingStopVC else {return}
         popupVC.modalPresentationStyle = .overCurrentContext
         popupVC.modalTransitionStyle = .crossDissolve
@@ -45,6 +46,7 @@ class FindRunnerVC: UIViewController {
 extension FindRunnerVC {
     private func basicAutoLayout() {
         
+        // 애니메이션 추가
         animationView = AnimationView(name: "matching")
         animationView?.contentMode = .scaleAspectFit
         animationView?.frame = self.loadingView.bounds
@@ -52,20 +54,27 @@ extension FindRunnerVC {
         animationView?.loopMode = .loop
         loadingView.addSubview(animationView!)
         
+        // navigation controller 숨기기
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundgray
         
+        // Progressbar 3분으로 흐르기
         timeProgressBar.setProgress(moveTime, animated: true)
         perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         timeProgressBar.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
         timeProgressBar.layer.cornerRadius = 3
         timeProgressBar.clipsToBounds = true
+        
+        // Label 디자인
         mentTextView.font = UIFont(name: "NanumSquare", size: 18)
         mentTextView.textAlignment = .center
         mentTextView.backgroundColor = UIColor.backgroundgray
+        
         //textView 수정 불가하게 하기
         mentTextView.isEditable = false
         // mentTextViewHeight.constant = mentTextView.contentSize.height
+        
+        // 매칭 중단하기 버튼 디자인
         mentStopButton.setTitle("매칭 중단하기", for: .normal)
         mentStopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         mentStopButton.setTitleColor(.white, for: .normal)
@@ -73,6 +82,7 @@ extension FindRunnerVC {
         mentStopButton.layer.cornerRadius = 8
     }
     
+    // progressbar 1초씩 줄어들게 하기
     @objc func updateProgressbar() {
         moveTime = moveTime + 1.0
         timeProgressBar.progress = moveTime/maxTime
@@ -82,6 +92,8 @@ extension FindRunnerVC {
             moveTime = 0.0
         }
     }
+    
+    // 매칭 요청 서버에게 보내기
     func matchingRequest(time: Int, wantGender: Int, token: String) {
         MatchingService.shared.matchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
         networkResult {
@@ -95,11 +107,15 @@ extension FindRunnerVC {
             }
         }
     }
+    
+    // CoreData에서 사용자 토큰 받아오기
     fileprivate func getToken() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
     }
+    
+    // 매칭 성공 시 상대방 정보 받아오기
     func getOpponentInfo() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
@@ -124,6 +140,8 @@ extension FindRunnerVC {
 
         }
     }
+    
+    // 상대방 정보 저장하는 함수
     fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
         CoreDataManager.shared.saveOpponent(level: level, lose: lose, nickname: nickname, profileImage: image, win: win) { onSuccess in
             print("saved = \(onSuccess)")
