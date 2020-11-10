@@ -98,7 +98,7 @@ extension FindRunnerVC {
         MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
         networkResult {
         case .success(let runIdx):
-            self.findRunner()
+            self.findRunnerRequest()
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
@@ -115,7 +115,7 @@ extension FindRunnerVC {
     }
     
     // 상대 러너 찾기
-    func findRunner() {
+    func findRunnerRequest() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
         MatchingService.shared.findRunnerReq(jwt: usersToken[0]) {
@@ -130,8 +130,9 @@ extension FindRunnerVC {
                     self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 } else {
                     if self.moveTime < 1800 {
-                        self.findRunner()
+                        self.findRunnerRequest()
                     } else {
+                        self.stopMatchingRequest()
                         // 매칭 중단하기
                     }
                 }
@@ -144,7 +145,28 @@ extension FindRunnerVC {
             case .networkFail:
                 print(".networkFail")
             }
-
+        }
+    }
+    func stopMatchingRequest() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        MatchingService.shared.stopMatchingReq(jwt: usersToken[0]) {
+            [weak self]
+            data in
+            guard let `self` = self else {return}
+            switch data {
+            case .success(let res):
+                self.navigationController?.popToRootViewController(animated: true)
+                //중단성공
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
         }
     }
     
