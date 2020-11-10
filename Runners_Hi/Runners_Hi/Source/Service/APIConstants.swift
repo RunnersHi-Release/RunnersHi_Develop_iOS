@@ -17,13 +17,11 @@ struct APIConstants {
     
     // 매칭 시작
     static let matchingStartURL = APIConstants.baseURL + "/running/start"
-    // 상대 러너 찾기
+    // 상대 러너 찾기(찾으면 프로필 조회)
     static let findRunnerURL = APIConstants.baseURL + "/running/find"
     // 매칭 중단하기
     static let stopMatchingURL = APIConstants.baseURL + "/running/stopMatching"
     
-    //상대방 러너의 프로필 조회
-    static let opponentInfoURL = APIConstants.baseURL + "/running/opponentInfo"
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"
     //뱃지 모아보기

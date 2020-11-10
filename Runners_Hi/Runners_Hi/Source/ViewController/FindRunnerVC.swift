@@ -98,9 +98,7 @@ extension FindRunnerVC {
         MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
         networkResult {
         case .success(let runIdx):
-            print("요기당")
-//            UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
-//            self.getOpponentInfo()
+            self.findRunner()
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
@@ -116,11 +114,11 @@ extension FindRunnerVC {
         matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
     }
     
-    // 매칭 성공 시 상대방 정보 받아오기
-    func getOpponentInfo() {
+    // 상대 러너 찾기
+    func findRunner() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
-        ProfileService.shared.opponentProfileLoading(jwt: usersToken[0], runIdx: UserDefaults.standard.string(forKey: "matchingIdx") ?? "") {
+        MatchingService.shared.findRunnerReq(jwt: usersToken[0]) {
             [weak self]
             data in
             guard let `self` = self else {return}

@@ -49,13 +49,11 @@ struct MatchingService {
         return .success(decodedData.success)
     }
     
-    func findRunnerRequest(jwt: String, completion: @escaping (NetworkResult<Any>)->Void) {
+    func findRunnerReq(jwt: String, completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.findRunnerURL
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
-        
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
-
             case .success:
                 if let value = response.result.value {
                     if let status = response.response?.statusCode {
@@ -64,17 +62,20 @@ struct MatchingService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
-                                completion(.success(result.data))
+                                completion(.success(result))
+                                // 상대방 정보 받아오기
                             } catch {
                                 completion(.pathErr)
                             }
+                        case 400: break
+                            //해당 유저가 대기열에 없을 때
                         default:break
                         }
                     }
                 }
             case .failure:completion(.networkFail)
+                
             }
         }
-        
     }
 }
