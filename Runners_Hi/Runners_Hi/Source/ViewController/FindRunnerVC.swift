@@ -95,15 +95,16 @@ extension FindRunnerVC {
     
     // 매칭 요청 서버에게 보내기
     func matchingRequest(time: Int, wantGender: Int, token: String) {
-        MatchingService.shared.matchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
+        MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
         networkResult {
         case .success(let runIdx):
-            UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
-            self.getOpponentInfo()
+            print("요기당")
+//            UserDefaults.standard.set(runIdx, forKey: "matchingIdx")
+//            self.getOpponentInfo()
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
-        case .networkFail: print("시간초과")
+        case .networkFail: print("networkFail")
             }
         }
     }
@@ -127,7 +128,7 @@ extension FindRunnerVC {
             case .success(let res):
                 let response = res as! UuidData<OpponentInfo>
                 self.opponentModel = response
-                self.saveOpponentInfo(nickname: self.opponentModel?.data?.nickname ?? "", win: Int64(self.opponentModel?.data?.win ?? -1), lose: Int64(self.opponentModel?.data?.lose ?? -1), image: Int64(self.opponentModel?.data?.image ?? -1), level: Int64(self.opponentModel?.data?.level ?? -1))
+                self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
             case .requestErr:
                 print(".requestErr")
             case .pathErr:

@@ -39,6 +39,14 @@ struct MatchingRequest: Codable {
 }
 
 struct OpponentInfo: Codable {
-    let nickname: String
-    let win, lose, image, level: Int
+    let opponentNickname: String
+    let opponentWin, opponentLose, opponentImage, opponentLevel: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case opponentLevel = "opponent_level"
+        case opponentNickname = "opponent_nickname"
+        case opponentImage = "opponent_image"
+        case opponentWin = "opponent_win"
+        case opponentLose = "opponent_lose"
+    }
 }
