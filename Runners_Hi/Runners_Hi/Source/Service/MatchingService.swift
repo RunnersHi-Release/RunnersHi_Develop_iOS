@@ -91,9 +91,10 @@ struct MatchingService {
                         switch status {
                         case 200:
                             do {
-//                                let decoder = JSONDecoder()
-//                                let result = try decoder.decode(DuplicateData.self, from: value)
-                                completion(.success(true))
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(DuplicateData.self, from: value)
+                                print(result.message)
+                                completion(.success(result.success))
                                 // 매칭 중단 성공
                             } catch {
                                 completion(.pathErr)
