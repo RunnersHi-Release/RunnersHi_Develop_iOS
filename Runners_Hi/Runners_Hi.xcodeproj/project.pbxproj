@@ -103,6 +103,7 @@
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */; };
+		9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0265D255BCF48007C3718 /* TimeOutVC.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +208,7 @@
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindRunnerVC.swift; sourceTree = "<group>"; };
+		9BE0265D255BCF48007C3718 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -364,6 +366,7 @@
 				06CDFEE02521D63800E773CC /* RecordDetailVC.swift */,
 				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
 				9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */,
+				9BE0265D255BCF48007C3718 /* TimeOutVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				06F40AF024BFA194001E04FB /* BadgeService.swift in Sources */,
 				06FD034124C241F1005EB6A9 /* BadgeDetailData.swift in Sources */,
 				066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */,
+				9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
