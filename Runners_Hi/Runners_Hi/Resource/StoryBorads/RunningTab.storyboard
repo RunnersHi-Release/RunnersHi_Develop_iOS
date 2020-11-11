@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IVq-Fp-6iv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dBg-Mb-yIf">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -594,26 +594,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-dl-EYn">
-                                <rect key="frame" x="122" y="227.5" width="131" height="152"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMatchfailactivityGrayhands" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-dl-EYn">
+                                <rect key="frame" x="122" y="208" width="131" height="152"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4G7-dl-EYn" secondAttribute="height" multiplier="131:152" id="hdN-bJ-J6y"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhl-mL-aZT">
-                                <rect key="frame" x="0.0" y="165" width="375" height="20.5"/>
+                                <rect key="frame" x="0.0" y="145.5" width="375" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkd-xt-gP8">
-                                <rect key="frame" x="0.0" y="411.5" width="375" height="20.5"/>
+                                <rect key="frame" x="0.0" y="392" width="375" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BER-lf-ZLW">
-                                <rect key="frame" x="50" y="476" width="275" height="104"/>
+                                <rect key="frame" x="50" y="456.5" width="275" height="104"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPR-px-sth">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="48"/>
@@ -633,7 +633,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jhl-mL-aZT" firstAttribute="centerX" secondItem="4G7-dl-EYn" secondAttribute="centerX" id="3QF-UA-cfs"/>
-                            <constraint firstItem="4G7-dl-EYn" firstAttribute="centerY" secondItem="2au-JH-Kdf" secondAttribute="centerY" constant="-30" id="DO9-iz-i9C"/>
+                            <constraint firstItem="4G7-dl-EYn" firstAttribute="top" secondItem="k7R-9w-wg2" secondAttribute="top" constant="208" id="3g6-5c-0vF"/>
                             <constraint firstItem="4G7-dl-EYn" firstAttribute="top" secondItem="jhl-mL-aZT" secondAttribute="bottom" constant="42" id="Egp-OE-P1h"/>
                             <constraint firstItem="2au-JH-Kdf" firstAttribute="trailing" secondItem="gkd-xt-gP8" secondAttribute="trailing" id="El4-PQ-L54"/>
                             <constraint firstItem="4G7-dl-EYn" firstAttribute="centerX" secondItem="k7R-9w-wg2" secondAttribute="centerX" id="IVj-4m-qmM"/>
@@ -648,6 +648,13 @@
                             <constraint firstItem="gkd-xt-gP8" firstAttribute="leading" secondItem="2au-JH-Kdf" secondAttribute="leading" id="wi1-4k-s7v"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firtstMentLabel" destination="jhl-mL-aZT" id="uJf-kN-ofh"/>
+                        <outlet property="goodButton" destination="nEb-k6-NVJ" id="Nd0-5X-C8y"/>
+                        <outlet property="nextButton" destination="sPR-px-sth" id="vGV-ga-aSZ"/>
+                        <outlet property="secondMentLabel" destination="gkd-xt-gP8" id="fR9-Qy-vmb"/>
+                        <outlet property="topLayout" destination="3g6-5c-0vF" id="Jp3-gc-k98"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBw-hx-Ar1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1453,6 +1460,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="imgMatchfailactivityGrayhands" width="131" height="152"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
