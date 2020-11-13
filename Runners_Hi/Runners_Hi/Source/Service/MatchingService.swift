@@ -115,4 +115,34 @@ struct MatchingService {
             }
         }
     }
+    func confirmMatching(jwt: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let header: HTTPHeaders = ["Content-Type": "application/json", "jwt" : jwt]
+        let dataRequest = Alamofire.request(APIConstants.confirmMatchingURL, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: header)
+
+        dataRequest.responseData { dataResponse in
+            switch dataResponse.result {
+            case .success :
+                guard let statusCode = dataResponse.response?.statusCode else { return }
+                guard let value = dataResponse.result.value else { return }
+                let networkResult = self.confirmJudge(by: statusCode, value)
+                completion(networkResult)
+            case .failure: completion(.networkFail)
+
+            }
+
+        }
+    }
+    private func confirmJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
+        switch statusCode {
+        case 200: return isConfirm(by: result)
+        case 400: return .pathErr
+        case 500: return .serverErr
+        default: return .networkFail
+        }
+    }
+    private func isConfirm(by result: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(UuidData<OpponentInfo>.self, from: result) else { return .pathErr }
+        return .success(decodedData.data)
+    }
 }
