@@ -44,8 +44,6 @@ struct MatchingService {
     private func isUuid(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(DuplicateData.self, from: result) else { return .pathErr }
-        print("hi")
-        print(decodedData.message)
         return .success(decodedData.success)
     }
     
@@ -62,7 +60,7 @@ struct MatchingService {
                             //상대 러너와 매칭 성공시
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
+                                let result = try decoder.decode(DuplicateData.self, from: value)
                                 completion(.success(result.status))
                             } catch {
                                 completion(.pathErr)
@@ -71,7 +69,7 @@ struct MatchingService {
                             // 매칭 대기 (30초 기다리면 온다)
                             do {
                                 let decoder = JSONDecoder()
-                                let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
+                                let result = try decoder.decode(DuplicateData.self, from: value)
                                 completion(.success(result.status))
                             } catch {
                                 completion(.pathErr)
