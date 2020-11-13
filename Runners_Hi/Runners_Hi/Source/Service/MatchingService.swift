@@ -59,16 +59,23 @@ struct MatchingService {
                     if let status = response.response?.statusCode {
                         switch status {
                         case 200:
+                            //상대 러너와 매칭 성공시
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
-                                completion(.success(result))
-                                // 상대방 정보 받아오기
+                                completion(.success(result.status))
                             } catch {
                                 completion(.pathErr)
                             }
-                        case 202: break
-                        //waiting
+                        case 204:
+                            // 매칭 대기 (30초 기다리면 온다)
+                            do {
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(UuidData<OpponentInfo>.self, from: value)
+                                completion(.success(result.status))
+                            } catch {
+                                completion(.pathErr)
+                            }
                         default:break
                         }
                     }
