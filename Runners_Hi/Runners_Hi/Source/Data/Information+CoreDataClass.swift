@@ -2,7 +2,7 @@
 //  Information+CoreDataClass.swift
 //  
 //
-//  Created by 김민희 on 2020/09/25.
+//  Created by 김민희 on 2020/11/14.
 //
 //
 

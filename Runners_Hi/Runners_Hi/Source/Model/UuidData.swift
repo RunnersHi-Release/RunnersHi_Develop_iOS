@@ -26,7 +26,7 @@ struct UuidData<T: Codable>: Codable {
 struct UuidDetail: Codable {
     let accessToken, nickname: String
     let gender, image, level: Int
-    let badge: String
+    let badge: [Bool]
     let win, lose: Int
 }
 
