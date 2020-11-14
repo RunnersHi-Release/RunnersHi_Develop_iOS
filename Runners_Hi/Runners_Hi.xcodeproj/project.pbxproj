@@ -92,17 +92,18 @@
 		9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12CC4C251DC11F00BE301B /* MatchingService.swift */; };
 		9B1A04E5252C57BB0016E405 /* RunPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */; };
 		9B1A04E8252C5B390016E405 /* RunPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1A04E7252C5B390016E405 /* RunPlace.swift */; };
-		9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */; };
 		9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */; };
 		9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */; };
 		9B3A8A4D2524E96100DF032A /* Opponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */; };
 		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
-		9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */; };
 		9B3A8A5C2525D54A00DF032A /* matching.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5B2525D54A00DF032A /* matching.json */; };
 		9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */; };
+		9BB7F871255EFB950089EAFB /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */; };
+		9BB7F872255EFB950089EAFB /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */; };
+		9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0265D255BCF48007C3718 /* TimeOutVC.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -196,17 +197,18 @@
 		9B12CC4C251DC11F00BE301B /* MatchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingService.swift; sourceTree = "<group>"; };
 		9B1A04E4252C57BB0016E405 /* RunPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlaceCell.swift; sourceTree = "<group>"; };
 		9B1A04E7252C5B390016E405 /* RunPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlace.swift; sourceTree = "<group>"; };
-		9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Opponent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Running+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matching.json; sourceTree = "<group>"; };
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindRunnerVC.swift; sourceTree = "<group>"; };
+		9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "/Volumes/NEW/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "/Volumes/NEW/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9BE0265D255BCF48007C3718 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -364,6 +366,7 @@
 				06CDFEE02521D63800E773CC /* RecordDetailVC.swift */,
 				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
 				9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */,
+				9BE0265D255BCF48007C3718 /* TimeOutVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -439,14 +442,14 @@
 		9B4165B9250C1CF7000448F1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9B3A8A492524E96000DF032A /* Information+CoreDataProperties.swift */,
 				9B3A8A472524E96000DF032A /* Opponent+CoreDataClass.swift */,
 				9B3A8A462524E95F00DF032A /* Opponent+CoreDataProperties.swift */,
-				9B3A8A442524E95F00DF032A /* Information+CoreDataClass.swift */,
 				9B3A8A452524E95F00DF032A /* Running+CoreDataClass.swift */,
 				9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */,
 				9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */,
 				9BE60826250F84CF00A9D763 /* CoreDataManager.swift */,
+				9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */,
+				9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				06F40AF024BFA194001E04FB /* BadgeService.swift in Sources */,
 				06FD034124C241F1005EB6A9 /* BadgeDetailData.swift in Sources */,
 				066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */,
+				9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
@@ -620,7 +624,6 @@
 				06F40ACB24B8565D001E04FB /* DuplicateService.swift in Sources */,
 				3DB705A624C09153005BFA1C /* RecentMyData.swift in Sources */,
 				9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */,
-				9B3A8A4A2524E96100DF032A /* Information+CoreDataClass.swift in Sources */,
 				06F40AF624C0582D001E04FB /* MonthlyCell.swift in Sources */,
 				9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */,
 				06F40AFA24C083BD001E04FB /* LoserCell.swift in Sources */,
@@ -629,6 +632,7 @@
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */,
 				9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */,
+				9BB7F871255EFB950089EAFB /* Information+CoreDataClass.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
 				3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */,
 				06F40AE024BCE38A001E04FB /* RecordTabChildVC1.swift in Sources */,
@@ -649,7 +653,7 @@
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */,
 				06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */,
-				9B3A8A4F2524E96100DF032A /* Information+CoreDataProperties.swift in Sources */,
+				9BB7F872255EFB950089EAFB /* Information+CoreDataProperties.swift in Sources */,
 				9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */,
 				06F40AD724BAEFC9001E04FB /* SignUpService.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,

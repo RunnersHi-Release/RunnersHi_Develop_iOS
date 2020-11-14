@@ -53,7 +53,7 @@ class CoreDataManager {
         return opponentModels
         
     }
-    func saveUser(accessToken: String, nickname: String, gender: Int64, level: Int64, image: Int64, badge: String, win: Int64, lose: Int64, onSuccess: @escaping ((Bool) -> Void)) {
+    func saveUser(accessToken: String, nickname: String, gender: Int64, level: Int64, image: Int64, badge: [Bool], win: Int64, lose: Int64, onSuccess: @escaping ((Bool) -> Void)) {
         if let context = context,
             let entity: NSEntityDescription
             = NSEntityDescription.entity(forEntityName: infoModel, in: context) {

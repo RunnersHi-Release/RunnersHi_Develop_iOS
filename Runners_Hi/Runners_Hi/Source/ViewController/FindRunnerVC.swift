@@ -90,7 +90,7 @@ extension FindRunnerVC {
     
     @objc func popRootVC(){
         self.stopMatchingRequest()
-        self.navigationController?.popToRootViewController(animated: true)
+        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     // progressbar 1초씩 줄어들게 하기
@@ -139,7 +139,8 @@ extension FindRunnerVC {
                 if response.status == 200 {
                     self.opponentModel = response
                     self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
-                } else {
+                }
+                else if response.status == 204 {
                     if self.moveTime < 1800 {
                         self.findRunnerRequest()
                     } else {
@@ -167,6 +168,8 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
+                print(res)
+                print("욤?")
                 self.navigationController?.popToRootViewController(animated: true)
                 //중단성공
             case .requestErr:
@@ -187,7 +190,7 @@ extension FindRunnerVC {
             print("saved = \(onSuccess)")
             if onSuccess == true {
                 guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-                self.navigationController?.pushViewController(LetsRun, animated: true)
+                //self.navigationController?.pushViewController(LetsRun, animated: true)
             }
         }
     }
