@@ -138,6 +138,7 @@ extension FindRunnerVC {
             case .success(let res):
                 let response = res as! DuplicateData
                 if response.status == 200 {
+                    self.confirmMatchingRequest(jwt: usersToken[0])
                     // 매칭 성공
 //                    self.opponentModel = response
 //                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
@@ -190,6 +191,23 @@ extension FindRunnerVC {
             }
         }
     }
+    func confirmMatchingRequest(jwt: String) {
+        MatchingService.shared.confirmMatching(jwt: jwt) { networkResult in switch
+        networkResult {
+        case .success(let res):
+            print(res)
+            let response = res as! UuidData<OpponentInfo>
+            self.opponentModel = response
+            self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+            UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
+            
+        case .requestErr: print("requestErr")
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            }
+        }
+    }
     
     // 상대방 정보 저장하는 함수
     fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
@@ -197,7 +215,7 @@ extension FindRunnerVC {
             print("saved = \(onSuccess)")
             if onSuccess == true {
                 guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-                //self.navigationController?.pushViewController(LetsRun, animated: true)
+                self.navigationController?.pushViewController(LetsRun, animated: true)
             }
         }
     }

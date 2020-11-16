@@ -142,7 +142,8 @@ struct MatchingService {
     private func confirmJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
         switch statusCode {
         case 200: return isConfirm(by: result)
-        case 400: return .pathErr
+//        case 404: // 해당 유저가 매칭 되지 않았는데 메세지를 보냈을 때
+//        case 400: // 해당 유저가 대기열에 없을 때
         case 500: return .serverErr
         default: return .networkFail
         }
@@ -150,6 +151,8 @@ struct MatchingService {
     private func isConfirm(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData<OpponentInfo>.self, from: result) else { return .pathErr }
-        return .success(decodedData.data)
+        print("hiefjijfe")
+        print(decodedData.data)
+        return .success(decodedData)
     }
 }
