@@ -99,9 +99,10 @@ extension FindRunnerVC {
         timeProgressBar.progress = moveTime/maxTime
         if moveTime < maxTime {
             perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
-        } else {
-            moveTime = 0.0
         }
+//        else {
+//            moveTime = 0.0
+//        }
     }
     
     // 매칭 요청 서버에게 보내기
@@ -135,18 +136,24 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
-                let response = res as! UuidData<OpponentInfo>
+                let response = res as! DuplicateData
                 if response.status == 200 {
-                    self.opponentModel = response
-                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+                    // 매칭 성공
+//                    self.opponentModel = response
+//                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 }
-                else if response.status == 204 {
-                    if self.moveTime < 1800 {
+                else if response.status == 408 {
+                    //매칭대기중
+                    if self.moveTime < self.maxTime {
                         self.findRunnerRequest()
                     } else {
                         self.stopMatchingRequest()
                         // 매칭 중단하기
                     }
+                }
+                else if response.status == 400 {
+                    print("대기열에 없을때")
+                    print(response.message)
                 }
             case .requestErr:
                 print(".requestErr")
