@@ -94,7 +94,7 @@ struct MatchingService {
         }
     }
     func stopMatchingReq(jwt: String, completion: @escaping (NetworkResult<Any>)->Void) {
-        let URL = APIConstants.findRunnerURL
+        let URL = APIConstants.stopMatchingURL
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
         Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
@@ -106,7 +106,7 @@ struct MatchingService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(DuplicateData.self, from: value)
-                                completion(.success(result.success))
+                                completion(.success(result))
                                 // 매칭 중단 성공
                             } catch {
                                 completion(.pathErr)

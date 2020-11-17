@@ -90,7 +90,6 @@ extension FindRunnerVC {
     
     @objc func popRootVC(){
         self.stopMatchingRequest()
-        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     // progressbar 1초씩 줄어들게 하기
