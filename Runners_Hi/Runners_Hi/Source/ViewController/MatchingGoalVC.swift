@@ -26,15 +26,10 @@ class MatchingGoalVC: UIViewController {
         
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         basicAutoLayout()
         setGoalList()
-       // swipeRecognizer()
-       // self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     private func setGoalList() {
@@ -132,8 +127,4 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
     }
 
     
-}
-
-extension MatchingGoalVC: UIGestureRecognizerDelegate {
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool { return true }
 }

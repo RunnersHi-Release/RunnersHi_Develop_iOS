@@ -175,8 +175,6 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
-                print(res)
-                print("욤?")
                 self.navigationController?.popToRootViewController(animated: true)
                 //중단성공
             case .requestErr:
