@@ -23,6 +23,7 @@ class NotFindRunnerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
@@ -47,11 +48,15 @@ extension NotFindRunnerVC {
         fourthMentLabel.font = UIFont(name: "NanumSquareR", size: 16)
         
         nextTimeButton.setTitle("다음에 할래요.", for: .normal)
+        nextTimeButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         nextTimeButton.tintColor = .white
         nextTimeButton.backgroundColor = UIColor.brownishGrey
+        nextTimeButton.layer.cornerRadius = 8
         
         yesButton.setTitle("좋아요", for: .normal)
+        yesButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         yesButton.tintColor = .white
         yesButton.backgroundColor = UIColor.lightishBlue
+        yesButton.layer.cornerRadius = 8
     }
 }
