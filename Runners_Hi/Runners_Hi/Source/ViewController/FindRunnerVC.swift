@@ -90,7 +90,6 @@ extension FindRunnerVC {
     
     @objc func popRootVC(){
         self.stopMatchingRequest()
-        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     // progressbar 1초씩 줄어들게 하기
@@ -99,9 +98,10 @@ extension FindRunnerVC {
         timeProgressBar.progress = moveTime/maxTime
         if moveTime < maxTime {
             perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
-        } else {
-            moveTime = 0.0
         }
+//        else {
+//            moveTime = 0.0
+//        }
     }
     
     // 매칭 요청 서버에게 보내기
@@ -135,18 +135,25 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
-                let response = res as! UuidData<OpponentInfo>
+                let response = res as! DuplicateData
                 if response.status == 200 {
-                    self.opponentModel = response
-                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+                    self.confirmMatchingRequest(jwt: usersToken[0])
+                    // 매칭 성공
+//                    self.opponentModel = response
+//                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 }
-                else if response.status == 204 {
-                    if self.moveTime < 1800 {
+                else if response.status == 408 {
+                    //매칭대기중
+                    if self.moveTime < self.maxTime {
                         self.findRunnerRequest()
                     } else {
                         self.stopMatchingRequest()
                         // 매칭 중단하기
                     }
+                }
+                else if response.status == 400 {
+                    print("대기열에 없을때")
+                    print(response.message)
                 }
             case .requestErr:
                 print(".requestErr")
@@ -183,6 +190,23 @@ extension FindRunnerVC {
             }
         }
     }
+    func confirmMatchingRequest(jwt: String) {
+        MatchingService.shared.confirmMatching(jwt: jwt) { networkResult in switch
+        networkResult {
+        case .success(let res):
+            print(res)
+            let response = res as! UuidData<OpponentInfo>
+            self.opponentModel = response
+            self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+            UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
+            
+        case .requestErr: print("requestErr")
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            }
+        }
+    }
     
     // 상대방 정보 저장하는 함수
     fileprivate func saveOpponentInfo(nickname: String, win: Int64, lose: Int64, image: Int64, level: Int64) {
@@ -190,7 +214,7 @@ extension FindRunnerVC {
             print("saved = \(onSuccess)")
             if onSuccess == true {
                 guard let LetsRun = self.storyboard?.instantiateViewController(identifier:"OpponentProfileVC") as? OpponentProfileVC else {return}
-                //self.navigationController?.pushViewController(LetsRun, animated: true)
+                self.navigationController?.pushViewController(LetsRun, animated: true)
             }
         }
     }

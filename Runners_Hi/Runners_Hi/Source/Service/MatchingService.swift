@@ -52,8 +52,7 @@ struct MatchingService {
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
-            case .success:
-                if let value = response.result.value {
+            case .success:                if let value = response.result.value {
                     if let status = response.response?.statusCode {
                         switch status {
                         case 200:
@@ -61,16 +60,25 @@ struct MatchingService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(DuplicateData.self, from: value)
-                                completion(.success(result.status))
+                                completion(.success(result))
                             } catch {
                                 completion(.pathErr)
                             }
-                        case 204:
-                            // 매칭 대기 (30초 기다리면 온다)
+                        case 408:
+                            // 매칭 대기 중
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(DuplicateData.self, from: value)
-                                completion(.success(result.status))
+                                completion(.success(result))
+                            } catch {
+                                completion(.pathErr)
+                            }
+                        case 400:
+                            // 대기열에 존재하지 않을 때
+                            do {
+                                let decoder = JSONDecoder()
+                                let result = try decoder.decode(DuplicateData.self, from: value)
+                                completion(.success(result))
                             } catch {
                                 completion(.pathErr)
                             }
@@ -86,7 +94,7 @@ struct MatchingService {
         }
     }
     func stopMatchingReq(jwt: String, completion: @escaping (NetworkResult<Any>)->Void) {
-        let URL = APIConstants.findRunnerURL
+        let URL = APIConstants.stopMatchingURL
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
         Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
@@ -98,8 +106,7 @@ struct MatchingService {
                             do {
                                 let decoder = JSONDecoder()
                                 let result = try decoder.decode(DuplicateData.self, from: value)
-                                print(result.message)
-                                completion(.success(result.success))
+                                completion(.success(result))
                                 // 매칭 중단 성공
                             } catch {
                                 completion(.pathErr)
@@ -109,7 +116,6 @@ struct MatchingService {
                     }
                 }
             case .failure:
-                //대기열에 해당 사용자가 없을 때
                 completion(.networkFail)
                 
             }
@@ -126,7 +132,8 @@ struct MatchingService {
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.confirmJudge(by: statusCode, value)
                 completion(networkResult)
-            case .failure: completion(.networkFail)
+            case .failure:
+                completion(.networkFail)
 
             }
 
@@ -135,7 +142,8 @@ struct MatchingService {
     private func confirmJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
         switch statusCode {
         case 200: return isConfirm(by: result)
-        case 400: return .pathErr
+//        case 404: // 해당 유저가 매칭 되지 않았는데 메세지를 보냈을 때
+//        case 400: // 해당 유저가 대기열에 없을 때
         case 500: return .serverErr
         default: return .networkFail
         }
@@ -143,6 +151,8 @@ struct MatchingService {
     private func isConfirm(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData<OpponentInfo>.self, from: result) else { return .pathErr }
-        return .success(decodedData.data)
+        print("hiefjijfe")
+        print(decodedData.data)
+        return .success(decodedData)
     }
 }

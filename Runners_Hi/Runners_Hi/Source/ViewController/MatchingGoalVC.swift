@@ -26,11 +26,15 @@ class MatchingGoalVC: UIViewController {
         
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         basicAutoLayout()
         setGoalList()
+       // swipeRecognizer()
+       // self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     private func setGoalList() {
@@ -62,6 +66,22 @@ extension MatchingGoalVC {
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.setTitle("NEXT",for: .normal)
         nextButton.layer.cornerRadius = 8
+    }
+    
+    func swipeRecognizer() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction{
+            case UISwipeGestureRecognizer.Direction.right:
+                self.navigationController?.popViewController(animated: true)
+            default: break
+            }
+        }
     }
     
 }
@@ -112,4 +132,8 @@ extension MatchingGoalVC: UICollectionViewDelegateFlowLayout {
     }
 
     
+}
+
+extension MatchingGoalVC: UIGestureRecognizerDelegate {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool { return true }
 }
