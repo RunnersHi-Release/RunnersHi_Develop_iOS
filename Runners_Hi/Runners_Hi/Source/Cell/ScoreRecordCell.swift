@@ -23,9 +23,7 @@ class ScoreRecordCell: UICollectionViewCell {
         set()
     }
     func set(){
-        print("ddd")
-        print(UIScreen.main.bounds.height)
-        if UIScreen.main.bounds.height < 700 {
+        if UIScreen.main.bounds.height < 820 {
             getKmLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:24.0)
             getTimeLabel.font = UIFont(name:"AvenirNext-BoldItalic", size:24.0)
         } else {
