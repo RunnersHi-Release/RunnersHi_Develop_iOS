@@ -11,6 +11,8 @@
 		066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1524C1823100A2C440 /* ProfileBadgeCell.swift */; };
 		066DED1824C186AD00A2C440 /* MyProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1724C186AC00A2C440 /* MyProfileData.swift */; };
 		066DED1A24C1873F00A2C440 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066DED1924C1873F00A2C440 /* ProfileService.swift */; };
+		067DA26B256D515000D51C53 /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA26A256D515000D51C53 /* Information+CoreDataClass.swift */; };
+		067DA26C256D515000D51C53 /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA269256D515000D51C53 /* Information+CoreDataProperties.swift */; };
 		0683DBC524B3BC190038E317 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683DBC424B3BC190038E317 /* Gender.swift */; };
 		06CDFEE12521D63800E773CC /* RecordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CDFEE02521D63800E773CC /* RecordDetailVC.swift */; };
 		06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AB724B4FF13001E04FB /* SignUpVC.swift */; };
@@ -101,8 +103,6 @@
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9B8B0F8A25401227006057CC /* NotFindRunnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */; };
-		9BB7F871255EFB950089EAFB /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */; };
-		9BB7F872255EFB950089EAFB /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */; };
 		9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE0265D255BCF48007C3718 /* TimeOutVC.swift */; };
 		9BE60827250F84CF00A9D763 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60826250F84CF00A9D763 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +112,8 @@
 		066DED1524C1823100A2C440 /* ProfileBadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeCell.swift; sourceTree = "<group>"; };
 		066DED1724C186AC00A2C440 /* MyProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileData.swift; sourceTree = "<group>"; };
 		066DED1924C1873F00A2C440 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		067DA269256D515000D51C53 /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "../../../Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		067DA26A256D515000D51C53 /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "../../../Information+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		06CDFEE02521D63800E773CC /* RecordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailVC.swift; sourceTree = "<group>"; };
 		06F40AB724B4FF13001E04FB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -206,8 +208,6 @@
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindRunnerVC.swift; sourceTree = "<group>"; };
-		9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "/Volumes/NEW/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "/Volumes/NEW/RunnersHi_Develop_iOS/Runners_Hi/Runners_Hi/Source/Data/Information+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9BE0265D255BCF48007C3718 /* TimeOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOutVC.swift; sourceTree = "<group>"; };
 		9BE60826250F84CF00A9D763 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A10E15E2F556AA99591BED3B /* Pods-Runners_Hi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runners_Hi.release.xcconfig"; path = "Target Support Files/Pods-Runners_Hi/Pods-Runners_Hi.release.xcconfig"; sourceTree = "<group>"; };
@@ -448,8 +448,8 @@
 				9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */,
 				9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */,
 				9BE60826250F84CF00A9D763 /* CoreDataManager.swift */,
-				9BB7F86F255EFB940089EAFB /* Information+CoreDataClass.swift */,
-				9BB7F870255EFB950089EAFB /* Information+CoreDataProperties.swift */,
+				067DA26A256D515000D51C53 /* Information+CoreDataClass.swift */,
+				067DA269256D515000D51C53 /* Information+CoreDataProperties.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -632,7 +632,7 @@
 				06F40ABF24B5F785001E04FB /* LevelSelectCell.swift in Sources */,
 				9B3A8A4C2524E96100DF032A /* Opponent+CoreDataProperties.swift in Sources */,
 				9B3A8A4B2524E96100DF032A /* Running+CoreDataClass.swift in Sources */,
-				9BB7F871255EFB950089EAFB /* Information+CoreDataClass.swift in Sources */,
+				067DA26B256D515000D51C53 /* Information+CoreDataClass.swift in Sources */,
 				3DA2EA2224B24DD20091F12F /* TabBarController.swift in Sources */,
 				3D8AF1FD24BB740800754BAB /* CountdownVC.swift in Sources */,
 				06F40AE024BCE38A001E04FB /* RecordTabChildVC1.swift in Sources */,
@@ -653,7 +653,7 @@
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
 				9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */,
 				06F40AD324B96C9F001E04FB /* LoginService.swift in Sources */,
-				9BB7F872255EFB950089EAFB /* Information+CoreDataProperties.swift in Sources */,
+				067DA26C256D515000D51C53 /* Information+CoreDataProperties.swift in Sources */,
 				9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */,
 				06F40AD724BAEFC9001E04FB /* SignUpService.swift in Sources */,
 				3DF24FA524ACB36B003B3187 /* SceneDelegate.swift in Sources */,
