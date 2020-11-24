@@ -13,6 +13,8 @@ struct RankingService {
     private init() {}
     static let shared = RankingService()
     
+
+    
     func monthlyRankingloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.monthlyURL
         let users: [Information] = CoreDataManager.shared.getUsers()
@@ -48,7 +50,9 @@ struct RankingService {
     
     func winnerRankingloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.winnerURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : usersToken[0] ]
        
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
@@ -76,7 +80,9 @@ struct RankingService {
     
     func loserRankingloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.loserURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        let headers: HTTPHeaders = ["Content-Type" : "application/json","jwt" : usersToken[0] ]
        
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {

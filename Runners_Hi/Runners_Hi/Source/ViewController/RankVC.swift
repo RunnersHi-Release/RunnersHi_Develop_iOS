@@ -147,14 +147,16 @@ extension RankVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
         
+        let width = (self.view.frame.width) * (126/375)
+        let height = width
         if collectionView == monthlyCollectionView {
-            return CGSize(width: 126, height: 126)
+            return CGSize(width: width, height: height)
         }
         else if collectionView == winnerCollectionView {
-            return CGSize(width : 126, height: 126)
+            return CGSize(width : width, height: height)
         }
         else {
-            return CGSize(width: 126, height: 126)
+            return CGSize(width: width, height: height)
         }
     }
     
