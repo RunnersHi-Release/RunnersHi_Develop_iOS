@@ -140,8 +140,6 @@ extension FindRunnerVC {
                 if response.status == 200 {
                     self.confirmMatchingRequest(jwt: usersToken[0])
                     // 매칭 성공
-//                    self.opponentModel = response
-//                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 }
                 else if response.status == 408 {
                     //매칭대기중

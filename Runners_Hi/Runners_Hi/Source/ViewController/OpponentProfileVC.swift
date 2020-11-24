@@ -27,8 +27,8 @@ class OpponentProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        //setLabel()
-        //perform(#selector(sleepTime), with: nil, afterDelay: 3.0)
+        setLabel()
+        perform(#selector(sleepTime), with: nil, afterDelay: 3.0)
         
     }
 
