@@ -12,19 +12,29 @@ class MainNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupFullWidthBackGesture()
     }
     
+    private lazy var fullWidthBackGestureRecognizer = UIPanGestureRecognizer()
 
-    /*
-    // MARK: - Navigation
+        private func setupFullWidthBackGesture() {
+            guard
+                let interactivePopGestureRecognizer = interactivePopGestureRecognizer,
+                let targets = interactivePopGestureRecognizer.value(forKey: "targets")
+            else {
+                return
+            }
+            fullWidthBackGestureRecognizer.setValue(targets, forKey: "targets")
+            fullWidthBackGestureRecognizer.delegate = self
+            view.addGestureRecognizer(fullWidthBackGestureRecognizer)
+        }
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+extension MainNavigationController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let isSystemSwipeToBackEnabled = interactivePopGestureRecognizer?.isEnabled == true
+        let isThereStackedViewControllers = viewControllers.count > 1
+        return isSystemSwipeToBackEnabled && isThereStackedViewControllers
     }
-    */
-
 }

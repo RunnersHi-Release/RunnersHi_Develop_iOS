@@ -90,6 +90,7 @@ extension FindRunnerVC {
     
     @objc func popRootVC(){
         self.stopMatchingRequest()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // progressbar 1초씩 줄어들게 하기
@@ -148,6 +149,8 @@ extension FindRunnerVC {
                         self.findRunnerRequest()
                     } else {
                         self.stopMatchingRequest()
+                        guard let notFindRunner = self.storyboard?.instantiateViewController(identifier:"NotFindRunnerVC") as? NotFindRunnerVC else {return}
+                        self.navigationController?.pushViewController(notFindRunner, animated: true)
                         // 매칭 중단하기
                     }
                 }
@@ -175,9 +178,7 @@ extension FindRunnerVC {
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
-                print(res)
-                print("욤?")
-                self.navigationController?.popToRootViewController(animated: true)
+                print(".success")
                 //중단성공
             case .requestErr:
                 print(".requestErr")
