@@ -109,7 +109,7 @@ extension RecordTabChildVC1 {
             switch data {
                 
             case .success(let res):
-                let response = res as! RecordAllData<Result>
+                let response = res as? RecordAllData<Result>
                 self.RecordModel = response
                 self.scoreRecordCollectionView.reloadData()
             case .requestErr:
