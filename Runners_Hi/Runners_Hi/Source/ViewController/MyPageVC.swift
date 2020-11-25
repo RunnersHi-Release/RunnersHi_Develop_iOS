@@ -50,7 +50,6 @@ extension MyPageVC: UICollectionViewDataSource {
 //        let profileBadgeList = MyProfileModel?.result.badge
         let users: [Information] = CoreDataManager.shared.getUsers()
         let profileBadgeList = (users.map({($0.badge)})[0])
-        print("나오나?",profileBadgeList)
         
         if profileBadgeList?[indexPath.row] == false {
             ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
