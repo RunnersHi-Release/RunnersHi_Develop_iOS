@@ -53,9 +53,14 @@ extension MyPageVC: UICollectionViewDataSource {
         
         if profileBadgeList?[indexPath.row] == false {
             ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
+            
+            // false일 때는 item select 안되도록 설정
+            ProfileBadgeCell.isUserInteractionEnabled = false
         }
         else {
             ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBadgeImage[indexPath.row])
+            ProfileBadgeCell.isUserInteractionEnabled = true
+
         }
         
         
