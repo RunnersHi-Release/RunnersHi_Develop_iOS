@@ -193,7 +193,6 @@ extension FindRunnerVC {
         MatchingService.shared.confirmMatching(jwt: jwt) { networkResult in switch
         networkResult {
         case .success(let res):
-            print(res)
             let response = res as! UuidData<OpponentInfo>
             self.opponentModel = response
             self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))

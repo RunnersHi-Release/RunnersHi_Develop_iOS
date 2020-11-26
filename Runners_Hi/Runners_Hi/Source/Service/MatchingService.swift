@@ -151,8 +151,6 @@ struct MatchingService {
     private func isConfirm(by result: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(UuidData<OpponentInfo>.self, from: result) else { return .pathErr }
-        print("hiefjijfe")
-        print(decodedData.data)
         return .success(decodedData)
     }
 }
