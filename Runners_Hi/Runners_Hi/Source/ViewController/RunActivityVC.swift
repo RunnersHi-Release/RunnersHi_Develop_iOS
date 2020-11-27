@@ -9,7 +9,6 @@
 import UIKit
 
 import CoreMotion
-import SocketIO
 import NMapsMap
 import CoreLocation
 
@@ -48,14 +47,9 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     var formatter = DateFormatter()
     
     @IBOutlet weak var lockButton: UIButton!
-    @IBOutlet weak var backBoxImage: UIImageView!
     
-    @IBOutlet weak var opponentImage: UIImageView!
-    @IBOutlet weak var opponentNickLabel: UILabel! // 상대방 닉네임
-    @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var opponentLevelLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var opponentScoreLabel: UILabel!
+
+    @IBOutlet weak var runPlaceCollectionView: UICollectionView!
     
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var finishTimeLabel: UILabel!
@@ -85,16 +79,18 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var naverView: UIView!
     
     @IBAction func lockButtonDidTap(_ sender: UIButton) {
-        if self.view.isUserInteractionEnabled == false {
-            self.view.isUserInteractionEnabled = true
-        } else {
-            self.view.isUserInteractionEnabled = false
-        }
+        runPlaceCollectionView.moveItem(at: [0,0], to: [0,1])
+//        if self.view.isUserInteractionEnabled == false {
+//            self.view.isUserInteractionEnabled = true
+//        } else {
+//            self.view.isUserInteractionEnabled = false
+//        }
     }
     
     
     override func viewDidLoad() {
-        
+        print("높이를 확인해보자..")
+        print(runPlaceCollectionView.frame.height, 64/341 * (runPlaceCollectionView.frame.width))
         secToTime(sec: limitTime)
         pedometer = CMPedometer()
         startTimer()
@@ -117,21 +113,15 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         })
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
-//        FindRunnerVC.socket.on("endRunning", callback: { (data, ack) in
-//            UserDefaults.standard.set(self.formatter.string(from: Date()), forKey: "endTime")
-//            guard let FinishRun = self.storyboard?.instantiateViewController(identifier:"RunFinishVC") as? RunFinishVC else {return}
-//            self.navigationController?.pushViewController(FinishRun, animated: true)
-//        })
-            
-
         perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
 
         super.viewDidLoad()
         setMap()
         setView()
+        setPlace()
         setLabel()
-        setOpponentProfile()
-            
+        runPlaceCollectionView.dataSource = self
+        runPlaceCollectionView.delegate = self
     }
 }
 
@@ -165,7 +155,12 @@ extension RunActivityVC {
    }
     func setPlace() {
         let users: [Information] = CoreDataManager.shared.getUsers()
-        let data1 = RunPlace(profile: users.map({Int(($0.image ?? 0))})[0], nick: users.map({($0.nickname ?? "")})[0], level: "", win: 1, lose: 1)
+        let opponents: [Opponent] = CoreDataManager.shared.getOpponent()
+        
+        runPlace.append(contentsOf : [
+            RunPlace(rank: 1,profile: (users.map({Int(($0.image))})[0]), nick: (users.map({($0.nickname ?? "")})[0]), level: (users.map({Int(($0.level))})[0]), win: (users.map({Int(($0.win))})[0]), lose: (users.map({Int(($0.lose))})[0])),
+            RunPlace(rank: 2, profile: (opponents.map({Int(($0.profileImage))})[0]), nick: (opponents.map({String(($0.nickname ?? ""))})[0]), level: (opponents.map({Int(($0.level))})[0]), win: (opponents.map({Int(($0.win))})[0]), lose: (opponents.map({Int(($0.lose))})[0]))
+        ])
     }
     
     
@@ -175,16 +170,6 @@ extension RunActivityVC {
     }
     
     func setLabel() {
-        levelLabel.text = "Lv."
-        levelLabel.font = UIFont(name: "NanumSquare", size: 12)
-        
-        scoreLabel.text = "전적"
-        scoreLabel.font = UIFont(name: "NanumSquare", size: 12)
-        
-        opponentNickLabel.font = UIFont(name: "NanumSquareB", size: 12)
-        opponentLevelLabel.font = UIFont(name: "NanumSquareB", size: 14)
-        opponentScoreLabel.font = UIFont(name: "NanumSquareB", size: 14)
-        
         startTimeLabel.text = "00:00"
         startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
 
@@ -222,11 +207,15 @@ extension RunActivityVC {
     }
     
     func setView() {
-
+//        runPlaceCollectionView.layer.cornerRadius = 10
+//        runPlaceCollectionView.layer.shadowOffset = CGSize(width: 0,height: 2)
+//        runPlaceCollectionView.layer.shadowRadius = 4
+//        runPlaceCollectionView.layer.shadowOpacity = 0.1
+        
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
         
-        backBoxImage.image = UIImage(named: "runactivityWhitebox")
+     //   backBoxImage.image = UIImage(named: "runactivityWhitebox")
         runningInfoView.backgroundColor = UIColor.salmon
         runningInfoView.layer.cornerRadius = 12
         
@@ -252,20 +241,6 @@ extension RunActivityVC {
         runningStopButton.layer.cornerRadius = 8
     }
     
-    func setOpponentProfile() {
-        let inputLevel = UserDefaults.standard.object(forKey: "opponentLevel") ?? 0
-        let inputNick = UserDefaults.standard.object(forKey: "opponentNick") ?? " "
-        let inputWin = UserDefaults.standard.object(forKey: "opponentWin") ?? 0
-        let inputLose = UserDefaults.standard.object(forKey: "opponentLose") ?? 0
-        let inputImage = UserDefaults.standard.object(forKey: "opponentImg") ?? 0
-        
-        opponentImage.image = UIImage(named: profileImageStruct[(inputImage as? Int ?? 0) - 1])
-        opponentNickLabel.text = inputNick as? String ?? " "
-        opponentScoreLabel.text = "\(inputWin as? Int ?? 0)승 \(inputLose as? Int ?? 0)패"
-        opponentLevelLabel.text = levelStruct[(inputLevel as? Int ?? 0) - 1]
-        
-    }
-    
     @objc func runProgressbar() {
         if moveTime < maxTime {
             moveTime = moveTime + 1.0
@@ -278,9 +253,7 @@ extension RunActivityVC {
             } else {
                  move = Int(distance)
             }
-//            print(move, "뭘바요..")
             UserDefaults.standard.set(move, forKey: "opponetDistance")
-//            FindRunnerVC.socket.emit("endRunning", UserDefaults.standard.object(forKey: "opponentRoom") as? String ?? " ",UserDefaults.standard.object(forKey: "opponetDistance") as? Int ?? 2 )
         }
     }
         func secToTime(sec: Int){
@@ -334,4 +307,38 @@ extension RunActivityVC {
 
 }
 
-
+extension RunActivityVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return runPlace.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RunPlaceCell.identifier, for: indexPath) as? RunPlaceCell else {
+            
+            return UICollectionViewCell()
+            
+        }
+        cell.setCell(runPlace: runPlace[indexPath.row])
+        
+        return cell
+    }
+    
+    
+}
+extension RunActivityVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
+                            indexPath: IndexPath) -> CGSize {
+        //(collectionView.frame.width-17*2)
+//        return CGSize(width: (collectionView.frame.width), height: 64/341 * (collectionView.frame.width))
+        return CGSize(width: collectionView.frame.width - 17*2, height: 64)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 17 }
+}
