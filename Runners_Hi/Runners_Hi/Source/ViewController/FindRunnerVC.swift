@@ -85,6 +85,7 @@ extension FindRunnerVC {
                                                selector: #selector(popRootVC),
                                                name: NSNotification.Name(rawValue: "StopFindRunner"),
                                                object: nil)
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -153,8 +154,7 @@ extension FindRunnerVC {
                     }
                 }
                 else if response.status == 400 {
-                    print("대기열에 없을때")
-                    print(response.message)
+                    self.getToken()
                 }
             case .requestErr:
                 print(".requestErr")
@@ -195,14 +195,19 @@ extension FindRunnerVC {
         case .success(let res):
             let response = res as! UuidData<OpponentInfo>
             self.opponentModel = response
+            
             if self.opponentModel?.message == "상대 러너의 승인 대기 중" {
                 let users: [Information] = CoreDataManager.shared.getUsers()
                 let usersToken: [String] = users.map({($0.accessToken ?? "")})
                 self.confirmMatchingRequest(jwt: usersToken[0])
-            } else if self.opponentModel?.message == "러닝 승인 성공" {
+            }
+            else if self.opponentModel?.message == "러닝 승인 성공" {
                 self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
+            } else if (self.opponentModel?.status == 400) || (self.opponentModel?.status == 408) {
+                self.findRunnerRequest()
             }
+            
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
