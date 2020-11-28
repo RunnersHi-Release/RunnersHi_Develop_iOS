@@ -12,7 +12,7 @@ struct RankingData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let result: [T]
+    let data: [T]
 }
 
 struct Monthly: Codable {

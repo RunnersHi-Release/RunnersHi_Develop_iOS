@@ -32,13 +32,21 @@ struct RecordService {
                         print(status)
                         switch status {
                         case 200:
-                            print("204가 되었다는 자리")
+                            print("200가 되었다는 자리")
                             do {
                                 print("do가 되었다")
                                 let decoder = JSONDecoder()
+                                print("문제1")
                                 let result = try decoder.decode(RecordAllData<Result>.self, from: value)
+                                print("문제2")
+                                print(result)
+
                                 completion(.success(result))
+                                print("문제3")
+
                                 print(result.data)
+                                print("문제4")
+
                             } catch {
                                 completion(.pathErr)
                             }

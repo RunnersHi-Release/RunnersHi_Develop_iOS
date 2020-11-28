@@ -33,7 +33,9 @@ class MyPageVC: UIViewController {
 
 extension MyPageVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyProfileModel?.result.badge.count ?? 0    }
+//        return MyProfileModel?.result.badge.count ?? 0
+        return 9
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
@@ -45,13 +47,20 @@ extension MyPageVC: UICollectionViewDataSource {
         let myProfileBadgeLabel = ["첫승달성","10승 달성", "50승 달성", "최고 페이스", "최장 거리", "최저 페이스", "50시간 달성", "100시간 달성", "150시간 달성", "10일 연속 러닝", "연속 5승", "연속 10승"]
         
         // 배지 이미지 삽입
-        let profileBadgeList = MyProfileModel?.result.badge
+//        let profileBadgeList = MyProfileModel?.result.badge
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let profileBadgeList = (users.map({($0.badge)})[0])
         
         if profileBadgeList?[indexPath.row] == false {
             ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBeforeBadgeImage[indexPath.row])
+            
+            // false일 때는 item select 안되도록 설정
+            ProfileBadgeCell.isUserInteractionEnabled = false
         }
         else {
             ProfileBadgeCell.myProfileBadge.image = UIImage(named: myProfileBadgeImage[indexPath.row])
+            ProfileBadgeCell.isUserInteractionEnabled = true
+
         }
         
         

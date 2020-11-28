@@ -15,7 +15,7 @@ struct BadgeService {
     
     func badgeloading(completion: @escaping (NetworkResult<Any>)->Void) {
         let URL = APIConstants.badgeURL
-        let headers: HTTPHeaders = ["Content-Type" : "application/json", "token" : UserDefaults.standard.object(forKey: "token") as? String ?? " "]
+        let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : UserDefaults.standard.object(forKey: "jwt") as? String ?? " "]
         
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
