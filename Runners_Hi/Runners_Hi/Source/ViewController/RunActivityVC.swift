@@ -14,7 +14,7 @@ import CoreLocation
 
 class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     private var runPlace: [RunPlace] = []
-
+    
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
     // values for the pedometer data
@@ -28,7 +28,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     var locationManager:CLLocationManager!
     
     @IBOutlet weak var scrolleView: UIScrollView!
-
+    
     var pedometer = CMPedometer()
     var move: Int = 0
     var timer = Timer()
@@ -48,7 +48,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var lockButton: UIButton!
     
-
+    
     @IBOutlet weak var runPlaceCollectionView: UICollectionView!
     
     @IBOutlet weak var startTimeLabel: UILabel!
@@ -80,11 +80,11 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func lockButtonDidTap(_ sender: UIButton) {
         runPlaceCollectionView.moveItem(at: [0,0], to: [0,1])
-//        if self.view.isUserInteractionEnabled == false {
-//            self.view.isUserInteractionEnabled = true
-//        } else {
-//            self.view.isUserInteractionEnabled = false
-//        }
+        //        if self.view.isUserInteractionEnabled == false {
+        //            self.view.isUserInteractionEnabled = true
+        //        } else {
+        //            self.view.isUserInteractionEnabled = false
+        //        }
     }
     
     
@@ -114,7 +114,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
-
+        
         super.viewDidLoad()
         setMap()
         setView()
@@ -128,10 +128,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
 
 
 extension RunActivityVC {
-    //private var levels = ["초급","중급","고급"]
     func startTimer(){
-//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         if timer.isValid { timer.invalidate() }
         timer = Timer.scheduledTimer(timeInterval: timerInterval,target: self,selector: #selector(timerAction(timer:)) ,userInfo: nil,repeats: true)
     }
@@ -139,9 +136,9 @@ extension RunActivityVC {
         displayPedometerData()
     }
     func displayPedometerData(){
-
+        
         if let distance = self.distance {
-        opponentKmLabel.text = String(format:"%02.02f",distance/1000)
+            opponentKmLabel.text = String(format:"%02.02f",distance/1000)
             let pace1 = Int(moveTime/Float(distance/1000))
             let pace2 = Int(pace1/60)
             let pace3 = Int(pace1%60)
@@ -149,10 +146,10 @@ extension RunActivityVC {
             if pace2 >= 60 {
                 opponentPaceLabel.text = "_'__''"
             } else {
-            opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
+                opponentPaceLabel.text = String(pace2) + "'" + String(pace3) + "''"
             }
         }
-   }
+    }
     func setPlace() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let opponents: [Opponent] = CoreDataManager.shared.getOpponent()
@@ -172,7 +169,7 @@ extension RunActivityVC {
     func setLabel() {
         startTimeLabel.text = "00:00"
         startTimeLabel.font = UIFont(name: "NanumSquareB", size: 14)
-
+        
         if maxTime == 1800.0 {
             finishTimeLabel.text = "30:00"
         } else if maxTime == 2700.0 {
@@ -207,15 +204,10 @@ extension RunActivityVC {
     }
     
     func setView() {
-//        runPlaceCollectionView.layer.cornerRadius = 10
-//        runPlaceCollectionView.layer.shadowOffset = CGSize(width: 0,height: 2)
-//        runPlaceCollectionView.layer.shadowRadius = 4
-//        runPlaceCollectionView.layer.shadowOpacity = 0.1
         
         lockButton.setBackgroundImage(UIImage(named: "iconUnlock"), for: .normal)
         lockButton.setTitle(nil, for: .normal)
         
-     //   backBoxImage.image = UIImage(named: "runactivityWhitebox")
         runningInfoView.backgroundColor = UIColor.salmon
         runningInfoView.layer.cornerRadius = 12
         
@@ -251,60 +243,59 @@ extension RunActivityVC {
             if distance == nil {
                 move = 1
             } else {
-                 move = Int(distance)
+                move = Int(distance)
             }
             UserDefaults.standard.set(move, forKey: "opponetDistance")
         }
     }
-        func secToTime(sec: Int){
-           let hour = sec / 3600
-           let minute = (sec % 3600) / 60
-           let second = (sec % 3600) % 60
-            if hour == 0 {
-                opponentLeftTimeLabel.text = String(minute) + ":" + String(second)
-            } else if minute == 0 {
-                opponentLeftTimeLabel.text = String(second)
-            } else {
-                opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
-            }
-
-            if moveTime < maxTime {
-                perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
-            }
-
-       }
-
-        @objc func getSetTime() {
+    func secToTime(sec: Int){
+        let hour = sec / 3600
+        let minute = (sec % 3600) / 60
+        let second = (sec % 3600) % 60
+        if hour == 0 {
+            opponentLeftTimeLabel.text = String(minute) + ":" + String(second)
+        } else if minute == 0 {
+            opponentLeftTimeLabel.text = String(second)
+        } else {
+            opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
+        }
+        
+        if moveTime < maxTime {
+            perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
+        }
+        
+    }
+    
+    @objc func getSetTime() {
         if moveTime < maxTime {
             secToTime(sec: limitTime)
             limitTime = limitTime - 1
-            } else {
-                opponentLeftTimeLabel.text = "00:00"
-            }
-
+        } else {
+            opponentLeftTimeLabel.text = "00:00"
+        }
+        
     }
     @objc func setMap() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.requestWhenInUseAuthorization()
-                
-            let coor = locationManager.location?.coordinate
-            let latiutd = (coor?.latitude) ?? 0.00
-            let longitud = (coor?.longitude) ?? 0.00
-                
-            let mapView = NMFMapView(frame: naverView.bounds)
-            naverView.addSubview(mapView)
-            mapView.positionMode = .direction
-
-            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
-            cameraUpdate.animation = .easeIn
-            cameraUpdate.animationDuration = 1
-            mapView.moveCamera(cameraUpdate)
-            
-
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        let coor = locationManager.location?.coordinate
+        let latiutd = (coor?.latitude) ?? 0.00
+        let longitud = (coor?.longitude) ?? 0.00
+        
+        let mapView = NMFMapView(frame: naverView.bounds)
+        naverView.addSubview(mapView)
+        mapView.positionMode = .direction
+        
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latiutd, lng: longitud))
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 1
+        mapView.moveCamera(cameraUpdate)
+        
     }
-
-
+    
+    
 }
 
 extension RunActivityVC: UICollectionViewDataSource {
@@ -326,12 +317,11 @@ extension RunActivityVC: UICollectionViewDataSource {
     
 }
 extension RunActivityVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
-                            indexPath: IndexPath) -> CGSize {
-        //(collectionView.frame.width-17*2)
-//        return CGSize(width: (collectionView.frame.width), height: 64/341 * (collectionView.frame.width))
-        return CGSize(width: collectionView.frame.width - 17*2, height: 64)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width - 17*2, height: 64/341 * (collectionView.frame.width - 17*2))
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) }
     

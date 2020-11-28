@@ -34,7 +34,7 @@ class RunPlaceCell: UICollectionViewCell {
         }
         profileImage.image = UIImage(named: profileImageStruct[runPlace.profile - 1])
         nickLabel.text = runPlace.nick
-        levelLabel.text = "\(runPlace.level)"
+        levelLabel.text = levelStruct[runPlace.level - 1]
         totalLabel.text = "\(runPlace.win)승 \(runPlace.lose)패"
     }
     func setFont() {
