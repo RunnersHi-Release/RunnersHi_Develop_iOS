@@ -99,6 +99,7 @@
 		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
 		9B3A8A5C2525D54A00DF032A /* matching.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5B2525D54A00DF032A /* matching.json */; };
 		9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */; };
+		9B5FB660257236F0005AE52F /* RunningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5FB65F257236F0005AE52F /* RunningService.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
 		9B7464EB25715352002A5849 /* RunPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7464EA25715352002A5849 /* RunPlaceCell.swift */; };
@@ -205,6 +206,7 @@
 		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matching.json; sourceTree = "<group>"; };
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		9B5FB65F257236F0005AE52F /* RunningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningService.swift; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9B7464EA25715352002A5849 /* RunPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlaceCell.swift; sourceTree = "<group>"; };
 		9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindRunnerVC.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				066DED1924C1873F00A2C440 /* ProfileService.swift */,
 				06FD034224C2444D005EB6A9 /* BadgeDetailService.swift */,
 				9B12CC4C251DC11F00BE301B /* MatchingService.swift */,
+				9B5FB65F257236F0005AE52F /* RunningService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
+				9B5FB660257236F0005AE52F /* RunningService.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
 				3DEED91224B57E00002D31A9 /* BattleInformation.swift in Sources */,
 				3DC2841424B83AF10063439D /* OpponentProfileVC.swift in Sources */,

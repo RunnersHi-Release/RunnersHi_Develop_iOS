@@ -87,6 +87,12 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         //        }
     }
     
+    @IBAction func stopButtonDidTap(_ sender: Any) {
+        // 러닝 경쟁 중단하기 버튼 클릭 시 이벤트
+        
+    
+    }
+    
     
     override func viewDidLoad() {
         print("높이를 확인해보자..")

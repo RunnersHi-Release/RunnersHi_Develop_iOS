@@ -1041,6 +1041,9 @@
                                                     <constraint firstAttribute="height" constant="48" id="afF-9O-lAJ"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="stopButtonDidTap:" destination="h4D-69-37P" eventType="touchUpInside" id="tRC-id-3cn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
