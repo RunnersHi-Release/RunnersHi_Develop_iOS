@@ -31,6 +31,7 @@ class RankVC: UIViewController {
         super.viewDidLoad()
         RankVC_View.backgroundColor = .backgroundgray
         
+        
         monthlyCollectionView.delegate = self
         monthlyCollectionView.dataSource = self
         monthlyCollectionView.backgroundColor = .backgroundgray
@@ -146,10 +147,11 @@ extension RankVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
+        let width = (self.view.frame.size.width) * (140/375)
+        let height = width * (142/140)
         
-        let width = (self.view.frame.width) * (126/375)
-        let height = width
         if collectionView == monthlyCollectionView {
+            
             return CGSize(width: width, height: height)
         }
         else if collectionView == winnerCollectionView {

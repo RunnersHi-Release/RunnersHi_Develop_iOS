@@ -27,7 +27,7 @@ class WinnerCell: UICollectionViewCell {
         
         winnerRankBack?.image = UIImage(named: "whiteboxRankfragment")
         winnerRankRibbon?.image = UIImage(named: "lankingbadge")
-        winnerRankNum?.font = UIFont(name: "NotoSans-Medium", size:12.0)
+        winnerRankNum?.font = UIFont(name: "NanumSquareB", size:12.0)
         winnerRankNum?.textColor = .white
         winnerRankName?.font = UIFont(name: "NanumSquareB", size:15.0)
         winnerRankScore?.font = UIFont(name: "NanumSquareR", size:12.0)
