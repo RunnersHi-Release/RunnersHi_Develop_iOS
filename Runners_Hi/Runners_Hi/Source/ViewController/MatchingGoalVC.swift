@@ -28,6 +28,7 @@ class MatchingGoalVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(goalCollectionView.frame.height)
         basicAutoLayout()
         setGoalList()
     }

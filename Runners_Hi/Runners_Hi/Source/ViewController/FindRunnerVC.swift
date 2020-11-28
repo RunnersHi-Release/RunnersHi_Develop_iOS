@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 
 class FindRunnerVC: UIViewController {
-
+    
     var opponentModel : UuidData<OpponentInfo>?
     
     let maxTime: Float = 180.0
@@ -19,10 +19,10 @@ class FindRunnerVC: UIViewController {
     var leftTime: Int = 180
     var room: String = ""
     var animationView: AnimationView?
-
+    
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var timeProgressBar: UIProgressView!
-
+    
     @IBOutlet weak var mentTextView: UITextView!
     
     @IBOutlet weak var mentTextViewHeight: NSLayoutConstraint!
@@ -82,9 +82,10 @@ extension FindRunnerVC {
         mentStopButton.layer.cornerRadius = 8
         
         NotificationCenter.default.addObserver(self,
-                    selector: #selector(popRootVC),
-                    name: NSNotification.Name(rawValue: "StopFindRunner"),
-                    object: nil)
+                                               selector: #selector(popRootVC),
+                                               name: NSNotification.Name(rawValue: "StopFindRunner"),
+                                               object: nil)
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -100,22 +101,22 @@ extension FindRunnerVC {
         if moveTime < maxTime {
             perform(#selector(updateProgressbar), with: nil, afterDelay: 1.0)
         }
-//        else {
-//            moveTime = 0.0
-//        }
+        //        else {
+        //            moveTime = 0.0
+        //        }
     }
     
     // 매칭 요청 서버에게 보내기
     func matchingRequest(time: Int, wantGender: Int, token: String) {
         MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
-        networkResult {
+            networkResult {
         case .success(let runIdx):
             self.findRunnerRequest()
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
-            }
+        }
         }
     }
     
@@ -140,8 +141,6 @@ extension FindRunnerVC {
                 if response.status == 200 {
                     self.confirmMatchingRequest(jwt: usersToken[0])
                     // 매칭 성공
-//                    self.opponentModel = response
-//                    self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 }
                 else if response.status == 408 {
                     //매칭대기중
@@ -155,8 +154,7 @@ extension FindRunnerVC {
                     }
                 }
                 else if response.status == 400 {
-                    print("대기열에 없을때")
-                    print(response.message)
+                    self.getToken()
                 }
             case .requestErr:
                 print(".requestErr")
@@ -179,7 +177,7 @@ extension FindRunnerVC {
             switch data {
             case .success(let res):
                 print(".success")
-                //중단성공
+            //중단성공
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
@@ -193,19 +191,28 @@ extension FindRunnerVC {
     }
     func confirmMatchingRequest(jwt: String) {
         MatchingService.shared.confirmMatching(jwt: jwt) { networkResult in switch
-        networkResult {
+            networkResult {
         case .success(let res):
-            print(res)
             let response = res as! UuidData<OpponentInfo>
             self.opponentModel = response
-            self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
-            UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
+            
+            if self.opponentModel?.message == "상대 러너의 승인 대기 중" {
+                let users: [Information] = CoreDataManager.shared.getUsers()
+                let usersToken: [String] = users.map({($0.accessToken ?? "")})
+                self.confirmMatchingRequest(jwt: usersToken[0])
+            }
+            else if self.opponentModel?.message == "러닝 승인 성공" {
+                self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
+                UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
+            } else if (self.opponentModel?.status == 400) || (self.opponentModel?.status == 408) {
+                self.findRunnerRequest()
+            }
             
         case .requestErr: print("requestErr")
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
-            }
+        }
         }
     }
     

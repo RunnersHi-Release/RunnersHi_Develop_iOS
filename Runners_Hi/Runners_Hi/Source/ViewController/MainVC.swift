@@ -48,6 +48,8 @@ class MainVC: UIViewController {
        // getToken()
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.popUpTableView.transform = CGAffineTransform(translationX: 0, y: self.popUpTableView.frame.height)
         self.blackView.removeFromSuperview()
     }

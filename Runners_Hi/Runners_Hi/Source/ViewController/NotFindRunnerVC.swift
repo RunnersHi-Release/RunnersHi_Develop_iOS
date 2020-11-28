@@ -20,6 +20,16 @@ class NotFindRunnerVC: UIViewController {
     @IBOutlet weak var yesButton: UIButton!
     
     
+    @IBAction func nextTimeButtonDidTap(_ sender: Any) {
+        // 홈으로 돌아가기
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func yesButtonDidTap(_ sender: Any) {
+        // 나와 경쟁하기
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -47,7 +57,7 @@ extension NotFindRunnerVC {
         fourthMentLabel.text = "어제의 나를 이겨보세요"
         fourthMentLabel.font = UIFont(name: "NanumSquareR", size: 16)
         
-        nextTimeButton.setTitle("다음에 할래요.", for: .normal)
+        nextTimeButton.setTitle("다음에 할래요", for: .normal)
         nextTimeButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         nextTimeButton.tintColor = .white
         nextTimeButton.backgroundColor = UIColor.brownishGrey
