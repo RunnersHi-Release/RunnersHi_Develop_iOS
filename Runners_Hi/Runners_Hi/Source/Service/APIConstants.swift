@@ -24,6 +24,9 @@ struct APIConstants {
     // 매칭 확인하기(매칭 확인되면 프로필 조회)
     static let confirmMatchingURL = APIConstants.baseURL + "/running/confirm"
     
+    // 러닝 업데이트
+    static let runningUpdateURL = APIConstants.baseURL + "/running/update/"
+    
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"
     //뱃지 모아보기

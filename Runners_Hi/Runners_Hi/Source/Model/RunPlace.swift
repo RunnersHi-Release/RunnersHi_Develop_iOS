@@ -9,13 +9,15 @@
 import Foundation
 
 struct RunPlace {
+    var rank: Int
     var profile: Int
     var nick: String
-    var level: String
+    var level: Int
     var win: Int
     var lose: Int
     
-    init(profile: Int, nick: String, level: String, win: Int, lose:Int) {
+    init(rank: Int, profile: Int, nick: String, level: Int, win: Int, lose:Int) {
+        self.rank = rank
         self.profile = profile
         self.nick = nick
         self.level = level
