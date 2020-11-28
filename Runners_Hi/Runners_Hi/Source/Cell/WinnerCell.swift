@@ -24,7 +24,7 @@ class WinnerCell: UICollectionViewCell {
     }
     
     func winnerset(){
-        
+    
         winnerRankBack?.image = UIImage(named: "whiteboxRankfragment")
         winnerRankRibbon?.image = UIImage(named: "lankingbadge")
         winnerRankNum?.font = UIFont(name: "NanumSquareB", size:12.0)
