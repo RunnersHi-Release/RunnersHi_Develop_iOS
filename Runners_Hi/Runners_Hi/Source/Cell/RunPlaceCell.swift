@@ -27,11 +27,11 @@ class RunPlaceCell: UICollectionViewCell {
     }
     
     func setCell(runPlace: RunPlace) {
-        if runPlace.rank == 1 {
-            placeImage.image = UIImage(named: "iconRunWin")
-        } else if runPlace.rank == 2 {
-            placeImage.image = UIImage(named: "iconRunLose")
-        }
+//        if runPlace.rank == 1 {
+//            placeImage.image = UIImage(named: "iconRunWin")
+//        } else if runPlace.rank == 2 {
+//            placeImage.image = UIImage(named: "iconRunLose")
+//        }
         profileImage.image = UIImage(named: profileImageStruct[runPlace.profile - 1])
         nickLabel.text = runPlace.nick
         levelLabel.text = levelStruct[runPlace.level - 1]

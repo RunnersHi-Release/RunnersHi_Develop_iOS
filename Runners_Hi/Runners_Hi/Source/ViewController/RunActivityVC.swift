@@ -14,6 +14,8 @@ import CoreLocation
 
 class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     private var runPlace: [RunPlace] = []
+    var rank : UuidData<RunningRankingData>?
+    var myRank : Int = 1
     
     let stopColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     let startColor = UIColor(red: 0.0, green: 0.75, blue: 0.0, alpha: 1.0)
@@ -79,7 +81,14 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var naverView: UIView!
     
     @IBAction func lockButtonDidTap(_ sender: UIButton) {
-        runPlaceCollectionView.moveItem(at: [0,0], to: [0,1])
+        DispatchQueue.main.async {
+            self.runPlaceCollectionView.moveItem(at: [0,0], to: [0,1])
+        }
+        let tmp = self.runPlace[0]
+        self.runPlace[0] = self.runPlace[1]
+        self.runPlace[1] = tmp
+        self.runPlaceCollectionView.reloadData()
+        
         //        if self.view.isUserInteractionEnabled == false {
         //            self.view.isUserInteractionEnabled = true
         //        } else {
@@ -322,6 +331,37 @@ extension RunActivityVC {
         }
         
     }
+    @objc func getRanking() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        RunningService.shared.getRunningRanking(jwt: usersToken[0]) {
+            networkResult in switch
+                networkResult {
+            case .success(let data):
+                guard let loadData = data as? UuidData<RunningRankingData> else {return}
+                self.rank = loadData
+                if let my = self.rank?.data?.ranking {
+                    self.myRank = my
+                }
+                if self.myRank == 1 && self.runPlace[1].nick == (users.map({($0.nickname ?? "")})[0]) {
+                    // 내가 2위였는데 1위로 바꿔야 할 때
+                    self.runPlaceCollectionView.moveItem(at: [0,1], to: [0,0])
+                } else if self.myRank == 2 && self.runPlace[0].nick == (users.map({($0.nickname ?? "")})[0]) {
+                    // 내가 1위였는데 2위로 바꿔야 할 때
+                    self.runPlaceCollectionView.moveItem(at: [0,0], to: [0,1])
+                }
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+        }
+        
+    }
     
     
 }
@@ -336,6 +376,12 @@ extension RunActivityVC: UICollectionViewDataSource {
             
             return UICollectionViewCell()
             
+        }
+
+        if indexPath.row == 0 {
+            cell.placeImage.image =  UIImage(named: "iconRunWin")
+        } else {
+            cell.placeImage.image = UIImage(named: "iconRunLose")
         }
         cell.setCell(runPlace: runPlace[indexPath.row])
         
