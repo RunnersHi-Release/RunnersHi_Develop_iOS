@@ -66,7 +66,7 @@ class ProfilePopUpVC: UIViewController {
     }
     @IBAction func PopUpBack(_ sender: Any) {
         NotificationCenter.default.post(name: .sendPopUpFlag, object: nil, userInfo: ["flag": popUpProfileFlag])
-        //receiveViewController.giveProfileFlag = popUpProfileFlag
+       
         self.dismiss(animated: true, completion: nil)
     }
     
