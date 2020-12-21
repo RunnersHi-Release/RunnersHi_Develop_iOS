@@ -14,6 +14,9 @@
 		067DA26B256D515000D51C53 /* Information+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA26A256D515000D51C53 /* Information+CoreDataClass.swift */; };
 		067DA26C256D515000D51C53 /* Information+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA269256D515000D51C53 /* Information+CoreDataProperties.swift */; };
 		0683DBC524B3BC190038E317 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0683DBC424B3BC190038E317 /* Gender.swift */; };
+		069E958B2590C97B006C36D6 /* SignUpActivity1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E958A2590C97B006C36D6 /* SignUpActivity1VC.swift */; };
+		069E958E2590CB16006C36D6 /* SignUpActivity2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E958D2590CB16006C36D6 /* SignUpActivity2VC.swift */; };
+		069E95912590CB34006C36D6 /* SignUpActivity3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E95902590CB34006C36D6 /* SignUpActivity3VC.swift */; };
 		06CDFEE12521D63800E773CC /* RecordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CDFEE02521D63800E773CC /* RecordDetailVC.swift */; };
 		06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40AB724B4FF13001E04FB /* SignUpVC.swift */; };
 		06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */; };
@@ -116,6 +119,9 @@
 		067DA269256D515000D51C53 /* Information+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataProperties.swift"; path = "../../../Information+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		067DA26A256D515000D51C53 /* Information+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Information+CoreDataClass.swift"; path = "../../../Information+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0683DBC424B3BC190038E317 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		069E958A2590C97B006C36D6 /* SignUpActivity1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpActivity1VC.swift; path = Runners_Hi/Source/ViewController/SignUpActivity1VC.swift; sourceTree = SOURCE_ROOT; };
+		069E958D2590CB16006C36D6 /* SignUpActivity2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpActivity2VC.swift; path = Runners_Hi/Source/ViewController/SignUpActivity2VC.swift; sourceTree = SOURCE_ROOT; };
+		069E95902590CB34006C36D6 /* SignUpActivity3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpActivity3VC.swift; path = Runners_Hi/Source/ViewController/SignUpActivity3VC.swift; sourceTree = SOURCE_ROOT; };
 		06CDFEE02521D63800E773CC /* RecordDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailVC.swift; sourceTree = "<group>"; };
 		06F40AB724B4FF13001E04FB /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		06F40ABA24B4FF89001E04FB /* GenderSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectCell.swift; sourceTree = "<group>"; };
@@ -368,6 +374,9 @@
 				06CDFEE02521D63800E773CC /* RecordDetailVC.swift */,
 				9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */,
 				9B8B0F8925401227006057CC /* NotFindRunnerVC.swift */,
+				069E958D2590CB16006C36D6 /* SignUpActivity2VC.swift */,
+				069E95902590CB34006C36D6 /* SignUpActivity3VC.swift */,
+				069E958A2590C97B006C36D6 /* SignUpActivity1VC.swift */,
 				9BE0265D255BCF48007C3718 /* TimeOutVC.swift */,
 			);
 			path = ViewController;
@@ -611,6 +620,7 @@
 				066DED1624C1823100A2C440 /* ProfileBadgeCell.swift in Sources */,
 				9BE0265E255BCF48007C3718 /* TimeOutVC.swift in Sources */,
 				3DCAF8A124B79A33009B3AE5 /* FindRunnerVC.swift in Sources */,
+				069E958B2590C97B006C36D6 /* SignUpActivity1VC.swift in Sources */,
 				3DCDF01B24B60A0B003F47CE /* BattleGoalSelectCell.swift in Sources */,
 				9B5FB660257236F0005AE52F /* RunningService.swift in Sources */,
 				3DA2EA1A24B1E7FF0091F12F /* MainVC.swift in Sources */,
@@ -652,6 +662,7 @@
 				06F40AEE24BF7A33001E04FB /* BadgeCell.swift in Sources */,
 				06FD033F24C238AB005EB6A9 /* BadgeDetailVC.swift in Sources */,
 				06F40AE624BD75BA001E04FB /* ScoreRecordCell.swift in Sources */,
+				069E958E2590CB16006C36D6 /* SignUpActivity2VC.swift in Sources */,
 				3DCAF89D24B6F0BD009B3AE5 /* MatchingGenderVC.swift in Sources */,
 				06F40ABB24B4FF89001E04FB /* GenderSelectCell.swift in Sources */,
 				06F40AB824B4FF13001E04FB /* SignUpVC.swift in Sources */,
@@ -669,6 +680,7 @@
 				3DB705A424C06335005BFA1C /* ResultRunningVC.swift in Sources */,
 				9B3A8A4D2524E96100DF032A /* Opponent+CoreDataClass.swift in Sources */,
 				3DEED91024B57D82002D31A9 /* PopUpCell.swift in Sources */,
+				069E95912590CB34006C36D6 /* SignUpActivity3VC.swift in Sources */,
 				06F40AC124B5F7CF001E04FB /* Level.swift in Sources */,
 				06F40AEA24BDD56E001E04FB /* RecordAllData.swift in Sources */,
 				3DC11A9B24B9CD5500127718 /* RunActivityVC.swift in Sources */,
