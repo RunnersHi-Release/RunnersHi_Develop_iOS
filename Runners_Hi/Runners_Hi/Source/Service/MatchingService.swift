@@ -36,7 +36,6 @@ struct MatchingService {
     private func judge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
         switch statusCode {
         case 200: return isUuid(by: result)
-        case 408: return isUuid(by: result)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -52,6 +51,8 @@ struct MatchingService {
         let URL = APIConstants.findRunnerURL
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
         Alamofire.request(URL, method: .post, parameters: makeParameter(time, wantGender), encoding: JSONEncoding.default, headers: headers).responseData { dataResponse in
+            print("i'm fine")
+            print(dataResponse.response?.statusCode)
             switch dataResponse.result {
             case .success :
                 guard let statusCode = dataResponse.response?.statusCode else { return }
@@ -111,8 +112,8 @@ struct MatchingService {
     }
     private func confirmJudge(by statusCode: Int, _ result: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return isConfirm(by: result)
-        //        case 404: // 해당 유저가 매칭 되지 않았는데 메세지를 보냈을 때
+        case 200...202: return isConfirm(by: result)
+        case 404: return isConfirm(by: result)
         //        case 400: // 해당 유저가 대기열에 없을 때
         case 500: return .serverErr
         default: return .networkFail

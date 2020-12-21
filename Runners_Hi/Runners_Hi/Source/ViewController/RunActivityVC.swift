@@ -252,8 +252,6 @@ extension RunActivityVC {
     }
     
     func secToTime(sec: Int){
-        print("여기까지오세용")
-        print(moveTime)
         let hour = sec / 3600
         let minute = (sec % 3600) / 60
         let second = (sec % 3600) % 60
