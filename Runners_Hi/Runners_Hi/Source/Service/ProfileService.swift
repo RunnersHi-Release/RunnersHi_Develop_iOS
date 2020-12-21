@@ -28,8 +28,10 @@ struct ProfileService {
                         case 200:
                             do {
                                 let decoder = JSONDecoder()
+
                                 let result = try decoder.decode(MyProfile.self, from: value)
                                 completion(.success(result))
+
                             } catch {
                                 completion(.pathErr)
                             }

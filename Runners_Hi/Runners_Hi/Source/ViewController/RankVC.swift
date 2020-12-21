@@ -31,6 +31,7 @@ class RankVC: UIViewController {
         super.viewDidLoad()
         RankVC_View.backgroundColor = .backgroundgray
         
+        
         monthlyCollectionView.delegate = self
         monthlyCollectionView.dataSource = self
         monthlyCollectionView.backgroundColor = .backgroundgray
@@ -57,13 +58,13 @@ class RankVC: UIViewController {
 extension RankVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == monthlyCollectionView {
-            return monthlyRankingModel?.result.count ?? 0
+            return monthlyRankingModel?.data.count ?? 0
         }
         else if collectionView == winnerCollectionView {
-            return winnerRankingModel?.result.count ?? 0
+            return winnerRankingModel?.data.count ?? 0
         }
         else {
-            return loserRankingModel?.result.count ?? 0
+            return loserRankingModel?.data.count ?? 0
         }
     }
     
@@ -78,14 +79,14 @@ extension RankVC: UICollectionViewDataSource {
             
             let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
                     
-            let profileFlag = monthlyRankingModel?.result[indexPath.row].image as? Int ?? 0
+            let profileFlag = monthlyRankingModel?.data[indexPath.row].image as? Int ?? 0
             
             MonthlyCell.monthlyRankProfile.image = UIImage(named: profileImage[profileFlag-1])
             
-            MonthlyCell.monthlyRankName.text = monthlyRankingModel?.result[indexPath.row].nickname as? String ?? " "
+            MonthlyCell.monthlyRankName.text = monthlyRankingModel?.data[indexPath.row].nickname as? String ?? " "
             
             
-            let m: Float = Float(monthlyRankingModel?.result[indexPath.row].distanceSum ?? 0)
+            let m: Float = Float(monthlyRankingModel?.data[indexPath.row].distanceSum ?? 0)
             let km : Float = floor(m*10)/1000
             MonthlyCell.monthlyRankDistance.text = "\(km)" + "km"
 
@@ -97,16 +98,16 @@ extension RankVC: UICollectionViewDataSource {
             let num2 = indexPath.row
                       WinnerCell.winnerRankNum.text = "\(num2+1)"
             
-                let profileFlag2 =          winnerRankingModel?.result[indexPath.row].image as? Int ?? 0
+                let profileFlag2 =          winnerRankingModel?.data[indexPath.row].image as? Int ?? 0
                        
                    let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
             
                    WinnerCell.winnerRankProfile.image = UIImage(named: profileImage[profileFlag2-1])
                    
-                   WinnerCell.winnerRankName.text = winnerRankingModel?.result[indexPath.row].nickname as? String ?? " "
+                   WinnerCell.winnerRankName.text = winnerRankingModel?.data[indexPath.row].nickname as? String ?? " "
              
-            let win: Int = winnerRankingModel?.result[indexPath.row].win as? Int ?? 0
-            let lose: Int = winnerRankingModel?.result[indexPath.row].lose as? Int ?? 0
+            let win: Int = winnerRankingModel?.data[indexPath.row].win as? Int ?? 0
+            let lose: Int = winnerRankingModel?.data[indexPath.row].lose as? Int ?? 0
                    WinnerCell.winnerRankScore.text = "\(win)" + "승" + "\(lose)" + "패"
 
             
@@ -118,16 +119,16 @@ extension RankVC: UICollectionViewDataSource {
             let num3 = indexPath.row
                       LoserCell.loserRankNum.text = "\(num3+1)"
             
-            let profileFlag3 =          loserRankingModel?.result[indexPath.row].image as? Int ?? 0
+            let profileFlag3 =          loserRankingModel?.data[indexPath.row].image as? Int ?? 0
                                  
                              let  profileImage = ["iconRedmanShorthair","iconBluemanShorthair","iconRedmanBasichair","iconBluemanPermhair","iconRedwomenPonytail", "iconBluewomenPonytail","iconRedwomenShortmhair","iconBluewomenPermhair","iconRedwomenBunhair"]
                       
                              LoserCell.loserRankProfile.image = UIImage(named: profileImage[profileFlag3-1])
                              
-                             LoserCell.loserRankName.text = loserRankingModel?.result[indexPath.row].nickname as? String ?? " "
+                             LoserCell.loserRankName.text = loserRankingModel?.data[indexPath.row].nickname as? String ?? " "
                        
-                      let win: Int = loserRankingModel?.result[indexPath.row].win as? Int ?? 0
-                      let lose: Int = loserRankingModel?.result[indexPath.row].lose as? Int ?? 0
+                      let win: Int = loserRankingModel?.data[indexPath.row].win as? Int ?? 0
+                      let lose: Int = loserRankingModel?.data[indexPath.row].lose as? Int ?? 0
                              LoserCell.loserRankScore.text = "\(win)" + "승" + "\(lose)" + "패"
             
             return LoserCell
@@ -146,15 +147,18 @@ extension RankVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
         UICollectionViewLayout, sizeForItemAt IndexPath: IndexPath) -> CGSize{
+        let width = (self.view.frame.size.width) * (140/375)
+        let height = width * (142/140)
         
         if collectionView == monthlyCollectionView {
-            return CGSize(width: 126, height: 126)
+            
+            return CGSize(width: width, height: height)
         }
         else if collectionView == winnerCollectionView {
-            return CGSize(width : 126, height: 126)
+            return CGSize(width : width, height: height)
         }
         else {
-            return CGSize(width: 126, height: 126)
+            return CGSize(width: width, height: height)
         }
     }
     
@@ -208,7 +212,7 @@ extension RankVC {
             switch data {
                 
             case .success(let res):
-                let response = res as! RankingData<Monthly>
+                let response = res as? RankingData<Monthly>
                 self.monthlyRankingModel = response
                 self.monthlyCollectionView.reloadData()
                 
