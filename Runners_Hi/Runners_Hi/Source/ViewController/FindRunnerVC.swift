@@ -191,6 +191,7 @@ extension FindRunnerVC {
         }
     }
     func confirmMatchingRequest(jwt: String) {
+        
         MatchingService.shared.confirmMatching(jwt: jwt) { networkResult in switch
             networkResult {
         case .success(let res):
@@ -200,9 +201,8 @@ extension FindRunnerVC {
                 // 양 쪽 모두 confirm 완료
                 self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
-            } else if (self.opponentModel?.status == 400) || (self.opponentModel?.status == 404) {
-                // 상대방 연락이 끊겼을 때
-//                findRunnerRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
+            } else if (self.opponentModel?.status == 202) || (self.opponentModel?.status == 404) {
+                self.findRunnerRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: jwt)
             }
             
         case .requestErr: print("requestErr")
