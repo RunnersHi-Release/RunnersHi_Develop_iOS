@@ -22,7 +22,7 @@ struct RunningService {
         let URL = APIConstants.runningUpdateURL + "\(UserDefaults.standard.integer(forKey: "runIdx"))"
         let headers: HTTPHeaders = ["Content-Type" : "application/json", "jwt" : jwt]
         
-        Alamofire.request(URL, method: .put, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseData { response in
+        Alamofire.request(URL, method: .put, parameters: updateParameter(distance,time), encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
             case .success:
                 if let value = response.result.value {

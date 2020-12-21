@@ -233,6 +233,7 @@ extension RunActivityVC {
         runningStopButton.setTitleColor(.white, for: .normal)
         runningStopButton.titleLabel?.font = UIFont(name: "NanumSquareB", size: 16)
         runningStopButton.layer.cornerRadius = 8
+        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(updateRunning), userInfo: nil, repeats: true)
     }
     
     @objc func runProgressbar() {
@@ -295,6 +296,30 @@ extension RunActivityVC {
         cameraUpdate.animation = .easeIn
         cameraUpdate.animationDuration = 1
         mapView.moveCamera(cameraUpdate)
+        
+    }
+    
+    
+    
+    @objc func updateRunning() {
+        let users: [Information] = CoreDataManager.shared.getUsers()
+        let usersToken: [String] = users.map({($0.accessToken ?? "")})
+        RunningService.shared.runningUpdateRequest(distance: Int(distance ?? 0), time: Int(moveTime), jwt: usersToken[0]) {
+            networkResult in switch
+                networkResult {
+            
+            case .success:
+                print("running update success")
+            case .requestErr:
+                print(".requestErr")
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print(".serverErr")
+            case .networkFail:
+                print(".networkFail")
+            }
+        }
         
     }
     
