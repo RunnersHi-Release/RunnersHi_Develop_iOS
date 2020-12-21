@@ -1137,6 +1137,9 @@
                                     <constraint firstAttribute="width" secondItem="H9M-J5-hbB" secondAttribute="height" multiplier="1:1" id="4sr-oT-nDg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="signUp2BackAction:" destination="daB-HO-hf6" eventType="touchUpInside" id="Zc7-4N-rQ9"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="mbc-7Q-8R3">
                                 <rect key="frame" x="163" y="105" width="49" height="7"/>
@@ -1161,7 +1164,7 @@
                                     <constraint firstItem="LIB-g2-Qa9" firstAttribute="height" secondItem="CAg-1Y-e4g" secondAttribute="height" id="zrx-Oc-isQ"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-l9-4c2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-l9-4c2">
                                 <rect key="frame" x="111.5" y="128" width="152" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="qik-Xd-YIx"/>
