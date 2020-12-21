@@ -95,10 +95,7 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewDidLoad() {
-        print("높이를 확인해보자..")
-        print(runPlaceCollectionView.frame.height, 64/341 * (runPlaceCollectionView.frame.width))
         secToTime(sec: limitTime)
-        pedometer = CMPedometer()
         startTimer()
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
             if let pedData = pedometerData{
@@ -120,7 +117,6 @@ class RunActivityVC: UIViewController, CLLocationManagerDelegate {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         UserDefaults.standard.set(formatter.string(from: Date()), forKey: "createdTime")
         perform(#selector(runProgressbar), with: nil, afterDelay: 1.0)
-        
         super.viewDidLoad()
         setMap()
         setView()
@@ -254,7 +250,10 @@ extension RunActivityVC {
             UserDefaults.standard.set(move, forKey: "opponetDistance")
         }
     }
+    
     func secToTime(sec: Int){
+        print("여기까지오세용")
+        print(moveTime)
         let hour = sec / 3600
         let minute = (sec % 3600) / 60
         let second = (sec % 3600) % 60
@@ -265,11 +264,9 @@ extension RunActivityVC {
         } else {
             opponentLeftTimeLabel.text = String(hour) + ":" + String(minute) + ":" + String(second)
         }
-        
         if moveTime < maxTime {
             perform(#selector(getSetTime), with: nil, afterDelay: 1.0)
         }
-        
     }
     
     @objc func getSetTime() {
@@ -281,7 +278,9 @@ extension RunActivityVC {
         }
         
     }
+    
     @objc func setMap() {
+        // 네이버 지도
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()

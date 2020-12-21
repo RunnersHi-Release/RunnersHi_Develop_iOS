@@ -107,36 +107,37 @@ extension FindRunnerVC {
     }
     
     // 매칭 요청 서버에게 보내기
-    func matchingRequest(time: Int, wantGender: Int, token: String) {
-        MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
-            networkResult {
-        case .success(let runIdx):
-            self.findRunnerRequest()
-        case .requestErr: print("requestErr")
-        case .pathErr: print("path")
-        case .serverErr: print("serverErr")
-        case .networkFail: print("networkFail")
-        }
-        }
-    }
+//    func matchingRequest(time: Int, wantGender: Int, token: String) {
+//        MatchingService.shared.startMatchingRequest(time: time, wantGender: wantGender, jwt: token) { networkResult in switch
+//            networkResult {
+//        case .success(let runIdx):
+//            self.findRunnerRequest()
+//        case .requestErr: print("requestErr")
+//        case .pathErr: print("path")
+//        case .serverErr: print("serverErr")
+//        case .networkFail: print("networkFail")
+//        }
+//        }
+//    }
     
     // CoreData에서 사용자 토큰 받아오기
     fileprivate func getToken() {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
-        matchingRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
+        findRunnerRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
     }
     
     // 상대 러너 찾기
-    func findRunnerRequest() {
+    func findRunnerRequest(time: Int, wantGender: Int, token: String) {
         let users: [Information] = CoreDataManager.shared.getUsers()
         let usersToken: [String] = users.map({($0.accessToken ?? "")})
-        MatchingService.shared.findRunnerReq(jwt: usersToken[0]) {
+        MatchingService.shared.findRunnerReq(time: time, wantGender: wantGender,jwt: usersToken[0]) {
             [weak self]
             data in
             guard let `self` = self else {return}
             switch data {
             case .success(let res):
+                print(res)
                 let response = res as! DuplicateData
                 if response.status == 200 {
                     self.confirmMatchingRequest(jwt: usersToken[0])
@@ -145,7 +146,7 @@ extension FindRunnerVC {
                 else if response.status == 408 {
                     //매칭대기중
                     if self.moveTime < self.maxTime {
-                        self.findRunnerRequest()
+                        self.findRunnerRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
                     } else {
                         self.stopMatchingRequest()
                         guard let notFindRunner = self.storyboard?.instantiateViewController(identifier:"NotFindRunnerVC") as? NotFindRunnerVC else {return}
@@ -154,7 +155,7 @@ extension FindRunnerVC {
                     }
                 }
                 else if response.status == 400 {
-                    self.getToken()
+                    // 이미 매칭이 된 상태?
                 }
             case .requestErr:
                 print(".requestErr")
@@ -195,17 +196,13 @@ extension FindRunnerVC {
         case .success(let res):
             let response = res as! UuidData<OpponentInfo>
             self.opponentModel = response
-            
-            if self.opponentModel?.message == "상대 러너의 승인 대기 중" {
-                let users: [Information] = CoreDataManager.shared.getUsers()
-                let usersToken: [String] = users.map({($0.accessToken ?? "")})
-                self.confirmMatchingRequest(jwt: usersToken[0])
-            }
-            else if self.opponentModel?.message == "러닝 승인 성공" {
+            if self.opponentModel?.status == 200 {
+                // 양 쪽 모두 confirm 완료
                 self.saveOpponentInfo(nickname: self.opponentModel?.data?.opponentNickname ?? "", win: Int64(self.opponentModel?.data?.opponentWin ?? -1), lose: Int64(self.opponentModel?.data?.opponentLose ?? -1), image: Int64(self.opponentModel?.data?.opponentImage ?? -1), level: Int64(self.opponentModel?.data?.opponentLevel ?? -1))
                 UserDefaults.standard.set(self.opponentModel?.data?.runIdx, forKey: "runIdx")
-            } else if (self.opponentModel?.status == 400) || (self.opponentModel?.status == 408) {
-                self.findRunnerRequest()
+            } else if (self.opponentModel?.status == 400) || (self.opponentModel?.status == 404) {
+                // 상대방 연락이 끊겼을 때
+//                findRunnerRequest(time: UserDefaults.standard.integer(forKey: "myGoalTime"), wantGender: UserDefaults.standard.integer(forKey: "myWantGender"), token: usersToken[0])
             }
             
         case .requestErr: print("requestErr")
