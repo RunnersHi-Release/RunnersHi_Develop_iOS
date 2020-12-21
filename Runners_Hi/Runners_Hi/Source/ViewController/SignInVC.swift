@@ -78,9 +78,13 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func SignUpActionButton(_ sender: Any) {
-        guard let SignUpButtonPush = self.storyboard?.instantiateViewController(identifier:"SignUpVC") as? SignUpVC else {return}
-        SignUpButtonPush.modalPresentationStyle = .fullScreen
-        self.present(SignUpButtonPush, animated: true, completion: nil)
+//        guard let SignUpButtonPush = self.storyboard?.instantiateViewController(identifier:"SignUpActivity1VC") as? SignUpActivity1VC else {return}
+//        SignUpButtonPush.modalPresentationStyle = .fullScreen
+//        self.present(SignUpButtonPush, animated: true, completion: nil)
+        
+        guard let signUpVC1 = self.storyboard?.instantiateViewController(identifier: "SignUpActivity1VC") else {return}
+        
+        self.navigationController?.pushViewController(signUpVC1, animated: true)
         
     }
     

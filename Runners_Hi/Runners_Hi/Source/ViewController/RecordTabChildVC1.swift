@@ -122,6 +122,7 @@ extension RecordTabChildVC1 {
                 let response = res as? RecordAllData<Result>
                 self.RecordModel = response
                 self.scoreRecordCollectionView.reloadData()
+                
             case .requestErr:
                 print(".requestErr")
             case .pathErr:
