@@ -26,6 +26,12 @@ struct APIConstants {
     
     // 러닝 업데이트
     static let runningUpdateURL = APIConstants.baseURL + "/running/update/"
+    // 러닝 멈추기
+    static let runningStopURL = APIConstants.baseURL + "/running/stopRunning/"
+    // 러닝 순위 조회
+    static let runningRankingURL = APIConstants.baseURL + "/running/ranking/"
+    // 러닝 종료
+    static let runningEndURL = APIConstants.baseURL + "/running/find"
     
     //나의 모든 기록 조회
     static let myrecordURL = APIConstants.baseURL + "/record/all"

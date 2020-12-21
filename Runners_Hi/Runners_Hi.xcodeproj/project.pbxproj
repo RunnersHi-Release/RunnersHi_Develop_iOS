@@ -102,6 +102,7 @@
 		9B3A8A4E2524E96100DF032A /* Running+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A482524E96000DF032A /* Running+CoreDataProperties.swift */; };
 		9B3A8A5C2525D54A00DF032A /* matching.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5B2525D54A00DF032A /* matching.json */; };
 		9B3A8A602525DE5900DF032A /* MatchingStopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */; };
+		9B54EE632591160400F60124 /* RunningRankingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B54EE622591160400F60124 /* RunningRankingData.swift */; };
 		9B5FB660257236F0005AE52F /* RunningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5FB65F257236F0005AE52F /* RunningService.swift */; };
 		9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63EAA3251CE33F00A9B396 /* UuidData.swift */; };
 		9B63EAA9251D0D5000A9B396 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B4165BA250C1D2F000448F1 /* UserData.xcdatamodeld */; };
@@ -212,6 +213,7 @@
 		9B3A8A5B2525D54A00DF032A /* matching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matching.json; sourceTree = "<group>"; };
 		9B3A8A5F2525DE5900DF032A /* MatchingStopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStopVC.swift; sourceTree = "<group>"; };
 		9B4165BB250C1D2F000448F1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		9B54EE622591160400F60124 /* RunningRankingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRankingData.swift; sourceTree = "<group>"; };
 		9B5FB65F257236F0005AE52F /* RunningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningService.swift; sourceTree = "<group>"; };
 		9B63EAA3251CE33F00A9B396 /* UuidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidData.swift; sourceTree = "<group>"; };
 		9B7464EA25715352002A5849 /* RunPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlaceCell.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				06FD034024C241F1005EB6A9 /* BadgeDetailData.swift */,
 				9B63EAA3251CE33F00A9B396 /* UuidData.swift */,
 				9B1A04E7252C5B390016E405 /* RunPlace.swift */,
+				9B54EE622591160400F60124 /* RunningRankingData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				06F40ACF24B88C73001E04FB /* SignInVC.swift in Sources */,
 				3DCE6FF724B476FF00D29DBC /* MainNavigationController.swift in Sources */,
 				9B63EAA4251CE33F00A9B396 /* UuidData.swift in Sources */,
+				9B54EE632591160400F60124 /* RunningRankingData.swift in Sources */,
 				06F40AC524B636A8001E04FB /* Open.swift in Sources */,
 				06F40AF224C04448001E04FB /* RankingData.swift in Sources */,
 				9B12CC4D251DC11F00BE301B /* MatchingService.swift in Sources */,
